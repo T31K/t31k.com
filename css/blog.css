@@ -16,32 +16,32 @@
 
 @media (min-width: 2000px) {
   .blog-container {
-    padding-left: 30%;
-    padding-right: 30%;
+    padding-left: 24%;
+    padding-right: 24%;
     padding-bottom: 5%;
   }
 }
 
 .rainbow {
-  color: #CF7075;
+  background: #CF7075;
   animation: blinker 1.2s step-end infinite;
   animation: rainbow 7s infinite alternate;
 }
 
 div.top-menu {
-  background: #ddd;
-  height: 50px;
+  background: #101828;
+  height: 60px;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   margin-top: 30px;
   margin-bottom: 0;
-  padding-left: 10px;
-  padding-right: 25px;
-  padding-top: 15px;
+  padding-left: 15px;
+  FONT-WEIGHT: 200;
+  padding-top: 20px;
   display: flex;
   justify-content: space-between;
-
 }
+
 div.top-menu div {
   display: inline;
   font-family: 'Inconsolata', monospace;
@@ -88,18 +88,57 @@ span.green {
   display: inline-block;
 }
 
-span.date {
-  text-align: right;
-  font-style: italic;
+h3.data-year {
+  font-family: 'Inconsolata', monospace !important;
+  padding: 5px 10px;
+  width: 90px;
+  margin: 0;
+  border-radius: 35px;
+  margin-bottom: 15px;
+}
+
+span.data-title {
+  font-size: 18px;
+}
+span.data-date {
+  font-size: 18px;
+  text-align: center;
+  font-family: 'Inconsolata', monospace !important;
+  background: #81bcda;
+  margin-left: 25px;
+  margin-bottom: 5px;
+  border-radius: 80px;
+  display: inline-block;
+  width: 80px;
+}
+
+span.data-tag {
+  font-size: 18px;
+  text-align: center;
+  font-family: 'Inconsolata', monospace !important;
+  margin-bottom: 5px;
+  border-radius: 80px;
+  display: inline-block;
+}
+
+h3.new {
+  font-family: 'Inconsolata', monospace !important;
+}
+
+.modal-header {
+  border: none;
+}
+
+.modal-footer {
+  border: none;
 }
 
 div.inner {
-  background: #222;
+  background: #3B4053;
   margin-top: 0;
   margin-bottom: 0;
-  height: 400px;
   text-align: left;
-  font-family: 'Inconsolata',monospace;
+  font-family: 'Inconsolata', monospace !important;
   padding: 40px;
   color: white;
 }
@@ -110,7 +149,7 @@ div.inner {
 
 div.tags{
 color: white;
-background: #222;
+background: #3B4053;
 padding: 20px;
 padding-bottom: 15px;
 font-size: 40%;
@@ -159,27 +198,27 @@ div.tags span:nth-child(5) {
 
 @keyframes rainbow {
   0% {
-    color: #CF7075;
+    background: #CF7075;
   }
 
   20% {
-    color: #ffc07c;
+    background: #ffc07c;
   }
 
   40% {
-    color: #FEDE9A;
+    background: #FEDE9A;
   }
 
   60% {
-    color: #9BD0A5;
+    background: #9BD0A5;
   }
 
   80% {
-    color: #74ADEA;
+    background: #74ADEA;
   }
 
   100% {
-    color: #a88dea
+    background: #a88dea
   }
 }
 
