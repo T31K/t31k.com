@@ -1,0 +1,529 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.system-container#gbasp .screen-body {
+  background-color: #2222ff;
+  background: linear-gradient(10deg, #3c3cff, #2222ff, #0000d5);
+  width: 40rem;
+  height: 34rem;
+  border-radius: 2.4rem;
+  position: relative;
+  padding: 2rem;
+  box-sizing: border-box;
+  border: 0.3rem solid #0000d5;
+  border-right-color: #8888ff;
+  border-top-color: #5555ff;
+}
+
+.system-container#gbasp .screen-body:before {
+  content: "";
+  width: 18rem;
+  height: 0.8rem;
+  background-color: #2222ff;
+  position: absolute;
+  bottom: -0.8rem;
+  z-index: -1;
+  left: 2rem;
+  border-right: 0.2rem solid #8888ff;
+  box-shadow: inset 0rem 0.6rem 0.5rem 0rem rgba(0, 0, 0, 0.75);
+}
+
+.system-container#gbasp .screen-body:after {
+  content: "";
+  width: 3.2rem;
+  height: 0.8rem;
+  background-color: #2222ff;
+  position: absolute;
+  bottom: -0.8rem;
+  z-index: -1;
+  left: 32rem;
+  border-right: 0.2rem solid #8888ff;
+  box-shadow: inset 0rem 0.6rem 0.5rem 0rem rgba(0, 0, 0, 0.75);
+}
+
+.system-container#gbasp .screen-border {
+  background-color: #000;
+  width: 100%;
+  margin: 1.6rem auto;
+  height: 26.8rem;
+  box-sizing: border-box;
+  border: 0.4rem solid #bbbbff;
+  border-radius: 0.8rem;
+  border-top-color: #0000a2;
+  border-right-color: #0000d5;
+  border-bottom-color: #8888ff;
+}
+
+.system-container#gbasp .screen-border img {
+  position: absolute;
+  left: 11.2rem;
+  bottom: 4rem;
+  opacity: 0.7;
+  width: 17.5rem;
+}
+
+.system-container#gbasp .screen {
+  background-color: #777788;
+  margin: 2rem auto;
+  width: 90%;
+  height: 21rem;
+}
+
+.system-container#gbasp .screen iframe {
+  width: 100%;
+  height: 21rem;
+}
+
+.system-container#gbasp .screen-bumper {
+  border-radius: 100%;
+  width: 2.2rem;
+  height: 2.2rem;
+  position: absolute;
+  background: radial-gradient(circle at top left, #5555ff, #0000bb);
+  border: 0.2rem solid #0000bb;
+}
+
+.system-container#gbasp #bumper-ul {
+  left: 1rem;
+  top: 0.6rem;
+}
+
+.system-container#gbasp #bumper-ur {
+  right: 1rem;
+  top: 0.6rem;
+}
+
+.system-container#gbasp #bumper-ll {
+  left: 1.2rem;
+  bottom: 0.4rem;
+}
+
+.system-container#gbasp #bumper-lr {
+  right: 1.2rem;
+  bottom: 0.4rem;
+}
+
+.system-container#gbasp #bumper-tm {
+  left: calc(50% - 1.0rem);
+  top: 0.8rem;
+}
+
+.system-container#gbasp .small-bumper {
+  width: 1.6rem;
+  height: 1.6rem;
+  background: radial-gradient(circle at bottom left, #2222ff, #0000bb);
+  border-width: 0.1rem;
+  border-left-color: #3c3cff;
+  border-bottom-color: #3c3cff;
+}
+.system-container#gbasp .swivel {
+  width: 100%;
+  border-radius: 1.6rem;
+  height: 4.8rem;
+  background-color: #2222ff;
+  position: relative;
+  top: 0.4rem;
+  box-shadow: inset 0rem -2rem 0.8rem 0rem rgba(0, 0, 0, 0.4);
+  border-top: 0.2rem solid #3c3cff;
+}
+
+.system-container#gbasp .swivel:before {
+  content: "";
+  width: 18rem;
+  height: 4.5rem;
+  position: absolute;
+  bottom: -2rem;
+  z-index: 1;
+  left: 2.2rem;
+  top: 0rem;
+  border-right: 0.2rem solid #8888ff;
+  border-left: 0.2rem solid #0000a2;
+  border-bottom: 0.3rem solid #000022;
+  box-shadow: inset 0rem 1rem 0.5rem 0rem rgba(255, 255, 255, 0.2);
+}
+
+.system-container#gbasp .swivel:after {
+  content: "";
+  width: 3.2rem;
+  height: 4.5rem;
+  position: absolute;
+  bottom: -2rem;
+  z-index: 1;
+  left: 32.2rem;
+  top: 0rem;
+  border-right: 0.2rem solid #8888ff;
+  border-left: 0.2rem solid #0000bb;
+  border-bottom: 0.3rem solid #000022;
+  box-shadow: inset 0rem 1rem 0.5rem 0rem rgba(255, 255, 255, 0.2);
+}
+
+.system-container#gbasp .gamepad-body {
+  background-color: #2222ff;
+  background: linear-gradient(10deg, #3c3cff, #2222ff, #0000d5);
+  width: 40rem;
+  height: 36rem;
+  border-radius: 2.4rem;
+  position: relative;
+  padding: 2rem;
+  box-sizing: border-box;
+  border: 0.3rem solid #0000d5;
+  border-right-color: #8888ff;
+  border-top-color: #5555ff;
+  z-index: -1;
+  top: -2.8rem;
+}
+
+.system-container#gbasp .pad-container {
+  width: 11rem;
+  height: 11rem;
+  border: none;
+  border-radius: 100%;
+  position: absolute;
+  left: 2rem;
+  top: 10rem;
+}
+
+.system-container#gbasp .pad-container:before {
+  content: "";
+  z-index: 0;
+  top: 0.4rem;
+  left: 0.4rem;
+  height: inherit;
+  width: inherit;
+  background: #2222ff;
+  position: absolute;
+  border-radius: inherit;
+}
+
+.system-container#gbasp .pad-container:after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -0.4rem;
+  left: -0.4rem;
+  width: inherit;
+  height: inherit;
+  background: linear-gradient(to right, #5555ff, #000088);
+  border-radius: inherit;
+}
+
+.system-container#gbasp .dpad-container {
+  border: none;
+  background: #2222ff;
+  z-index: 99;
+}
+
+.system-container#gbasp .dpad-container:before {
+  width: 11.8rem;
+  height: 11.8rem;
+  border-radius: 100%;
+  background: linear-gradient(to right, #5555ff, #000088);
+  content: "";
+  position: absolute;
+  top: -0.4rem;
+  left: -0.4rem;
+  z-index: -1;
+}
+
+.system-container#gbasp .dpad-container:after {
+  width: 10.2rem;
+  height: 10.2rem;
+  border-radius: 100%;
+  background: #2222ff;
+  content: "";
+  position: absolute;
+  top: 0.4rem;
+  left: 0.4rem;
+  z-index: -1;
+}
+
+.system-container#gbasp .d-pad {
+  width: 2.8rem;
+  height: 8.4rem;
+  background-color: #333;
+  position: relative;
+  margin: 1.2rem auto;
+  box-sizing: border-box;
+  border: 0.2rem solid black;
+  border-top: 0.2rem solid #666666;
+  border-right: 0.2rem solid #666666;
+}
+
+.system-container#gbasp .d-pad:before {
+  width: 3.1rem;
+  height: 2.8rem;
+  position: absolute;
+  content: "";
+  background-color: #333;
+  left: -3.1rem;
+  top: 2.6rem;
+  border-bottom: 0.2rem solid black;
+  border-left: 0.2rem solid black;
+  border-top: 0.2rem solid #666666;
+  box-sizing: border-box;
+}
+
+.system-container#gbasp .d-pad:after {
+  width: 3.1rem;
+  height: 2.8rem;
+  position: absolute;
+  content: "";
+  background-color: #333;
+  left: 2.3rem;
+  top: 2.6rem;
+  border-top: 0.2rem solid #666666;
+  border-right: 0.2rem solid #666666;
+  border-bottom: 0.2rem solid black;
+  box-sizing: border-box;
+}
+
+.system-container#gbasp .buttons-container {
+  width: 12.4rem;
+  height: 5.1rem;
+  border: 0.8rem solid #0000bb;
+  border: none !important;
+  background: yellow;
+  border-radius: 11rem;
+  position: relative;
+  left: 20.8rem;
+  top: 10.4rem;
+  border-top-color: #000088;
+  border-left-color: #5555ff;
+  border-bottom-color: #3c3cff;
+  transform: rotate(-12deg);
+  z-index: 1;
+}
+
+.system-container#gbasp .buttons-container:before {
+  width: inherit;
+  height: inherit;
+  background: #2222ff;
+  top: 0rem;
+  left: 0rem;
+  position: absolute;
+  content: "";
+  border-radius: 11rem;
+  z-index: 0;
+}
+
+.system-container#gbasp .buttons-container:after {
+  content: "";
+  position: absolute;
+  left: -0.8rem;
+  top: -0.8rem;
+  border-radius: 11rem;
+  width: 14rem;
+  height: 6.7rem;
+  background: linear-gradient(to right, #5555ff, #000088);
+  z-index: -1;
+}
+
+.system-container#gbasp .buttons-container .letter {
+  display: block;
+  position: absolute;
+  z-index: 200;
+  top: 0.05em;
+  left: calc(50% - .3em);
+}
+
+.system-container#gbasp .b-button,
+.system-container#gbasp .a-button {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  line-height: 4rem;
+  font-size: 2.2rem;
+  color: #404040;
+  transform: rotate(12deg);
+  text-align: center;
+  width: 4rem;
+  height: 4rem;
+  background-color: #333;
+  border-radius: 100%;
+  position: absolute;
+  left: 0.8rem;
+  top: 0.5rem;
+  box-sizing: border-box;
+  border: none;
+}
+
+.system-container#gbasp .b-button:before,
+.system-container#gbasp .a-button:before {
+  width: inherit;
+  height: inherit;
+  border-radius: inherit;
+  content: "";
+  position: absolute;
+  background: yellow;
+  left: 0rem;
+  top: 0rem;
+  background: linear-gradient(to right, #4d4d4d, #262626);
+  z-index: -1;
+}
+
+.system-container#gbasp .b-button:after,
+.system-container#gbasp .a-button:after {
+  width: 3.6rem;
+  height: 3.6rem;
+  background: #333;
+  content: "";
+  position: absolute;
+  left: 0.2rem;
+  top: 0.2rem;
+  border-radius: inherit;
+  z-index: 0;
+}
+
+.system-container#gbasp .a-button {
+  left: 7.6rem;
+}
+
+.system-container#gbasp .power-container {
+  width: 2rem;
+  height: 2rem;
+  position: absolute;
+  left: 18rem;
+  top: 5.2rem;
+  border-width: 0.5rem;
+}
+
+.system-container#gbasp .power-container:after {
+  width: 3.8rem;
+  height: 3.8rem;
+}
+
+.system-container#gbasp .power-container:before {
+  left: 0.5rem;
+  top: 0.5rem;
+}
+
+.system-container#gbasp .power-button {
+  width: 2.1rem;
+  height: 2.1rem;
+  position: absolute;
+  left: calc(50% - 0.5rem);
+  top: calc(50% - 0.5rem);
+  color: #fff;
+}
+
+.system-container#gbasp .power-button:after {
+  width: 1.6rem;
+  height: 1.6rem;
+  left: 0.2rem;
+  top: 0.2rem;
+}
+
+.system-container#gbasp .speaker-holder {
+  width: 8rem;
+  height: 8rem;
+  position: absolute;
+  top: 20rem;
+  left: 15rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.system-container#gbasp .dot {
+  width: 0.3rem;
+  height: 0.3rem;
+  background-color: #000;
+  margin: 0.8rem;
+  border-radius: 100%;
+}
+
+.system-container#gbasp .large-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.system-container#gbasp .select-container,
+.system-container#gbasp .start-container {
+  width: 2.2rem;
+  height: 2.2rem;
+  position: absolute;
+  left: 14.6rem;
+  top: 30rem;
+}
+
+.system-container#gbasp .select-container:after,
+.system-container#gbasp .start-container:after {
+  width: 3.8rem;
+  height: 3.8rem;
+}
+
+.system-container#gbasp .start-container {
+  left: 19.8rem;
+}
+
+.system-container#gbasp .select-button,
+.system-container#gbasp .start-button {
+  position: absolute;
+  height: 1.8rem;
+  width: 1.8rem;
+  left: calc(50% - 0.45rem);
+  top: calc(50% - 0.45rem);
+}
+
+.system-container#gbasp .select-button:after,
+.system-container#gbasp .start-button:after {
+  height: 1.4rem;
+  width: 1.4rem;
+  top: 0.2rem;
+  left: 0.2rem;
+}
+
+.system-container#gbasp .a-button:active {
+  background-color: #999999;
+}
+
+.system-container#gbasp .select-label,
+.system-container#gbasp .start-label {
+  position: absolute;
+  font-family: Impact, Charcoal, sans-serif;
+  font-size: 1.2rem;
+  left: 14.8rem;
+  bottom: 5.6rem;
+  color: #0000d5;
+  z-index: 2;
+}
+
+.system-container#gbasp .start-label {
+  left: 20.2rem;
+}
+
+.system-container#gbasp .start-label+.start-label {
+  left: 20.1rem;
+  bottom: 5.7rem;
+  color: #5555ff;
+  z-index: 1;
+}
+
+.system-container#gbasp .select-label+.select-label {
+  color: #5555ff;
+  left: 14.7rem;
+  bottom: 5.7rem;
+  z-index: 1;
+}
+
+.system-container#gbasp .power-light {
+  position: absolute;
+  width: 1.4rem;
+  height: 1.2rem;
+  background-color: #333;
+  right: -0.4rem;
+  top: 5rem;
+}
+
+.system-container#gbasp .power-light+.power-light {
+  top: 8rem;
+}
+
+
+.system-container#gbasp {
+  transform: scale(0.5);
+  margin: 0 auto;
+}
