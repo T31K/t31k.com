@@ -29,19 +29,29 @@ const InputROM = ({ GbaContext, filePath, setScale }) => {
       }
     };
 
-    const screenBorderElement = document.querySelector('.screen-border');
-    if (screenBorderElement) {
-      const screenWidth = screenBorderElement.offsetWidth;
-      const relativeWidth = screenWidth / 246; // Assuming 240px corresponds to 1
-      setScale(relativeWidth);
-    }
+    const handleClick = async () => {
+      await loadFile();
 
-    const bumperElement = document.getElementById('bumper-ll');
-    if (bumperElement) bumperElement.addEventListener('click', loadFile);
+      // Find the canvas element
+      const canvasElement = document.querySelector('canvas');
+      const screenBorderElement = document.querySelector('.screen.relative');
+      const gameboyMain = document.getElementById('gameboy-main-container');
+      if (gameboyMain) gameboyMain.classList.add('power-on');
+      // Set the style of the canvas element to position absolute
+      if (canvasElement) {
+        canvasElement.style.position = 'absolute';
+        canvasElement.style.zIndex = '999';
+        canvasElement.style.width = `${screenBorderElement.offsetWidth}px`;
+        canvasElement.style.height = `${screenBorderElement.offsetHeight}px`;
+      }
+    };
+
+    const bumperElement = document.getElementById('on-button');
+    if (bumperElement) bumperElement.addEventListener('click', handleClick);
 
     return () => {
       if (bumperElement) {
-        bumperElement.removeEventListener('click', loadFile);
+        bumperElement.removeEventListener('click', handleClick);
       }
     };
   }, [filePath, setScale, playGba]);
@@ -71,13 +81,10 @@ export default function Emulator() {
     <reactGbaJsModule.GbaProvider>
       <InputROM
         GbaContext={reactGbaJsModule.GbaContext}
-        filePath="/test.gba"
+        filePath="/fire_red.gba"
         setScale={setScale}
       />
-      <reactGbaJsModule.ReactGbaJs
-        volume={1}
-        scale={scale}
-      />
+      <reactGbaJsModule.ReactGbaJs volume={1} />
     </reactGbaJsModule.GbaProvider>
   );
 }
