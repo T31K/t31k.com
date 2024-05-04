@@ -34,15 +34,16 @@ const InputROM = ({ GbaContext, filePath, setScale }) => {
 
       // Find the canvas element
       const canvasElement = document.querySelector('canvas');
-      const screenBorderElement = document.querySelector('.screen.relative');
-      const gameboyMain = document.getElementById('gameboy-main-container');
-      if (gameboyMain) gameboyMain.classList.add('power-on');
+      const gameboyMain = document.getElementById('gameboy-main');
+      console.log(gameboyMain);
+      const batteryElement = document.querySelector('.battery');
+      if (batteryElement) batteryElement.classList.add('active');
       // Set the style of the canvas element to position absolute
       if (canvasElement) {
         canvasElement.style.position = 'absolute';
         canvasElement.style.zIndex = '999';
-        canvasElement.style.width = `${screenBorderElement.offsetWidth}px`;
-        canvasElement.style.height = `${screenBorderElement.offsetHeight}px`;
+        canvasElement.style.width = `${gameboyMain.offsetWidth}px`;
+        canvasElement.style.height = `${gameboyMain.offsetHeight}px`;
       }
     };
 
