@@ -85,7 +85,7 @@ export default function page() {
           <span className="text-let">let</span>
           <span>name</span>
           <span className="text-equal inline-block">=</span>
-          <span className="text-string">{`'t31k'`}</span>
+          <span className="text-string">{`'Tim'`}</span>
           <span className="!m-0">{`;`}</span>
         </h3>
         <h3 className="data-title mb-1">
