@@ -108,7 +108,7 @@ export default function page() {
         </h3>
       </div>
     </div>
-    <h2 className={`text-2xl ${pressStart.className} font-semibold mb-6 mt-12`}>Projects</h2>
+    <h2 className={`text-2xl ${pressStart.className} font-semibold mb-6 mt-12 text-dark dark:text-dark`}>Projects</h2>
 
   {
     projects.map((project, key) => {
@@ -125,7 +125,7 @@ export default function page() {
         )
     })
   }
-  <h2 className={`text-2xl ${pressStart.className} font-semibold mb-6 mt-12`}>Articles</h2>
+  <h2 className={`text-2xl ${pressStart.className} font-semibold mb-6 mt-12 text-dark dark:text-dark`}>Articles</h2>
 
 
 
