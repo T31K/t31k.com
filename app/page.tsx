@@ -4,272 +4,205 @@ import { Press_Start_2P } from 'next/font/google'
 
 const pressStart = Press_Start_2P({ weight: '400', subsets: ['latin-ext'] })
 import { IconCaretLeftFilled, IconCaretRightFilled, IconCircleFilled } from '@tabler/icons-react';
+import { projects, articles } from '@/utils/raw'
 
-const projects = [
-  {
-    title: "calorieasy",
-    description: "Track calories with AI",
-    revenue: "$1000",
-    active: true
-  },
-  {
-    title: "sidepod",
-    description: "Spotify widget for macOS",
-    revenue: "$0",
-    active: false
-  },
-  {
-    title: "resync",
-    description: "Async meetings for your team",
-    revenue: "$0",
-    active: false
-  },
-  {
-    title: "wardrobe AI",
-    description: "Try on clothes with AI",
-    revenue: "$0",
-    active: false
-  },
-  {
-    title: "harmonize",
-    description: "A spotlight-like app for your music",
-    revenue: "$300",
-    active: true
-  },
-  {
-    title: "docktopus",
-    description: "A macOS dock replacement",
-    revenue: "$0",
-    active: false
-  },
-]
-
-const articles = [
-  {
-    title: "Indie Hacking Year 1 Review",
-    link: "https://medium.com/@t31k/indie-hacking-year-1-review-0d695880ebfb",
-  },
-  {
-    title: "Reflecting on Bali: Embracing the Dualities and Moving Forward",
-    link: 'https://t31k.medium.com/balancing-bali-escaping-reality-or-losing-yourself-5afecda90a35'
-  },
-  {
-    title: "Coding Bootcamps vs Comp Science Grads",
-    link: "https://medium.com/geekculture/coding-bootcamps-vs-comp-science-grads-e16b5a246aaa",
-  },
-  {
-    title: "I Attended a $20 Bootcamp and Became a Full Stack Developer",
-    link: "https://javascript.plainenglish.io/i-became-a-developer-with-a-20-bootcamp-32c776eaba13",
-  },
-  {
-    title: "How to Create a Kick-ass Portfolio Site that will WOW Your Next Employer",
-    link: "https://javascript.plainenglish.io/how-to-create-a-kick-ass-portfolio-site-that-will-wow-your-next-employer-5e5e2009222",
-  },
-]
 export default function page() {
   return (
     <>
-    <h1 className={`text-6xl ${pressStart.className} font-semibold mb-4 !tracking-[-15px] text-dark dark:text-dark`}>t31k</h1>
-    <div className="blog-window w-full !font-mono" >
-      <div className="top-menu">
-        <div>
-          <span className="red"></span>
-          <span className="orange" ></span>
-          <span className="green" ></span>
+      <h1 className={`text-6xl ${pressStart.className} font-semibold mb-4 !tracking-[-15px] text-dark dark:text-dark`}>t31k</h1>
+      <div className="blog-window w-full !font-mono" >
+        <div className="top-menu">
+          <div>
+            <span className="red"></span>
+            <span className="orange" ></span>
+            <span className="green" ></span>
+          </div>
+          <div>
+          </div>
         </div>
-        <div>
+        <div className="inner">
+          <h3 className="data-title mb-1">
+            <span className="text-let">let</span>
+            <span>name</span>
+            <span className="text-equal inline-block">=</span>
+            <span className="text-string">{`'Tim'`}</span>
+            <span className="!m-0">{`;`}</span>
+          </h3>
+          <h3 className="data-title mb-1">
+            <span className="text-let">let</span>
+            <span>location</span>
+            <span className="text-equal inline-block">=</span>
+            <span className="text-string">{`'singapore'`}</span>
+            <span className="!m-0">{`;`}</span>
+          </h3>
+          <h3 className="data-title mb-1">
+            <span className="text-let">let</span>
+            <span>location</span>
+            <span className="text-equal inline-block">=</span>
+            <span className="text-string text-array">{"["}</span>
+            <span className="text-string block !ml-3 mt-1">{"  'indie hacker',"}</span>
+            <span className="text-string block !ml-3">{"  'software engineer',"}</span>
+            <span className="text-string block !ml-3">{"  'writer ',"}</span>
+            <span className="text-string text-array !ml-0">{"]"}</span>
+            <span className="">{";"}</span>
+          </h3>
         </div>
       </div>
-      <div className="inner">
-        <h3 className="data-title mb-1">
-          <span className="text-let">let</span>
-          <span>name</span>
-          <span className="text-equal inline-block">=</span>
-          <span className="text-string">{`'Tim'`}</span>
-          <span className="!m-0">{`;`}</span>
-        </h3>
-        <h3 className="data-title mb-1">
-          <span className="text-let">let</span>
-          <span>location</span>
-          <span className="text-equal inline-block">=</span>
-          <span className="text-string">{`'singapore'`}</span>
-          <span className="!m-0">{`;`}</span>
-        </h3>
-        <h3 className="data-title mb-1">
-          <span className="text-let">let</span>
-          <span>location</span>
-          <span className="text-equal inline-block">=</span>
-          <span className="text-string text-array">{"["}</span>
-          <span className="text-string block !ml-3 mt-1">{"  'indie hacker',"}</span>
-          <span className="text-string block !ml-3">{"  'software engineer',"}</span>
-          <span className="text-string block !ml-3">{"  'writer ',"}</span>
-          <span className="text-string text-array !ml-0">{"]"}</span>
-          <span className="">{";"}</span>
-        </h3>
-      </div>
-    </div>
-    <h2 className={`text-2xl ${pressStart.className} font-semibold mb-6 mt-12 text-dark dark:text-dark`}>Projects</h2>
+      <h2 className={`text-2xl ${pressStart.className} font-semibold mb-6 mt-12 text-dark dark:text-dark`}>Projects</h2>
+      {
+        projects.map((project, key) => {
+          return (
+            <div className={`nes-container w-[80%] mx-auto with-title is-rounded bg- ${pressStart.className} !mt-4 relative`} key={key}>
+              <p className="title capitalize text-dark dark:text-dark">{project.title}</p>
+              <p className="!text-[12px] text-dark dark:text-dark"> {project.description}</p>
 
-  {
-    projects.map((project, key) => {
-      return (
-        <div className={`nes-container w-[80%] mx-auto with-title is-rounded bg- ${pressStart.className} !mt-4 relative`} key={key}>
-          <p className="title capitalize text-dark dark:text-dark">{project.title}</p>
-          <p className="!text-[12px] text-dark dark:text-dark"> {project.description}</p>
-
-          <div className="flex justify-start gap-2">
-            <p className="!text-[10px] bg-[#222] text-white p-1">{project.revenue}</p>
-            <p className={`!text-[10px] p-1 ${project.active ? "bg-[#91CB41]" : "bg-[#E76E54]"}`}>{project.active ? "Active" : "Inactive"}</p>
-          </div>
-        </div>
-        )
-    })
-  }
-  <h2 className={`text-2xl ${pressStart.className} font-semibold mb-6 mt-12 text-dark dark:text-dark`}>Articles</h2>
-
-
-
-  <div className="lists  w-[80%]">
-  <ul className="nes-list is-disc">
-
-  {
-    articles.map((article, key) => {
-      return (
-            <li key={key} className={`title capitalize my-5 ${pressStart.className}`}>
-              <a href={article.link} target="_blank"> {article.title}</a>
-             .</li>
-
-        )
-    })
-  }
-  </ul>
-</div>
-  <section className={`mt-12 ${pressStart.className}`}>
-    <section className="message-left">
-      <div className="nes-balloon from-left !py-1 !px-2">
-        <p className="!text-[10px] text-dark dark:text-dark">Turn on the switch</p>
-      </div>
-    </section>
-
-
-    <div className="gameboy">
-      <div className="switch"></div>
-      <div className="base">
-        <div className="line__top"></div>
-        <div className="line__side__R"></div>
-        <div className="line__side__L"></div>
-        <div className="on__off" id="on-button">
-          <div className="on__off__btm flex items-center justify-center">
-            <IconCaretLeftFilled size={8}/>
-            <p className="!m-0">OFF</p>
-            <IconCircleFilled size={4} />
-            <p className="!m-0">ON</p>
-            <IconCaretRightFilled size={8}/>
-          </div>
-          <div className="on__off__line"></div>
-          <div className="on__off__line"></div>
-          <div className="on__off__line"></div>
-        </div>
-        <div className="display">
-
-          <div className="display__line">
-            <div className="display__line__l"></div>
-            <div className="display__line__l"></div>
-          </div>
-
-          <div className="display__top">DOT MATRIX WITH STEREO SOUND</div>
-
-          <div className="battery"></div>
-
-          <div className="display__inner relative" id="gameboy-main">
-          <Emulator />
-          </div>
-        </div>
-
-
-        <div className="left__key">
-
-          <div className="left__key__tate"></div>
-          <div className="left__key__yoko"></div>
-          <div className="left__key__tate__inner">
-            <div className="left__key__tate__inner__grips"></div>
-            <div className="left__key__tate__inner__grips"></div>
-            <div className="left__key__tate__inner__grips"></div>
-            <div className="left__key__tate__inner__grips"></div>
-            <div className="left__key__tate__inner__grips"></div>
-            <div className="left__key__tate__inner__grips"></div>
-            <div className="left__key__tate__inner__grips"></div>
-            <div className="left__key__tate__inner__grips"></div>
-            <div className="left__key__tate__inner__grips"></div>
-          </div>
-          <div className="left__key__yoko__inner">
-            <div className="left__key__yoko__inner__grips"></div>
-            <div className="left__key__yoko__inner__grips"></div>
-            <div className="left__key__yoko__inner__grips"></div>
-            <div className="left__key__yoko__inner__grips"></div>
-            <div className="left__key__yoko__inner__grips"></div>
-            <div className="left__key__yoko__inner__grips"></div>
-            <div className="left__key__yoko__inner__grips"></div>
-            <div className="left__key__yoko__inner__grips"></div>
-            <div className="left__key__yoko__inner__grips"></div>
-          </div>
-          <div className="left__key__center">
-            <div className="left__key__center__cir"></div>
-          </div>
-        </div>
-
-        <div className="right__key">
-          <div className="right__key__btn">
-            <div className="right__key__btn__R"></div>
-            <div className="right__key__btn__L"></div>
-          </div>
-          <div className="right__key__label">
-            <div className="b">B</div>
-            <div className="a">A</div>
-          </div>
-
-        </div>
-
-        <div className="selectStart">
-          <div className="selectStart__slect">
-            <div className="selectStart__btn">
-              <div className="selectStart__btn__inner"></div>
+              <div className="flex justify-start gap-2">
+                <p className="!text-[10px] bg-[#222] text-white p-1">{project.revenue}</p>
+                <p className={`!text-[10px] p-1 ${project.active ? "bg-[#91CB41]" : "bg-[#E76E54]"}`}>{project.active ? "Active" : "Inactive"}</p>
+              </div>
             </div>
-            <div className="select">SELECT</div>
-          </div>
-          <div className="selectStart__start">
-            <div className="selectStart__btn">
-              <div className="selectStart__btn__inner"></div>
-            </div>
-            <div className="start">START</div>
-          </div>
-        </div>
+            )
+        })
+      }
+      <h2 className={`text-2xl ${pressStart.className} font-semibold mb-6 mt-12 text-dark dark:text-dark`}>Articles</h2>
+      <div className="lists  w-[80%]">
+        <ul className="nes-list is-disc">
+          {
+            articles.map((article, key) => {
+              return (
+                    <li key={key} className={`title capitalize my-5 ${pressStart.className}`}>
+                      <a href={article.link} target="_blank"> {article.title}</a>
+                    .</li>
 
-        <div className="speaker">
-          <div className="speaker__Light"></div>
-          <div className="speaker__line"></div>
-          <div className="speaker__line"></div>
-          <div className="speaker__line"></div>
-          <div className="speaker__line"></div>
-          <div className="speaker__line"></div>
-          <div className="speaker__line"></div>
-
-        </div>
-
-        <div className="phones">
-          <div className="phones__top">ΩPHONES</div>
-          <div className="phones__line">
-            <div className="phones__line__inner"></div>
-            <div className="phones__line__inner"></div>
-          </div>
-
-        </div>
-
+                )
+            })
+          }
+        </ul>
       </div>
-    </div>
-  </section>
+      <section className={`mt-12 ${pressStart.className}`}>
+        <section className="message-left">
+          <div className="nes-balloon from-left !py-1 !px-2">
+            <p className="!text-[10px] text-dark dark:text-dark">Turn on the switch</p>
+          </div>
+        </section>
 
+
+        <div className="gameboy">
+          <div className="switch"></div>
+          <div className="base">
+            <div className="line__top"></div>
+            <div className="line__side__R"></div>
+            <div className="line__side__L"></div>
+            <div className="on__off" id="on-button">
+              <div className="on__off__btm flex items-center justify-center">
+                <IconCaretLeftFilled size={8}/>
+                <p className="!m-0">OFF</p>
+                <IconCircleFilled size={4} />
+                <p className="!m-0">ON</p>
+                <IconCaretRightFilled size={8}/>
+              </div>
+              <div className="on__off__line"></div>
+              <div className="on__off__line"></div>
+              <div className="on__off__line"></div>
+            </div>
+            <div className="display">
+
+              <div className="display__line">
+                <div className="display__line__l"></div>
+                <div className="display__line__l"></div>
+              </div>
+
+              <div className="display__top">DOT MATRIX WITH STEREO SOUND</div>
+
+              <div className="battery"></div>
+
+              <div className="display__inner relative" id="gameboy-main">
+              <Emulator />
+              </div>
+            </div>
+
+
+            <div className="left__key">
+
+              <div className="left__key__tate"></div>
+              <div className="left__key__yoko"></div>
+              <div className="left__key__tate__inner">
+                <div className="left__key__tate__inner__grips"></div>
+                <div className="left__key__tate__inner__grips"></div>
+                <div className="left__key__tate__inner__grips"></div>
+                <div className="left__key__tate__inner__grips"></div>
+                <div className="left__key__tate__inner__grips"></div>
+                <div className="left__key__tate__inner__grips"></div>
+                <div className="left__key__tate__inner__grips"></div>
+                <div className="left__key__tate__inner__grips"></div>
+                <div className="left__key__tate__inner__grips"></div>
+              </div>
+              <div className="left__key__yoko__inner">
+                <div className="left__key__yoko__inner__grips"></div>
+                <div className="left__key__yoko__inner__grips"></div>
+                <div className="left__key__yoko__inner__grips"></div>
+                <div className="left__key__yoko__inner__grips"></div>
+                <div className="left__key__yoko__inner__grips"></div>
+                <div className="left__key__yoko__inner__grips"></div>
+                <div className="left__key__yoko__inner__grips"></div>
+                <div className="left__key__yoko__inner__grips"></div>
+                <div className="left__key__yoko__inner__grips"></div>
+              </div>
+              <div className="left__key__center">
+                <div className="left__key__center__cir"></div>
+              </div>
+            </div>
+
+            <div className="right__key">
+              <div className="right__key__btn">
+                <div className="right__key__btn__R"></div>
+                <div className="right__key__btn__L"></div>
+              </div>
+              <div className="right__key__label">
+                <div className="b">B</div>
+                <div className="a">A</div>
+              </div>
+
+            </div>
+
+            <div className="selectStart">
+              <div className="selectStart__slect">
+                <div className="selectStart__btn">
+                  <div className="selectStart__btn__inner"></div>
+                </div>
+                <div className="select">SELECT</div>
+              </div>
+              <div className="selectStart__start">
+                <div className="selectStart__btn">
+                  <div className="selectStart__btn__inner"></div>
+                </div>
+                <div className="start">START</div>
+              </div>
+            </div>
+
+            <div className="speaker">
+              <div className="speaker__Light"></div>
+              <div className="speaker__line"></div>
+              <div className="speaker__line"></div>
+              <div className="speaker__line"></div>
+              <div className="speaker__line"></div>
+              <div className="speaker__line"></div>
+              <div className="speaker__line"></div>
+
+            </div>
+
+            <div className="phones">
+              <div className="phones__top">ΩPHONES</div>
+              <div className="phones__line">
+                <div className="phones__line__inner"></div>
+                <div className="phones__line__inner"></div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </section>
     </>
-
   );
 }
