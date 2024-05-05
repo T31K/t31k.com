@@ -58,7 +58,7 @@ export default function page() {
         </div>
       </div>
       <div className="inner">
-        <h3 className="data-title mb-1">{"let name = 't31k';"}</h3>
+        <h3 className="data-title mb-1">{"let name = 'Tim';"}</h3>
         <h3 className="data-title mb-1">{"let location = 'singapore';"}</h3>
         <h3 className="data-title mb-1">{"let job = ["}</h3>
         <h3 className="data-title ml-4">{"  'indie hacker',"}</h3>
