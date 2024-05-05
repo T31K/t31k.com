@@ -43,6 +43,29 @@ const projects = [
     active: false
   },
 ]
+
+const articles = [
+  {
+    title: "Indie Hacking Year 1 Review",
+    link: "https://medium.com/@t31k/indie-hacking-year-1-review-0d695880ebfb",
+  },
+  {
+    title: "Reflecting on Bali: Embracing the Dualities and Moving Forward",
+    link: 'https://t31k.medium.com/balancing-bali-escaping-reality-or-losing-yourself-5afecda90a35'
+  },
+  {
+    title: "Coding Bootcamps vs Comp Science Grads",
+    link: "https://medium.com/geekculture/coding-bootcamps-vs-comp-science-grads-e16b5a246aaa",
+  },
+  {
+    title: "I Attended a $20 Bootcamp and Became a Full Stack Developer",
+    link: "https://javascript.plainenglish.io/i-became-a-developer-with-a-20-bootcamp-32c776eaba13",
+  },
+  {
+    title: "How to Create a Kick-ass Portfolio Site that will WOW Your Next Employer",
+    link: "https://javascript.plainenglish.io/how-to-create-a-kick-ass-portfolio-site-that-will-wow-your-next-employer-5e5e2009222",
+  },
+]
 export default function page() {
   return (
     <>
@@ -85,7 +108,7 @@ export default function page() {
         </h3>
       </div>
     </div>
-    <h2 className={`text-2xl ${pressStart.className} font-semibold mb-4 mt-8`}>Projects</h2>
+    <h2 className={`text-2xl ${pressStart.className} font-semibold mb-6 mt-12`}>Projects</h2>
 
   {
     projects.map((project, key) => {
@@ -102,7 +125,25 @@ export default function page() {
         )
     })
   }
+  <h2 className={`text-2xl ${pressStart.className} font-semibold mb-6 mt-12`}>Articles</h2>
 
+
+
+  <div className="lists  w-[80%]">
+  <ul className="nes-list is-disc">
+
+  {
+    articles.map((article, key) => {
+      return (
+            <li key={key} className={`title capitalize my-5 ${pressStart.className}`}>
+              <a href={article.link} target="_blank"> {article.title}</a>
+             .</li>
+
+        )
+    })
+  }
+  </ul>
+</div>
   <section className={`mt-12 ${pressStart.className}`}>
     <section className="message-left">
       <div className="nes-balloon from-left !py-1 !px-2">
