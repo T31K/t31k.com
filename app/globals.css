@@ -830,3 +830,8 @@ div.tags span:nth-child(5) {
 .text-equal {
   color: #55B6C2;
 }
+
+
+.text-dark {
+  color: #222;
+}

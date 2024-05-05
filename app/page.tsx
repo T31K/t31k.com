@@ -69,7 +69,7 @@ const articles = [
 export default function page() {
   return (
     <>
-    <h1 className={`text-6xl ${pressStart.className} font-semibold mb-4 !tracking-[-15px]`}>t31k</h1>
+    <h1 className={`text-6xl ${pressStart.className} font-semibold mb-4 !tracking-[-15px] text-dark dark:text-dark`}>t31k</h1>
     <div className="blog-window w-full !font-mono" >
       <div className="top-menu">
         <div>
@@ -114,8 +114,8 @@ export default function page() {
     projects.map((project, key) => {
       return (
         <div className={`nes-container w-[80%] mx-auto with-title is-rounded bg- ${pressStart.className} !mt-4 relative`} key={key}>
-          <p className="title capitalize">{project.title}</p>
-          <p className="!text-[12px]"> {project.description}</p>
+          <p className="title capitalize text-dark dark:text-dark">{project.title}</p>
+          <p className="!text-[12px] text-dark dark:text-dark"> {project.description}</p>
 
           <div className="flex justify-start gap-2">
             <p className="!text-[10px] bg-[#222] text-white p-1">{project.revenue}</p>
@@ -147,7 +147,7 @@ export default function page() {
   <section className={`mt-12 ${pressStart.className}`}>
     <section className="message-left">
       <div className="nes-balloon from-left !py-1 !px-2">
-        <p className="!text-[10px]">Turn on the switch</p>
+        <p className="!text-[10px] text-dark dark:text-dark">Turn on the switch</p>
       </div>
     </section>
 
