@@ -5,7 +5,6 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { Analytics } from "@/components/analytics"
 import { ModeToggle } from "@/components/mode-toggle"
 import "nes.css/css/nes.min.css";
-
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {

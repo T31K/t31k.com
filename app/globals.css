@@ -812,3 +812,21 @@ div.tags span:nth-child(5) {
     left: 35px;
   }
 }
+
+
+.text-string {
+  color: #98C379;
+}
+
+.text-array {
+  color: #E5C07C;
+}
+
+.text-let {
+  color: #C678DE;
+  margin: 0 !important;
+}
+
+.text-equal {
+  color: #55B6C2;
+}

@@ -25,7 +25,7 @@ const projects = [
     active: false
   },
   {
-    title: "wardrobe ai pro",
+    title: "wardrobe AI",
     description: "Try on clothes with AI",
     revenue: "$0",
     active: false
@@ -58,13 +58,31 @@ export default function page() {
         </div>
       </div>
       <div className="inner">
-        <h3 className="data-title mb-1">{"let name = 'Tim';"}</h3>
-        <h3 className="data-title mb-1">{"let location = 'singapore';"}</h3>
-        <h3 className="data-title mb-1">{"let job = ["}</h3>
-        <h3 className="data-title ml-4">{"  'indie hacker',"}</h3>
-        <h3 className="data-title ml-4">{"  'software engineer',"}</h3>
-        <h3 className="data-title ml-4">{"  'writer',"}</h3>
-        <h3 className="data-title mt-1">{"  ];"}</h3>
+        <h3 className="data-title mb-1">
+          <span className="text-let">let</span>
+          <span>name</span>
+          <span className="text-equal inline-block">=</span>
+          <span className="text-string">{`'t31k'`}</span>
+          <span className="!m-0">{`;`}</span>
+        </h3>
+        <h3 className="data-title mb-1">
+          <span className="text-let">let</span>
+          <span>location</span>
+          <span className="text-equal inline-block">=</span>
+          <span className="text-string">{`'singapore'`}</span>
+          <span className="!m-0">{`;`}</span>
+        </h3>
+        <h3 className="data-title mb-1">
+          <span className="text-let">let</span>
+          <span>location</span>
+          <span className="text-equal inline-block">=</span>
+          <span className="text-string text-array">{"["}</span>
+          <span className="text-string block !ml-3 mt-1">{"  'indie hacker',"}</span>
+          <span className="text-string block !ml-3">{"  'software engineer',"}</span>
+          <span className="text-string block !ml-3">{"  'writer ',"}</span>
+          <span className="text-string text-array !ml-0">{"]"}</span>
+          <span className="">{";"}</span>
+        </h3>
       </div>
     </div>
     <h2 className={`text-2xl ${pressStart.className} font-semibold mb-4 mt-8`}>Projects</h2>
@@ -74,15 +92,12 @@ export default function page() {
       return (
         <div className={`nes-container w-[80%] mx-auto with-title is-rounded bg- ${pressStart.className} !mt-4 relative`} key={key}>
           <p className="title capitalize">{project.title}</p>
-          <div className="absolute top-[-10px] right-[-80px] scale-50">
-            <a href="#" className="nes-badge !mr-5">
-              <span className="is-dark">{project.revenue}</span>
-            </a>
-            <a href="#" className="nes-badge">
-              <span className={`is-${project.active ? "success" : "error"} capitalize`}>{project.active ? "active" : "inactive"}</span>
-            </a>
-          </div>
           <p className="!text-[12px]"> {project.description}</p>
+
+          <div className="flex justify-start gap-2">
+            <p className="!text-[10px] bg-[#222] text-white p-1">{project.revenue}</p>
+            <p className={`!text-[10px] p-1 ${project.active ? "bg-[#91CB41]" : "bg-[#E76E54]"}`}>{project.active ? "Active" : "Inactive"}</p>
+          </div>
         </div>
         )
     })
