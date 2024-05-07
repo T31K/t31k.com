@@ -37,7 +37,7 @@ export default function page() {
           </h3>
           <h3 className="data-title mb-1">
             <span className="text-let">let</span>
-            <span>location</span>
+            <span>job</span>
             <span className="text-equal inline-block">=</span>
             <span className="text-string text-array">{"["}</span>
             <span className="text-string block !ml-3 mt-1">{"  'indie hacker',"}</span>
