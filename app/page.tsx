@@ -1,12 +1,12 @@
-
 import Emulator from "@/components/Emulator"
 import { Press_Start_2P } from 'next/font/google'
 
 const pressStart = Press_Start_2P({ weight: '400', subsets: ['latin-ext'] })
 import { IconCaretLeftFilled, IconCaretRightFilled, IconCircleFilled } from '@tabler/icons-react';
 import { projects, articles } from '@/utils/raw'
-
+import Loading from "@/components/loading"
 export default function page() {
+
   return (
     <>
       <h1 className={`text-6xl ${pressStart.className} font-semibold mb-4 !tracking-[-15px] text-dark dark:text-dark`}>t31k</h1>
