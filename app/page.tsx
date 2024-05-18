@@ -71,8 +71,10 @@ export default function page() {
             articles.map((article, key) => {
               return (
                     <li key={key} className={`title capitalize my-5 ${pressStart.className}`}>
-                      <a href={article.link} target="_blank"> {article.title}</a>
-                    .</li>
+                      <a href={article.link} target="_blank"> {article.title}
+                       {article.award && <i className="nes-icon trophy is-small !ml-2"></i>}
+                      </a>
+                    </li>
 
                 )
             })
