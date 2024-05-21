@@ -11,7 +11,7 @@ function Spotify() {
   useEffect(() => {
     async function getCurrentSong() {
       try {
-        const { data } = await axios.post(NEXT_PUBLIC_SPOTIFY_API_URL);
+        const { data } = await axios.post(process.env.NEXT_PUBLIC_SPOTIFY_API_URL);
         console.log(data);
 
         if (data !== '') {
