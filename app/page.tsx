@@ -225,6 +225,22 @@ export default function page() {
       <section className={`mt-24 ${pressStart.className} w-full`}>
         <Spotify />
       </section>
+
+      <section className={`mt-12 ${pressStart.className}`}>
+        <h2 className={`text-2xl text-center ${pressStart.className} font-semibold mb-6 mt-12 text-dark dark:text-dark`}>Hit me up</h2>
+          <div className="icon-list flex gap-4">
+            <a href="https://x.com/t31kx" target="_blank">
+              <i className="nes-icon twitter is-large"></i>
+            </a>
+            <a href="https://github.com/t31k" target="_blank">
+              <i className="nes-icon github is-large"></i>
+            </a>
+            <a href="https://medium.com/@t31k" target="_blank">
+              <i className="nes-icon medium is-large"></i>
+            </a>
+          </div>
+      </section>
+
     </>
   );
 }
