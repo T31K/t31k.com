@@ -48,7 +48,7 @@ function Spotify() {
         <p className="text-center whitespace-nowrap mt-4 text-2xl ml-2">Now Playing</p>
       </div>
       <div className="nes-container is-dark member-card !w-[80%] flex items-center flex-col justify-center relative">
-        {!isPlaying ? (
+        {isPlaying ? (
           <>
             <ImagePixelated
               src={currentAlbum}
