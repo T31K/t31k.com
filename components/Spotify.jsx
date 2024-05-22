@@ -2,6 +2,7 @@
 import axios from 'axios';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import { ImagePixelated, ElementPixelated } from 'react-pixelate';
 
 function Spotify() {
   const [currentName, setCurrentName] = useState('Aerodynamic');
@@ -50,14 +51,19 @@ function Spotify() {
         <p className="text-center whitespace-nowrap mt-4 text-2xl ml-2">Now Playing</p>
       </div>
       <div className="nes-container is-dark member-card !w-[80%] flex items-center flex-col justify-center">
-        <Image
+        <ImagePixelated
           src={currentAlbum}
-          alt="We Sing, We Dance, We Steal Things"
           width={200}
-          className="mb-6"
           height={200}
+          fillTransparencyColor={'grey'}
         />
-        <p className="text-center whitespace-nowrap !mt-6 text-xl">{currentName?.slice(0, 16)}</p>
+
+        <p
+          className="text-center whitespace-nowrap !mt-6 text-xl"
+          style={{ marginTop: '25px' }}
+        >
+          {currentName?.slice(0, 16)}
+        </p>
         <p className="text-center whitespace-nowrap text-md mt-[-15px]">{currentArtist}</p>
         <div className="flex justify-center items-center gap-4 ">
           <Image

@@ -65,6 +65,9 @@ importers:
       react-gbajs:
         specifier: ^1.0.4
         version: 1.0.4(@babel/core@7.24.5)(@types/react@18.2.0)(react@18.2.0)
+      react-pixelate:
+        specifier: ^0.0.1
+        version: 0.0.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       tailwindcss:
         specifier: 3.3.2
         version: 3.3.2
@@ -2353,6 +2356,12 @@ packages:
 
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
+
+  react-pixelate@0.0.1:
+    resolution: {integrity: sha512-g/kV87lI6bjofrUb+KGFW5WsTIjQAcptJhe4JbXW/BhaPoKGepV4/P2gLrg7ifhAcXoH+t62pOq21bbU39V6Mg==}
+    peerDependencies:
+      react: ^16.13.1
+      react-dom: ^16.13.1
 
   react@18.2.0:
     resolution: {integrity: sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==}
@@ -5595,6 +5604,11 @@ snapshots:
       - '@babel/core'
 
   react-is@16.13.1: {}
+
+  react-pixelate@0.0.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
 
   react@18.2.0:
     dependencies:
