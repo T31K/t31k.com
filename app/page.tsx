@@ -257,13 +257,6 @@ export default function page() {
 
       <section className={`mt-12 ${pressStart.className}`}>
         <h2 className={`text-2xl text-center ${pressStart.className} font-semibold mb-6 mt-12 text-dark dark:text-dark`}>Hit me up!</h2>
-          <Image
-            src="/me.png"
-            alt="me"
-            className="mx-auto mb-6"
-            width={150}
-            height={150}
-          />
           <div className="icon-list flex gap-4">
             <a href="https://x.com/t31kx" target="_blank">
               <i className="nes-icon twitter is-large"></i>

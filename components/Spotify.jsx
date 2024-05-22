@@ -9,6 +9,7 @@ function Spotify() {
   const [currentArtist, setCurrentArtist] = useState('retrieving data...');
   const [currentAlbum, setCurrentAlbum] = useState('/placeholder.webp');
   const [likedSongs, setLikedSongs] = useState([]);
+  const [isPlaying, setIsPlaying] = useState(true);
 
   useEffect(() => {
     async function getCurrentSong() {
@@ -18,15 +19,14 @@ function Spotify() {
         });
         console.log(data);
 
-        if (data.current !== '') {
-          setCurrentName(data?.current?.item?.name);
-          setCurrentArtist(data?.current?.item?.album?.artists[0]?.name);
-          setCurrentAlbum(data?.current?.item?.album?.images[0]?.url);
-          console.log(data?.current?.item?.album?.images[0]?.url);
-        }
-
-        if (data.likedSongs !== '') {
-          setLikedSongs(data?.likedSongs?.items);
+        if (data.current == '') {
+          setIsPlaying(false);
+        } else {
+          let { current, likedSongs } = data;
+          setCurrentName(current.item?.name);
+          setCurrentArtist(current.item?.album?.artists[0]?.name);
+          setCurrentAlbum(current.item?.album?.images[0]?.url);
+          setLikedSongs(likedSongs?.items);
         }
       } catch (error) {
         console.error('Error fetching current song:', error);
@@ -48,49 +48,61 @@ function Spotify() {
         <p className="text-center whitespace-nowrap mt-4 text-2xl ml-2">Now Playing</p>
       </div>
       <div className="nes-container is-dark member-card !w-[80%] flex items-center flex-col justify-center relative">
-        <ImagePixelated
-          src={currentAlbum}
-          width={200}
-          height={200}
-          fillTransparencyColor={'grey'}
-        />
-        <Image
-          src="/spotify.png"
-          alt="Spotify Logo"
-          className="absolute"
-          style={{ top: '10px', right: '10px' }}
-          width={45}
-          height={45}
-        />
-        <p
-          className="text-center whitespace-nowrap !mt-6 text-xl"
-          style={{ marginTop: '25px' }}
-        >
-          {currentName?.split('(')[0].trim()}
-        </p>
-        <p className="text-center whitespace-nowrap text-md mt-[-15px]">{currentArtist}</p>
-        <div className="flex justify-center items-center gap-4 ">
-          <Image
-            src="/prev.webp"
-            className="invert"
-            alt="Skip"
-            width={35}
-            height={35}
-          />
-          <Image
-            src="/play_btn.webp"
-            alt="Play"
-            width={75}
-            height={75}
-          />
-          <Image
-            src="/next.webp"
-            className="!invert rotate-180"
-            alt="Skip"
-            width={35}
-            height={35}
-          />
-        </div>
+        {!isPlaying ? (
+          <>
+            <ImagePixelated
+              src={currentAlbum}
+              width={200}
+              height={200}
+              fillTransparencyColor={'grey'}
+            />
+            <Image
+              src="/spotify.png"
+              alt="Spotify Logo"
+              className="absolute"
+              style={{ top: '10px', right: '10px' }}
+              width={45}
+              height={45}
+            />
+            <p
+              className="text-center whitespace-nowrap !mt-6 text-xl"
+              style={{ marginTop: '25px' }}
+            >
+              {currentName?.split('(')[0].trim()}
+            </p>
+            <p className="text-center whitespace-nowrap text-md mt-[-15px]">{currentArtist}</p>
+            <div className="flex justify-center items-center gap-4 ">
+              <Image
+                src="/prev.webp"
+                className="invert"
+                alt="Skip"
+                width={35}
+                height={35}
+              />
+              <Image
+                src="/play_btn.webp"
+                alt="Play"
+                width={75}
+                height={75}
+              />
+              <Image
+                src="/next.webp"
+                className="!invert rotate-180"
+                alt="Skip"
+                width={35}
+                height={35}
+              />
+            </div>
+          </>
+        ) : (
+          <div className="flex flex-col justify-center items-center">
+            <i className="snes-jp-logo is-large"></i>
+            <p className="text-center mt-4">
+              Tim is <em>surprisingly</em> <br />
+              not listening to any music
+            </p>
+          </div>
+        )}
       </div>
       <div
         className="lists w-[80%] mx-auto text-dark dark:text-dark"
@@ -98,11 +110,13 @@ function Spotify() {
       >
         <div className="flex flex-col items-center justify-center mb-5">
           <i className="nes-icon is-large heart"></i>
-          <p style={{ textAlign: 'center', fontSize: '20px', margin: 0 }}>Top tracks this week</p>
+          <h2 style={{ textAlign: 'center', fontSize: ' 1.5rem;', margin: '0' }}>
+            Top tracks <br /> this week
+          </h2>
         </div>
         <ul
           className="nes-list is-circle"
-          style={{ marginTop: '15px' }}
+          style={{ marginTop: '35px' }}
         >
           {likedSongs?.map((likedSong, key) => (
             <>
