@@ -11,8 +11,9 @@ function Spotify() {
   useEffect(() => {
     async function getCurrentSong() {
       try {
-        const { data } = await axios.post(process.env.NEXT_PUBLIC_SPOTIFY_API_URL);
-        console.log(data);
+        const { data } = await axios.post(process.env.NEXT_PUBLIC_SPOTIFY_API_URL, {
+          hash: process.env.NEXT_PUBLIC_SPOTIFY_HASH,
+        });
 
         if (data !== '') {
           setCurrentName(data?.item?.name);
