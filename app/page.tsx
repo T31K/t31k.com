@@ -226,7 +226,7 @@ export default function page() {
         <Spotify />
       </section>
 
-      <section className="lists pt-12">
+      <section className="lists pt-12 w-[80%]">
         <Image
           src="/book.webp"
           alt="me"
@@ -235,19 +235,18 @@ export default function page() {
           height={85}
         />
         <h2 className={`text-2xl text-center ${pressStart.className} font-semibold mb-8 mt-4 text-dark dark:text-dark`}>Book picks</h2>
-        <ul className="nes-list is-disc">
+        <ul className="nes-list is-disc text-dark dark:text-dark">
           {
             books.map((book, key) => {
               return (
-                <li key={key} className={`title capitalize my-5 ${pressStart.className}`}>
+                <li key={key} className={`title capitalize my-8 ${pressStart.className}`}>
                   <span className="italic font-black">
                     {book.title}
                   </span>
-                  <span className="lowercase mx-4">
-                    by
-                  </span>
+                  <p className="!m-0 !ml-2">
                    {book.author}
                   {book.favorite && <i className="nes-icon heart is-small !ml-2"></i>}
+                  </p>
                 </li>
 
               )

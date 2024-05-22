@@ -93,11 +93,11 @@ function Spotify() {
         </div>
       </div>
       <div
-        className="lists"
+        className="lists w-[80%] mx-auto text-dark dark:text-dark"
         style={{ padding: '20px' }}
       >
-        <div className="flex items-center justify-center mb-5">
-          <i className="nes-icon is-medium heart"></i>
+        <div className="flex flex-col items-center justify-center mb-5">
+          <i className="nes-icon is-large heart"></i>
           <p style={{ textAlign: 'center', fontSize: '20px', margin: 0 }}>Top tracks this week</p>
         </div>
         <ul
@@ -109,9 +109,10 @@ function Spotify() {
               <li
                 key={key}
                 className="whitespace-nowrap"
-                style={{ margin: '5px 0' }}
+                style={{ margin: '20px 0' }}
               >
-                {likedSong.track.artists[0].name} - {likedSong.track.name?.split('(')[0].trim()}
+                <p className="!m-0 text-xl">{likedSong.track.name?.split('(')[0].trim()}</p>
+                <p className="!m-0  italic">{likedSong.track.artists[0].name}</p>
               </li>
             </>
           ))}
