@@ -40,22 +40,28 @@ function Spotify() {
     <div>
       <div className="flex justify-center items-center flex-col gap-2">
         <Image
-          src="/spotify.png"
+          src="/mario_dance.gif"
           alt="Spotify Logo"
-          className="mb-3"
-          width={45}
-          height={45}
+          width={150}
+          height={150}
         />
         <p className="text-center whitespace-nowrap mt-4 text-2xl ml-2">Now Playing</p>
       </div>
-      <div className="nes-container is-dark member-card !w-[80%] flex items-center flex-col justify-center">
+      <div className="nes-container is-dark member-card !w-[80%] flex items-center flex-col justify-center relative">
         <ImagePixelated
           src={currentAlbum}
           width={200}
           height={200}
           fillTransparencyColor={'grey'}
         />
-
+        <Image
+          src="/spotify.png"
+          alt="Spotify Logo"
+          className="absolute"
+          style={{ top: '10px', right: '10px' }}
+          width={45}
+          height={45}
+        />
         <p
           className="text-center whitespace-nowrap !mt-6 text-xl"
           style={{ marginTop: '25px' }}
