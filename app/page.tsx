@@ -240,7 +240,13 @@ export default function page() {
             books.map((book, key) => {
               return (
                 <li key={key} className={`title capitalize my-5 ${pressStart.className}`}>
-                  {book.title} by {book.author}
+                  <span className="italic font-black">
+                    {book.title}
+                  </span>
+                  <span className="lowercase mx-4">
+                    by
+                  </span>
+                   {book.author}
                   {book.favorite && <i className="nes-icon heart is-small !ml-2"></i>}
                 </li>
 
