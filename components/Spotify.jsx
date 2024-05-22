@@ -62,7 +62,7 @@ function Spotify() {
           className="text-center whitespace-nowrap !mt-6 text-xl"
           style={{ marginTop: '25px' }}
         >
-          {currentName?.slice(0, 16)}
+          {currentName?.split('(')[0].trim()}
         </p>
         <p className="text-center whitespace-nowrap text-md mt-[-15px]">{currentArtist}</p>
         <div className="flex justify-center items-center gap-4 ">
