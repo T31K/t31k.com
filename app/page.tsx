@@ -57,6 +57,9 @@ export default function page() {
               <div className="flex justify-start gap-2">
                 <p className="!text-[10px] bg-[#222] text-white p-1">{project.revenue}</p>
                 <p className={`!text-[10px] p-1 ${project.active ? "bg-[#91CB41]" : "bg-[#E76E54]"}`}>{project.active ? "Active" : "Inactive"}</p>
+                <p className={`!text-[10px] p-1 ${project.active ? "block" : "hidden"}`}>
+                <a href={project.link} target="_blank" className="!text-[10px] !mb-4"> Link</a>
+                </p>
               </div>
             </div>
             )

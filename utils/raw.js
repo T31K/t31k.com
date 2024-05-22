@@ -4,6 +4,7 @@ const projects = [
     description: 'Track calories with AI',
     revenue: '$1000',
     active: true,
+    link: 'https://calorieasy.app',
   },
   {
     title: 'sidepod',
@@ -28,6 +29,7 @@ const projects = [
     description: 'A spotlight-like app for your music',
     revenue: '$300',
     active: true,
+    link: 'https://getharmonize.app',
   },
   {
     title: 'docktopus',
