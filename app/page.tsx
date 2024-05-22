@@ -13,6 +13,7 @@ export default function page() {
   return (
     <>
       <>
+      {currentHour}
         {currentHour >= 22 ? (
           <>
           <div className="message-left block">
