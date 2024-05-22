@@ -4,9 +4,11 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
 function Spotify() {
-  const [currentName, setCurrentName] = useState("King's Highway");
-  const [currentArtist, setCurrentArtist] = useState('James Bay');
-  const [currentAlbum, setCurrentAlbum] = useState('https://i.scdn.co/image/ab67616d0000b273b9c53cbae54409327870c847');
+  const [currentName, setCurrentName] = useState('Aerodynamic');
+  const [currentArtist, setCurrentArtist] = useState('Daft Punk');
+  const [currentAlbum, setCurrentAlbum] = useState(
+    'https://upload.wikimedia.org/wikipedia/en/2/27/Daft_Punk_-_Discovery.png'
+  );
 
   useEffect(() => {
     async function getCurrentSong() {
