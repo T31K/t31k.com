@@ -3,7 +3,7 @@ import Emulator from "@/components/Emulator"
 import { Press_Start_2P } from 'next/font/google'
 const pressStart = Press_Start_2P({ weight: '400', subsets: ['latin-ext'] })
 import { IconCaretLeftFilled, IconCaretRightFilled, IconCircleFilled } from '@tabler/icons-react';
-import { projects, articles } from '@/utils/raw'
+import { projects, articles, books } from '@/utils/raw'
 import Image from 'next/image'
 
 export default function page() {
@@ -226,8 +226,39 @@ export default function page() {
         <Spotify />
       </section>
 
+      <section className="lists pt-12">
+        <Image
+          src="/book.webp"
+          alt="me"
+          className="mx-auto"
+          width={85}
+          height={85}
+        />
+        <h2 className={`text-2xl text-center ${pressStart.className} font-semibold mb-8 mt-4 text-dark dark:text-dark`}>Book picks</h2>
+        <ul className="nes-list is-disc">
+          {
+            books.map((book, key) => {
+              return (
+                <li key={key} className={`title capitalize my-5 ${pressStart.className}`}>
+                  {book.title} by {book.author}
+                  {book.favorite && <i className="nes-icon heart is-small !ml-2"></i>}
+                </li>
+
+              )
+            })
+          }
+        </ul>
+      </section>
+
       <section className={`mt-12 ${pressStart.className}`}>
-        <h2 className={`text-2xl text-center ${pressStart.className} font-semibold mb-6 mt-12 text-dark dark:text-dark`}>Hit me up</h2>
+        <h2 className={`text-2xl text-center ${pressStart.className} font-semibold mb-6 mt-12 text-dark dark:text-dark`}>Hit me up!</h2>
+          <Image
+            src="/me.png"
+            alt="me"
+            className="mx-auto mb-6"
+            width={150}
+            height={150}
+          />
           <div className="icon-list flex gap-4">
             <a href="https://x.com/t31kx" target="_blank">
               <i className="nes-icon twitter is-large"></i>

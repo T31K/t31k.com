@@ -5,11 +5,9 @@ import { useEffect, useState } from 'react';
 import { ImagePixelated, ElementPixelated } from 'react-pixelate';
 
 function Spotify() {
-  const [currentName, setCurrentName] = useState('Aerodynamic');
-  const [currentArtist, setCurrentArtist] = useState('Daft Punk');
-  const [currentAlbum, setCurrentAlbum] = useState(
-    'https://upload.wikimedia.org/wikipedia/en/2/27/Daft_Punk_-_Discovery.png'
-  );
+  const [currentName, setCurrentName] = useState('retrieving data...');
+  const [currentArtist, setCurrentArtist] = useState('retrieving data...');
+  const [currentAlbum, setCurrentAlbum] = useState('/placeholder.webp');
   const [likedSongs, setLikedSongs] = useState([]);
 
   useEffect(() => {

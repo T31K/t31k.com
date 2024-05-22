@@ -72,4 +72,27 @@ const articles = [
   },
 ];
 
-export { projects, articles };
+const books = [
+  {
+    title: 'Atomic Habits',
+    author: 'James Clear',
+    favorite: true,
+  },
+  {
+    title: 'Project Hail Mary',
+    author: 'Andy Weir',
+  },
+  {
+    title: 'Deep Work',
+    author: 'Cal Newport',
+  },
+  {
+    title: 'Metamorphosis',
+    author: 'Franz Kafka',
+  },
+  {
+    title: 'Ikigai',
+    author: 'Hector Garcia',
+  },
+];
+export { projects, articles, books };
