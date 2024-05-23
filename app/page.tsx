@@ -5,10 +5,11 @@ const pressStart = Press_Start_2P({ weight: '400', subsets: ['latin-ext'] })
 import { IconCaretLeftFilled, IconCaretRightFilled, IconCircleFilled } from '@tabler/icons-react';
 import { projects, articles, books } from '@/utils/raw'
 import Image from 'next/image'
+import moment from 'moment-timezone';
 
 export default function page() {
-  const currentTime = new Date().toLocaleString("en-US", { hour: 'numeric', hour12: true, timeZone: 'Asia/Singapore' }).toLowerCase();
-  const currentHour = parseInt(new Date().toLocaleString("en-US", { hour: 'numeric', hour12: false, timeZone: 'Asia/Singapore' }), 10);
+  const currentTime = moment().tz('Asia/Singapore').format('h A').toLowerCase();
+  const currentHour = moment().tz('Asia/Singapore').hour();
 
   return (
     <>
