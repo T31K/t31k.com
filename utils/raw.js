@@ -87,6 +87,10 @@ const books = [
     author: 'Cal Newport',
   },
   {
+    title: 'The Magic of Thinking Big',
+    author: 'David J. Schwartz',
+  },
+  {
     title: 'Metamorphosis',
     author: 'Franz Kafka',
   },
