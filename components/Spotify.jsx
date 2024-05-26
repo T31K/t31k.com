@@ -92,18 +92,7 @@ function Spotify() {
                 height={35}
               />
             </div>
-          </>
-        ) : (
-          <div className="flex flex-col justify-center items-center">
-            <i className="snes-jp-logo is-large"></i>
-            <p className="text-center mt-4">
-              Tim is <em>surprisingly</em> <br />
-              not listening to any music
-            </p>
-          </div>
-        )}
-      </div>
-      <div
+              <div
         className="lists w-[80%] mx-auto text-dark dark:text-dark"
         style={{ padding: '20px' }}
       >
@@ -130,6 +119,17 @@ function Spotify() {
             </>
           ))}
         </ul>
+      </div>
+          </>
+        ) : (
+          <div className="flex flex-col justify-center items-center">
+            <i className="snes-jp-logo is-large"></i>
+            <p className="text-center mt-4">
+              Tim is <em>surprisingly</em> <br />
+              not listening to any music
+            </p>
+          </div>
+        )}
       </div>
     </div>
   );
