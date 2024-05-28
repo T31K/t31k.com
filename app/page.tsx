@@ -11,6 +11,15 @@ export default function page() {
   const currentTime = moment().tz('Asia/Singapore').format('h A').toLowerCase();
   const currentHour = moment().tz('Asia/Singapore').hour();
 
+  const getBadgeColor = (status: any) => {
+    if (status === 'active') {
+      return 'bg-green-400';
+    } else if (status === 'inactive') {
+      return 'bg-red-400';
+    } else if (status === 'building') {
+      return 'bg-yellow-400';
+    }
+  }
   return (
     <>
       <>
@@ -84,8 +93,8 @@ export default function page() {
 
                 <div className="flex justify-start gap-2">
                   <p className="!text-[10px] bg-[#222] text-white p-1">{project.revenue}</p>
-                  <p className={`!text-[10px] p-1 ${project.active ? "bg-[#91CB41]" : "bg-[#E76E54]"}`}>{project.active ? "Active" : "Inactive"}</p>
-                  <p className={`!text-[10px] p-1 ${project.active ? "block" : "hidden"}`}>
+                  <p className={`!text-[10px] capitalize p-1 ${getBadgeColor(project.status)}`}>{project.status}</p>
+                  <p className={`!text-[10px] p-1 ${project.link ? "block" : "hidden"}`}>
                   <a href={project.link} target="_blank" className="!text-[10px] !mb-4"> Link</a>
                   </p>
                 </div>

@@ -46,9 +46,9 @@ function Spotify() {
         />
         <p className="text-center whitespace-nowrap mt-4 text-2xl ml-2 text-dark dark:text-dark">Now Playing</p>
       </div>
-      <div className="nes-container is-dark member-card !w-[80%] flex items-center flex-col justify-center relative">
-        {isPlaying ? (
-          <>
+      {isPlaying ? (
+        <>
+          <div className="nes-container is-dark member-card !w-[80%] flex items-center flex-col justify-center relative">
             <ImagePixelated
               src={currentAlbum}
               width={200}
@@ -92,36 +92,38 @@ function Spotify() {
                 height={35}
               />
             </div>
-              <div
-        className="lists w-[80%] mx-auto text-dark dark:text-dark"
-        style={{ padding: '20px' }}
-      >
-        <div className="flex flex-col items-center justify-center mb-5">
-          <i className="nes-icon is-large heart"></i>
-          <h2 style={{ textAlign: 'center', fontSize: ' 1.5rem;', margin: '0' }}>
-            Top tracks <br /> this week
-          </h2>
-        </div>
-        <ul
-          className="nes-list is-circle"
-          style={{ marginTop: '35px' }}
-        >
-          {likedSongs?.map((likedSong, key) => (
-            <>
-              <li
-                key={key}
-                className="whitespace-nowrap"
-                style={{ margin: '20px 0' }}
-              >
-                <p className="!m-0 text-xl">{likedSong.track.name?.split('(')[0].trim()}</p>
-                <p className="!m-0  italic">{likedSong.track.artists[0].name}</p>
-              </li>
-            </>
-          ))}
-        </ul>
-      </div>
-          </>
-        ) : (
+          </div>
+          <div
+            className="lists w-[80%] mx-auto text-dark dark:text-dark"
+            style={{ padding: '20px' }}
+          >
+            <div className="flex flex-col items-center justify-center mb-5">
+              <i className="nes-icon is-large heart"></i>
+              <h2 style={{ textAlign: 'center', fontSize: ' 1.5rem;', margin: '0' }}>
+                Top tracks <br /> this week
+              </h2>
+            </div>
+            <ul
+              className="nes-list is-circle"
+              style={{ marginTop: '35px' }}
+            >
+              {likedSongs?.map((likedSong, key) => (
+                <>
+                  <li
+                    key={key}
+                    className="whitespace-nowrap"
+                    style={{ margin: '20px 0' }}
+                  >
+                    <p className="!m-0 text-xl">{likedSong.track.name?.split('(')[0].trim()}</p>
+                    <p className="!m-0  italic">{likedSong.track.artists[0].name}</p>
+                  </li>
+                </>
+              ))}
+            </ul>
+          </div>
+        </>
+      ) : (
+        <div className="nes-container is-dark member-card !w-[80%] flex items-center flex-col justify-center relative">
           <div className="flex flex-col justify-center items-center">
             <i className="snes-jp-logo is-large"></i>
             <p className="text-center mt-4">
@@ -129,8 +131,8 @@ function Spotify() {
               not listening to any music
             </p>
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 }

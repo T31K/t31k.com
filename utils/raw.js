@@ -1,41 +1,47 @@
 const projects = [
   {
+    title: 'kanokari',
+    description: 'AI girlfriend',
+    revenue: '$0',
+    status: 'building',
+  },
+  {
     title: 'calorieasy',
     description: 'Track calories with AI',
     revenue: '$1000',
-    active: true,
+    status: 'active',
     link: 'https://calorieasy.app',
   },
   {
     title: 'sidepod',
     description: 'Spotify widget for macOS',
     revenue: '$0',
-    active: false,
+    status: 'inactive',
   },
   {
     title: 'resync',
     description: 'Async meetings for your team',
     revenue: '$0',
-    active: false,
+    status: 'inactive',
   },
   {
     title: 'wardrobe AI',
     description: 'Try on clothes with AI',
     revenue: '$0',
-    active: false,
+    status: 'inactive',
   },
   {
     title: 'harmonize',
     description: 'A spotlight-like app for your music',
     revenue: '$300',
-    active: true,
+    status: 'active',
     link: 'https://getharmonize.app',
   },
   {
     title: 'docktopus',
     description: 'A macOS dock replacement',
     revenue: '$0',
-    active: false,
+    status: 'inactive',
   },
 ];
 
