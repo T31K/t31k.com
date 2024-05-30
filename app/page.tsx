@@ -5,11 +5,9 @@ const pressStart = Press_Start_2P({ weight: '400', subsets: ['latin-ext'] })
 import { IconCaretLeftFilled, IconCaretRightFilled, IconCircleFilled } from '@tabler/icons-react';
 import { projects, articles, books } from '@/utils/raw'
 import Image from 'next/image'
-import moment from 'moment-timezone';
 
 export default function page() {
-  const currentTime = moment().tz('Asia/Singapore').format('h A').toLowerCase();
-  const currentHour = moment().tz('Asia/Singapore').hour();
+
 
   const getBadgeColor = (status: any) => {
     if (status === 'active') {
@@ -23,11 +21,11 @@ export default function page() {
   return (
     <>
       <>
-        {currentHour >= 22 ? (
+        {Number(new Date().toLocaleString('en-US', { hour: '2-digit' }).slice(0,2)) > 10 &&  new Date().toLocaleString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' }).slice(9,11) == 'PM' ? (
           <>
           <div className="message-left block">
             <div className="nes-balloon from-left !py-1 !px-2">
-              <p className={`!text-[10px] text-dark dark:text-dark ${pressStart.className}`}>{`It's ${currentTime} for Tim`}</p>
+              <p className={`!text-[10px] text-dark dark:text-dark ${pressStart.className}`}>{`It's ${'currentTime'} for Tim`}</p>
             </div>
           </div>
           <div className="justify-center flex-col items-center gap-y-6 flex">
