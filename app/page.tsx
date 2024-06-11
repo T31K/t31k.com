@@ -248,7 +248,7 @@ export default function page() {
             books.map((book, key) => {
               return (
                 <li key={key} className={`title capitalize my-8 ${pressStart.className}`}>
-                  <span className="italic font-black">
+                  <span className="">
                     {book.title}
                   </span>
                   <p className="!m-0 !ml-2">
