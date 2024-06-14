@@ -6,6 +6,13 @@ const projects = [
     status: 'building',
   },
   {
+    title: 'gitscreen',
+    description: 'turn your github commits into beautiful wallpapers',
+    revenue: '$0',
+    status: 'active',
+    link: 'https://gitscreen.com',
+  },
+  {
     title: 'calorieasy',
     description: 'Track calories with AI',
     revenue: '$1000',
