@@ -7,7 +7,7 @@ const projects = [
   },
   {
     title: 'gitscreen',
-    description: 'turn your github commits into beautiful wallpapers',
+    description: 'Turn your github commits into beautiful wallpapers',
     revenue: '$0',
     status: 'active',
     link: 'https://gitscreen.com',
