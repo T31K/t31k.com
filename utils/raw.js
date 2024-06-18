@@ -1,10 +1,10 @@
 const projects = [
-  // {
-  //   title: 'kanokari',
-  //   description: 'AI girlfriend',
-  //   revenue: '$0',
-  //   status: 'building',
-  // },
+  {
+    title: 'kanokari',
+    description: 'AI girlfriend',
+    revenue: '$0',
+    status: 'building',
+  },
   {
     title: 'gitscreen',
     description: 'Turn your github commits into beautiful wallpapers',
