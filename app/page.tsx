@@ -1,10 +1,13 @@
-import Spotify from "@/components/Spotify"
-import Emulator from "@/components/Emulator"
+import Image from 'next/image'
 import { Press_Start_2P } from 'next/font/google'
 const pressStart = Press_Start_2P({ weight: '400', subsets: ['latin-ext'] })
-import { IconCaretLeftFilled, IconCaretRightFilled, IconCircleFilled } from '@tabler/icons-react';
+
+import Spotify from "@/components/Spotify"
+import Emulator from "@/components/Emulator"
+import HeatMap from "@/components/HeatMap"
+
 import { projects, articles, books } from '@/utils/raw'
-import Image from 'next/image'
+import { IconCaretLeftFilled, IconCaretRightFilled, IconCircleFilled } from '@tabler/icons-react';
 
 export default function page() {
 
@@ -229,6 +232,19 @@ export default function page() {
           </div>
         </div>
       </section>
+
+      <section className={`mt-24 ${pressStart.className} w-full`}>
+        <Image
+          src={'/shy_guy.gif'}
+          alt="t31k"
+          width={120}
+          height={120}
+          className="mx-auto "
+        />
+        <h2 className={`text-2xl text-center ${pressStart.className} font-semibold mb-8 mt-4 text-dark dark:text-dark`}>2024 Commits</h2>
+        <HeatMap  />
+      </section>
+
 
       <section className={`mt-24 ${pressStart.className} w-full`}>
         <Spotify />
