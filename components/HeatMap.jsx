@@ -66,7 +66,6 @@ const HeatMap = () => {
   };
 
   if (!contributionsData?.contributions) return null;
-
   const { color_scheme, theme, day_labels, current_week_pointer } = formState;
 
   const startOffsets = {
@@ -110,14 +109,6 @@ const HeatMap = () => {
             borderRadius: '7px',
           }}
         ></div>
-        {showArrow && current_week_pointer && (
-          <IconArrowNarrowDown
-            className={`absolute left-1/2 translate-x-[-50%] -top-[23px]`}
-            size={18}
-            strokeWidth={3}
-            color={theme === 'dark' ? '#fff' : '#000'}
-          />
-        )}
       </div>
     );
   });
@@ -134,7 +125,7 @@ const HeatMap = () => {
     ></div>
   ));
 
-  const allSquares = [...emptySquaresRender, ...contributionSquaresRender, ...missingDotsRender].slice(1, 106);
+  const allSquares = [...emptySquaresRender, ...contributionSquaresRender, ...missingDotsRender].slice(1, 99);
 
   const rows = [];
   for (let i = 0; i < allSquares.length; i += 7) {
@@ -156,30 +147,6 @@ const HeatMap = () => {
       }`}
     >
       <div className={`flex `}>
-        <div className={`flex flex-col gap-2 mr-3 ${day_labels ? 'opacity-100' : 'opacity-0'}`}>
-          <div className={`h-[20px] ${theme == 'dark' ? 'text-white' : 'text-slate-800'} font-mono font-semibold`}>
-            S
-          </div>
-          <div className={`h-[20px] ${theme == 'dark' ? 'text-white' : 'text-slate-800'} font-mono font-semibold`}>
-            M
-          </div>
-          <div className={`h-[20px] ${theme == 'dark' ? 'text-white' : 'text-slate-800'} font-mono font-semibold`}>
-            T
-          </div>
-          <div className={`h-[20px] ${theme == 'dark' ? 'text-white' : 'text-slate-800'} font-mono font-semibold`}>
-            W
-          </div>
-          <div className={`h-[20px] ${theme == 'dark' ? 'text-white' : 'text-slate-800'} font-mono font-semibold`}>
-            T
-          </div>
-          <div className={`h-[20px] ${theme == 'dark' ? 'text-white' : 'text-slate-800'} font-mono font-semibold`}>
-            F
-          </div>
-          <div className={`h-[20px] ${theme == 'dark' ? 'text-white' : 'text-slate-800'} font-mono font-semibold`}>
-            S
-          </div>
-        </div>
-
         <div className="flex gap-2 h-full justify-center items-center">{rows}</div>
       </div>
     </div>
