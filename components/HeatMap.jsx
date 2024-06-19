@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { IconArrowNarrowDown } from '@tabler/icons-react';
 import { newColors } from '@/utils/constants';
 
-const HeatMap = ({ previewMode, showTitle }) => {
+const HeatMap = () => {
   const [formState, setFormState] = useState({
     year: '2024',
     username: 't31k',
@@ -95,7 +95,7 @@ const HeatMap = ({ previewMode, showTitle }) => {
     );
 
     const weekNumber = Math.floor((dayIndex + 1) / 7);
-    const showArrow = previewMode ? dayIndex == 13 : weekNumber + 1 == currentWeekNumber && (dayIndex + 1) % 7 == 0;
+    const showArrow = false;
 
     return (
       <div
@@ -155,7 +155,6 @@ const HeatMap = ({ previewMode, showTitle }) => {
         theme == 'dark' ? 'bg-[#0E0E10]' : 'bg-[#fffffc]'
       }`}
     >
-      {showTitle && <h1 className="mb-4 font-mono text-2xl font-bold tracking-tight">Preview</h1>}
       <div className={`flex `}>
         <div className={`flex flex-col gap-2 mr-3 ${day_labels ? 'opacity-100' : 'opacity-0'}`}>
           <div className={`h-[20px] ${theme == 'dark' ? 'text-white' : 'text-slate-800'} font-mono font-semibold`}>
