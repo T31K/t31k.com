@@ -62,13 +62,12 @@ const HeatMap = () => {
       const weekData = contributionsData[weekIndex] || { count: 0 }; // Use default count if no data available
       columnSquares.push(
         <div
-          key={`week-${weekIndex}`}
           style={{
             backgroundColor: getColor(weekData.count),
             width: '20px',
             height: '20px',
-            borderRadius: '7px',
-            margin: '2px',
+            border: '7px',
+            margin: '1px',
           }}
         ></div>
       );
@@ -85,7 +84,7 @@ const HeatMap = () => {
 
   return (
     <div
-      className={`flex flex-row gap-1 h-screen justify-center items-center ${
+      className={`flex flex-row h-screen justify-center items-center ${
         formState.theme === 'dark' ? 'bg-[#0E0E10]' : 'bg-[#fffffc]'
       }`}
     >
