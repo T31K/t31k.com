@@ -1,7 +1,6 @@
 'use client';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import { IconArrowNarrowDown } from '@tabler/icons-react';
 import { newColors } from '@/utils/constants';
 
 const HeatMap = () => {
@@ -10,11 +9,8 @@ const HeatMap = () => {
     username: 't31k',
     theme: 'light',
     color_scheme: 'cello',
-    day_labels: false,
-    current_week_pointer: false,
   });
   const [contributionsData, setContributionsData] = useState([]);
-  const [stats, setStats] = useState({ streak: 0, highest: 0, median: 0 });
 
   useEffect(() => {
     getData();
@@ -25,130 +21,75 @@ const HeatMap = () => {
       const year = formState.year;
       const username = formState.username;
       const res = await axios.get(`https://github-contributions-api.jogruber.de/v4/${username}?y=${year}`);
-      setContributionsData(res.data);
+      setContributionsData(aggregateData(res.data.contributions));
     } catch (error) {
-      if (error.code === 'ERR_BAD_REQUEST') {
-        // toast("User doesn't exist. Try again!");
-      }
+      console.error('Failed to fetch data:', error);
     }
   };
 
-  // const generateStats = (contributionsData) => {
-  //   let highest = getHighest(contributionsData);
-  //   let median = getMedian(contributionsData);
-  //   let streak = getStreak(contributionsData);
-  //   let total = getTotal(contributionsData);
-  //   let mostActiveDay = getMostActiveDay(contributionsData);
-  //   let missedDays = getMissedDays(contributionsData);
-  //   let monthlyChart = processMonthlyChart(contributionsData);
-  //   let weeklyBar = processWeeklyBarChart(contributionsData);
-  //   let rank = generateRank(contributionsData);
+  // Aggregates every 7 days of contributions into one
+  const aggregateData = (data) => {
+    return data.reduce((acc, curr, index) => {
+      let week = Math.floor(index / 7);
+      if (!acc[week]) {
+        acc[week] = { count: 0 };
+      }
+      acc[week].count += curr.count;
+      return acc;
+    }, []);
+  };
 
-  //   setStats({
-  //     highest,
-  //     median,
-  //     streak,
-  //     monthlyChart,
-  //     total,
-  //     rank,
-  //     mostActiveDay,
-  //     missedDays,
-  //     weeklyBar,
-  //   });
-  // };
-
-  const getColor = (activeColor, count) => {
+  const getColor = (count) => {
+    const { color_scheme } = formState;
     if (count === 0) return '#e2e8f0';
-    if (count <= 4) return newColors[activeColor][200];
-    if (count <= 10) return newColors[activeColor][400];
-    if (count <= 20) return newColors[activeColor][600];
-    return newColors[activeColor][800];
+    if (count <= 28) return newColors[color_scheme][200];
+    if (count <= 70) return newColors[color_scheme][400];
+    if (count <= 140) return newColors[color_scheme][600];
+    return newColors[color_scheme][800];
   };
 
-  if (!contributionsData?.contributions) return null;
-  const { color_scheme, theme, day_labels, current_week_pointer } = formState;
+  if (!contributionsData.length) return null;
 
-  const startOffsets = {
-    0: 0, // Sunday
-    1: 1, // Monday
-    2: 2, // Tuesday
-    3: 3, // Wednesday
-    4: 4, // Thursday
-    5: 5, // Friday
-    6: 6, // Saturday
-  };
+  // Calculating the number of columns required (52 weeks / 4 weeks per column)
+  const columnsCount = Math.ceil(52 / 4);
 
-  const firstDayOfWeek = new Date(contributionsData?.contributions[0]?.date).getDay();
-  const emptySquares = startOffsets[firstDayOfWeek];
-  const emptySquaresRender = Array.from({ length: emptySquares }, (_, index) => (
-    <div
-      key={`empty-${index}`}
-      className="w-[20px] h-[20px] rounded-[7px]"
-    ></div>
-  ));
-  const contributionSquaresRender = contributionsData?.contributions?.map((day, dayIndex) => {
-    const color = getColor(color_scheme, day.count);
-
-    const currentWeekNumber = Math.ceil(
-      (new Date().getTime() - new Date(new Date().getFullYear(), 0, 1).getTime()) / (7 * 24 * 60 * 60 * 1000)
-    );
-
-    const weekNumber = Math.floor((dayIndex + 1) / 7);
-    const showArrow = false;
-
-    return (
-      <div
-        key={dayIndex}
-        className="relative"
-      >
+  // Creating columns with vertical grouping
+  const columns = [];
+  for (let col = 0; col < columnsCount; col++) {
+    const columnSquares = [];
+    for (let row = 0; row < 4; row++) {
+      const weekIndex = col * 4 + row;
+      const weekData = contributionsData[weekIndex] || { count: 0 }; // Use default count if no data available
+      columnSquares.push(
         <div
+          key={`week-${weekIndex}`}
           style={{
-            backgroundColor: color,
+            backgroundColor: getColor(weekData.count),
             width: '20px',
             height: '20px',
             borderRadius: '7px',
+            margin: '2px',
           }}
         ></div>
-      </div>
-    );
-  });
-
-  const missingDotsRender = Array.from({ length: 4 }, (_, index) => (
-    <div
-      key={`missing-${index}`}
-      style={{
-        backgroundColor: 'transparent',
-        width: '20px',
-        height: '20px',
-        borderRadius: '7px',
-      }}
-    ></div>
-  ));
-
-  const allSquares = [...emptySquaresRender, ...contributionSquaresRender, ...missingDotsRender].slice(1, 99);
-
-  const rows = [];
-  for (let i = 0; i < allSquares.length; i += 7) {
-    const weekSquares = allSquares.slice(i, i + 7);
-    rows.push(
+      );
+    }
+    columns.push(
       <div
-        key={`week-${i}`}
-        className="flex flex-col gap-2"
+        key={col}
+        className="flex flex-col"
       >
-        {weekSquares}
+        {columnSquares}
       </div>
     );
   }
 
   return (
     <div
-      className={`flex flex-col gap-2 h-screen justify-center items-center  ${
-        theme == 'dark' ? 'bg-[#0E0E10]' : 'bg-[#fffffc]'
+      className={`flex flex-row gap-1 h-screen justify-center items-center ${
+        formState.theme === 'dark' ? 'bg-[#0E0E10]' : 'bg-[#fffffc]'
       }`}
     >
-      <div className={`flex `}>
-        <div className="flex gap-2 h-full justify-center items-center">{rows}</div>
-      </div>
+      {columns}
     </div>
   );
 };
