@@ -85,31 +85,153 @@ const articles = [
   },
 ];
 
-const books = [
-  {
-    title: 'Atomic Habits',
-    author: 'James Clear',
-    favorite: true,
-  },
-  {
-    title: 'Project Hail Mary',
-    author: 'Andy Weir',
-  },
-  {
-    title: 'Deep Work',
-    author: 'Cal Newport',
-  },
-  {
-    title: 'The Magic of Thinking Big',
-    author: 'David J. Schwartz',
-  },
-  {
-    title: 'Metamorphosis',
-    author: 'Franz Kafka',
-  },
-  {
-    title: 'Ikigai',
-    author: 'Hector Garcia',
-  },
-];
+const books = {
+  2021: [
+    {
+      title: 'Atomic Habits',
+      author: 'James Clear',
+      favorite: true,
+    },
+    {
+      title: 'How To Win Friends And Influence People',
+      author: 'Dale Carnegie',
+    },
+    {
+      title: 'Think & Grow Rich',
+      author: 'Napoleon Hill',
+    },
+    {
+      title: 'The Magic of Thinking Big',
+      author: 'David J. Schwartz',
+    },
+    {
+      title: 'Surrounded by Idiots',
+      author: 'Viktor E. Frankl',
+    },
+    {
+      title: 'The Lean Startup',
+      author: 'Eric Ries',
+    },
+    {
+      title: 'Zero To One',
+      author: 'Peter Thiel',
+    },
+  ],
+  2022: [
+    {
+      title: 'MAKE',
+      author: 'Pieter Levels',
+    },
+    {
+      title: '4 Hour Work Week',
+      author: 'Tim Ferriss',
+    },
+    {
+      title: 'Siddhartha',
+      author: 'Herman Hesse',
+    },
+    {
+      title: 'Deep Work',
+      author: 'Cal Newport',
+    },
+    {
+      title: 'Ikigai',
+      author: 'Hector Garcia',
+      favorite: true,
+    },
+    {
+      title: '5 Love Languages',
+      author: 'Gary Chapman',
+    },
+    {
+      title: 'Almanac of Naval Ravikant',
+      author: 'Eric Jorgenson',
+    },
+  ],
+  2023: [
+    {
+      title: '80/20 Rule',
+      author: 'Richard Koch',
+    },
+    {
+      title: 'Never Split The Difference',
+      author: 'Chris Voss',
+    },
+    {
+      title: 'How To Fail At Everything and Still Win Big',
+      author: 'Scott Adams',
+    },
+    {
+      title: 'It’s called breakup because it’s broken',
+      author: 'Greg Behrendt and Amiira Ruotola-Behrendt',
+    },
+    {
+      title: 'Art of Seduction',
+      author: 'Robert Greene',
+    },
+    {
+      title: 'The Mom Test',
+      author: 'Rob Fitzpatrick',
+      favorite: true,
+    },
+    {
+      title: 'Metamorphosis',
+      author: 'Franz Kafka',
+    },
+    {
+      title: 'Give and Take',
+      author: 'Adam Grant',
+    },
+    {
+      title: 'Rework',
+      author: 'Jason Fried and David Heinemeier Hansson',
+    },
+    {
+      title: 'Factfulness',
+      author: 'Hans Rosling',
+    },
+    {
+      title: 'David & Goliath',
+      author: 'Malcolm Gladwell',
+    },
+    {
+      title: 'Project Hail Mary',
+      author: 'Andy Weir',
+    },
+    {
+      title: 'The SAAS Playbook',
+      author: 'Dan Martell',
+    },
+  ],
+  2024: [
+    {
+      title: 'The subtle art of not giving a fuck',
+      author: 'Mark Manson',
+      completed: true,
+    },
+    {
+      title: 'Digital Minimalism',
+      author: 'Cal Newport',
+    },
+    {
+      title: 'Convenience Store Woman',
+      author: 'Sayaka Murata',
+    },
+    {
+      title: 'Feel Good Productivity',
+      author: 'Rashelle Isip',
+    },
+    {
+      title: 'The War of Art',
+      author: 'Steven Pressfield',
+    },
+    {
+      title: 'Win Your Inner Battles',
+      author: 'Adam Smith',
+    },
+  ],
+};
+
+console.log(books);
+
 export { projects, articles, books };
