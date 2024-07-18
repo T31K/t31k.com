@@ -35,6 +35,7 @@ function BookPicks() {
           alt="me"
           width={36}
           height={36}
+          style={{ opacity: activeYear === 2021 ? '0.5' : '1' }}
           onClick={() => handleArrow('left')}
         />
         <h3 className={`text-xl text-center ${pressStart.className} font-medium !m-0 text-dark dark:text-dark `}>
@@ -45,7 +46,7 @@ function BookPicks() {
           alt="me"
           width={36}
           height={36}
-          className={`${activeYear === 2024 ? 'opacity-50' : 'opacity-100'}`}
+          style={{ opacity: activeYear === 2024 ? '0.5' : '1' }}
           onClick={() => handleArrow('right')}
         />
       </div>
@@ -54,10 +55,16 @@ function BookPicks() {
           return (
             <li
               key={key}
-              className={`title capitalize my-8 ${pressStart.className}`}
+              className={`title capitalize ${pressStart.className}`}
+              style={{ fontSize: '1.25rem', margin: '25px 0 !important' }}
             >
-              <span className="">{book.title}</span>
-              <p className="!m-0 !ml-2">
+              <d
+                className=""
+                style={{ margin: '25px 0 !important' }}
+              >
+                {book.title}
+              </d>
+              <p className="!m-0 text-sm">
                 {book.author}
                 {book.favorite && <i className="nes-icon heart is-small !ml-2"></i>}
               </p>

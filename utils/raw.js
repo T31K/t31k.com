@@ -163,7 +163,7 @@ const books = {
     },
     {
       title: 'It’s called breakup because it’s broken',
-      author: 'Greg Behrendt and Amiira Ruotola-Behrendt',
+      author: 'Greg Behrendt',
     },
     {
       title: 'Art of Seduction',
@@ -184,7 +184,7 @@ const books = {
     },
     {
       title: 'Rework',
-      author: 'Jason Fried and David Heinemeier Hansson',
+      author: 'DHH',
     },
     {
       title: 'Factfulness',
