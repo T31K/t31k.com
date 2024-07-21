@@ -1,9 +1,10 @@
 const projects = [
   {
-    title: 'kanokari',
+    title: 'Rent a GF',
     description: 'AI girlfriend',
     revenue: '$0',
     status: 'building',
+    link: 'https://rentagf.com',
   },
   {
     title: 'gitscreen',
