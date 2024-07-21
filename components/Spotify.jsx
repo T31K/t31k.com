@@ -3,6 +3,7 @@ import axios from 'axios';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { ImagePixelated, ElementPixelated } from 'react-pixelate';
+import TurnTable from './TurnTable';
 
 function Spotify() {
   const [currentName, setCurrentName] = useState('retrieving data...');
@@ -129,10 +130,20 @@ function Spotify() {
             <p className="text-center mt-4">
               Tim is <em>surprisingly</em> <br />
               not listening to any music
+              <br />
+              on Spotify now
             </p>
           </div>
         </div>
       )}
+      <div>
+        <div
+          className="flex flex-col items-center justify-center "
+          style={{ margin: '40px 0' }}
+        >
+          <TurnTable />
+        </div>
+      </div>
     </div>
   );
 }
