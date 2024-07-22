@@ -1127,7 +1127,8 @@ input#volume-control::-moz-range-track {
   z-index: 10;
   width: 70px;
   height: 70px;
-  background-color: #7a101c;
+  background-image: url("https://i.scdn.co/image/ab67616d0000b273e0114a86a2a0a7d8762951d9");
+  background-size: contain;
   border-radius: 50%;
   top: 115px;
   left: 115px;
