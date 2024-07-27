@@ -21,13 +21,22 @@ const TurnTable = () => {
 
   return (
     <>
-      <p className="text-center text-dark !m-0">{"Here's a vinyl record"}</p>
+      <p className="text-center whitespace-nowrap mt-4 text-2xl ml-2 text-dark dark:text-dark">{'Vinyl Collection'}</p>
       <div className="vinyl-jacket ">
         <div className="vinyl-wrapper">
           <div className="vinyl-record"></div>
         </div>
       </div>
-      <div className="record-player">
+
+      <div className="record-player relative">
+        <section
+          className="message-left "
+          style={{ zIndex: 50, position: 'absolute', right: -80, top: -20 }}
+        >
+          <div className="nes-balloon from-left !py-1 !px-2">
+            <p className="!text-[10px] text-dark dark:text-dark">Drop the needle</p>
+          </div>
+        </section>
         <input
           type="checkbox"
           id="headshell"

@@ -28,9 +28,7 @@ export default function page() {
           <>
             <div className="message-left block">
               <div className="nes-balloon from-left !py-1 !px-2">
-                <p
-                  className={`!text-[10px] text-dark dark:text-dark ${pressStart.className}`}
-                >{`It's ${'currentTime'} for Tim`}</p>
+                <p className={`!text-[10px] text-dark dark:text-dark ${pressStart.className}`}>{`It's late for Tim`}</p>
               </div>
             </div>
             <div className="justify-center flex-col items-center gap-y-6 flex">
