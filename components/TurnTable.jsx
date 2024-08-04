@@ -30,8 +30,8 @@ const TurnTable = () => {
 
       <div className="record-player relative">
         <section
-          className="message-left "
-          style={{ zIndex: 50, position: 'absolute', right: -80, top: -20 }}
+          className="message-left"
+          style={{ zIndex: 50, position: 'absolute', right: -50, top: -20 }}
         >
           <div className="nes-balloon from-left !py-1 !px-2">
             <p className="!text-[10px] text-dark dark:text-dark">Drop the needle</p>
