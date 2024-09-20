@@ -1,6 +1,13 @@
 const projects = {
   2024: [
     {
+      title: 'Hackapura',
+      description: 'Indie hacker meetups',
+      revenue: '$$$$$$$',
+      status: 'active',
+      link: 'https://hackapura.com',
+    },
+    {
       title: 'Rent a GF',
       description: 'AI girlfriend',
       revenue: '$0',
