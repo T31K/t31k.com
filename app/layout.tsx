@@ -1,19 +1,19 @@
-import Link from "next/link"
-import "./globals.css"
-import { Inter } from "next/font/google"
-import { ThemeProvider } from "@/components/theme-provider"
-import { Analytics } from "@/components/analytics"
-import { ModeToggle } from "@/components/mode-toggle"
-import "nes.css/css/nes.min.css";
-const inter = Inter({ subsets: ["latin"] })
+import Link from 'next/link';
+import './globals.css';
+import { Inter } from 'next/font/google';
+import { ThemeProvider } from '@/components/theme-provider';
+import { Analytics } from '@/components/analytics';
+import { ModeToggle } from '@/components/mode-toggle';
+import 'nes.css/css/nes.min.css';
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
-  title: "T31K",
-  description: "T31K - The T3 Stack",
-}
+  title: 'T31K',
+  description: 'T31K - The T3 Stack',
+};
 
 interface RootLayoutProps {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 export default function RootLayout({ children }: RootLayoutProps) {
@@ -22,7 +22,11 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <body
         className={`antialiased min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-50 ${inter.className}`}
       >
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+        >
           <div className="max-w-2xl mx-auto py-10 px-4">
             <header className="hidden">
               <div className="flex items-center justify-between">
@@ -39,5 +43,5 @@ export default function RootLayout({ children }: RootLayoutProps) {
         </ThemeProvider>
       </body>
     </html>
-  )
+  );
 }

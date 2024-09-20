@@ -5,6 +5,7 @@ const pressStart = Press_Start_2P({ weight: '400', subsets: ['latin-ext'] });
 import Spotify from '@/components/Spotify';
 import Emulator from '@/components/Emulator';
 import HeatMap from '@/components/HeatMap';
+import Projects from '@/components/Projects';
 
 import { projects, articles, books } from '@/utils/raw';
 import { IconCaretLeftFilled, IconCaretRightFilled, IconCircleFilled } from '@tabler/icons-react';
@@ -95,38 +96,7 @@ export default function page() {
       </>
 
       <>
-        <h2 className={`text-2xl ${pressStart.className} font-semibold mb-6 mt-12 text-dark dark:text-dark`}>
-          Projects
-        </h2>
-        {projects.map((project, key) => {
-          return (
-            <div
-              className={`nes-container w-[80%] mx-auto with-title is-rounded bg- ${pressStart.className} !mt-4 relative`}
-              key={key}
-            >
-              <p className="title capitalize text-dark dark:text-dark">{project.title}</p>
-              <p className="!text-[12px] text-dark dark:text-dark"> {project.description}</p>
-
-              <div className="flex justify-start gap-2">
-                <p className="!text-[10px] bg-[#222] text-white p-1">{project.revenue}</p>
-                <p className={`!text-[10px] capitalize p-1 ${getBadgeColor(project.status)}`}>{project.status}</p>
-                <p className={`!text-[10px] p-1 ${project.link ? 'block' : 'hidden'}`}>
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    className="!text-[10px] !mb-4"
-                  >
-                    {' '}
-                    Link
-                  </a>
-                </p>
-              </div>
-            </div>
-          );
-        })}
-        <h2 className={`text-2xl ${pressStart.className} font-semibold mb-6 mt-12 text-dark dark:text-dark`}>
-          Articles
-        </h2>
+        <Projects />
       </>
 
       <section className="lists w-[80%]">

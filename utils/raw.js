@@ -1,57 +1,61 @@
-const projects = [
-  {
-    title: 'Rent a GF',
-    description: 'AI girlfriend',
-    revenue: '$0',
-    status: 'building',
-    link: 'https://rentagf.com',
-  },
-  {
-    title: 'gitscreen',
-    description: 'Turn your github commits into beautiful wallpapers',
-    revenue: '$0',
-    status: 'active',
-    link: 'https://gitscreen.com',
-  },
-  {
-    title: 'calorieasy',
-    description: 'Track calories with AI',
-    revenue: '$1000',
-    status: 'active',
-    link: 'https://calorieasy.app',
-  },
-  {
-    title: 'sidepod',
-    description: 'Spotify widget for macOS',
-    revenue: '$0',
-    status: 'inactive',
-  },
-  {
-    title: 'resync',
-    description: 'Async meetings for your team',
-    revenue: '$0',
-    status: 'inactive',
-  },
-  {
-    title: 'wardrobe AI',
-    description: 'Try on clothes with AI',
-    revenue: '$0',
-    status: 'inactive',
-  },
-  {
-    title: 'harmonize',
-    description: 'A spotlight-like app for your music',
-    revenue: '$300',
-    status: 'active',
-    link: 'https://getharmonize.app',
-  },
-  {
-    title: 'docktopus',
-    description: 'A macOS dock replacement',
-    revenue: '$0',
-    status: 'inactive',
-  },
-];
+const projects = {
+  2024: [
+    {
+      title: 'Rent a GF',
+      description: 'AI girlfriend',
+      revenue: '$0',
+      status: 'building',
+      link: 'https://rentagf.com',
+    },
+    {
+      title: 'gitscreen',
+      description: 'Turn your github commits into beautiful wallpapers',
+      revenue: '$0',
+      status: 'active',
+      link: 'https://gitscreen.com',
+    },
+    {
+      title: 'calorieasy',
+      description: 'Track calories with AI',
+      revenue: '$1000',
+      status: 'active',
+      link: 'https://calorieasy.app',
+    },
+  ],
+  2023: [
+    {
+      title: 'sidepod',
+      description: 'Spotify widget for macOS',
+      revenue: '$0',
+      status: 'inactive',
+    },
+    {
+      title: 'resync',
+      description: 'Async meetings for your team',
+      revenue: '$0',
+      status: 'inactive',
+    },
+    {
+      title: 'wardrobe AI',
+      description: 'Try on clothes with AI',
+      revenue: '$0',
+      status: 'inactive',
+    },
+    {
+      title: 'harmonize',
+      description: 'A spotlight-like app for your music',
+      revenue: '$300',
+      status: 'active',
+      link: 'https://getharmonize.app',
+    },
+    {
+      title: 'docktopus',
+      description: 'A macOS dock replacement',
+      revenue: '$0',
+      status: 'inactive',
+    },
+  ],
+};
 
 const articles = [
   {
