@@ -39,7 +39,7 @@ body {
 }
 
 .rainbow {
-  color: #CF7075;
+  background: #CF7075;
   animation: blinker 1.2s step-end infinite;
   animation: rainbow 7s infinite alternate;
 }
@@ -179,27 +179,27 @@ div.tags span:nth-child(5) {
 
 @keyframes rainbow {
   0% {
-    color: #CF7075;
+    background: #CF7075;
   }
 
   20% {
-    color: #ffc07c;
+    background: #ffc07c;
   }
 
   40% {
-    color: #FEDE9A;
+    background: #FEDE9A;
   }
 
   60% {
-    color: #9BD0A5;
+    background: #9BD0A5;
   }
 
   80% {
-    color: #74ADEA;
+    background: #74ADEA;
   }
 
   100% {
-    color: #a88dea
+    background: #a88dea
   }
 }
 

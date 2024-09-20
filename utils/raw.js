@@ -3,9 +3,15 @@ const projects = {
     {
       title: 'Hackapura',
       description: 'Indie hacker meetups',
-      revenue: '$$$$$$$',
       status: 'active',
       link: 'https://hackapura.com',
+    },
+    {
+      title: 'Tannomba',
+      description: 'AI Influencer',
+      revenue: '$0',
+      status: 'inactive',
+      link: 'https://tanoomba.com',
     },
     {
       title: 'Rent a GF',
@@ -24,7 +30,8 @@ const projects = {
     {
       title: 'calorieasy',
       description: 'Track calories with AI',
-      revenue: '$1000',
+      revenue: '$1200 MRR',
+      lfg: true,
       status: 'active',
       link: 'https://calorieasy.app',
     },
@@ -51,7 +58,8 @@ const projects = {
     {
       title: 'harmonize',
       description: 'A spotlight-like app for your music',
-      revenue: '$300',
+      revenue: '$840 revenue',
+      lfg: true,
       status: 'active',
       link: 'https://getharmonize.app',
     },

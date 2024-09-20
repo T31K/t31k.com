@@ -49,7 +49,11 @@ function Projects() {
             <p className="!text-[12px] text-dark dark:text-dark"> {project.description}</p>
 
             <div className="flex justify-start gap-2">
-              <p className="!text-[10px] bg-[#222] text-white p-1">{project.revenue}</p>
+              {project.revenue && (
+                <p className={`!text-[10px] bg-[#222] text-white p-1 ${project.lfg ? 'rainbow text-gray-800' : ''}`}>
+                  {project.revenue}
+                </p>
+              )}
               <p className={`!text-[10px] capitalize p-1 ${getBadgeColor(project.status)}`}>{project.status}</p>
               <p className={`!text-[10px] p-1 ${project.link ? 'block' : 'hidden'}`}>
                 <a
