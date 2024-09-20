@@ -17,14 +17,14 @@ const projects = {
       title: 'Rent a GF',
       description: 'AI girlfriend',
       revenue: '$0',
-      status: 'building',
+      status: 'inactive',
       link: 'https://rentagf.com',
     },
     {
       title: 'gitscreen',
       description: 'Turn your github commits into beautiful wallpapers',
       revenue: '$0',
-      status: 'active',
+      status: 'inactive',
       link: 'https://gitscreen.com',
     },
     {
