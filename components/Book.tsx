@@ -65,13 +65,16 @@ function Book() {
           const grayStars = 5 - yellowStars; // Remaining gray stars
 
           return (
-            <li
+            <div
               key={key}
-              className={`title capitalize my-8 ${pressStart.className}`}
+              className={`title capitalize my-8 ${pressStart.className} flex flex-col items-start`}
             >
-              <span>{book.title}</span>
-              <p className="!m-0 !ml-2">{book.author}</p>
-              <div className="pl-2 flex items-center gap-x-2">
+              <div className="flex flex-col items-start gap-x-4">
+                <span className="font-semibold !m-0">{book.title}</span>
+                <p className="!m-0 text-sm text-gray-600">{book.author}</p>
+              </div>
+
+              <div className="flex items-center gap-x-2 mt-1 ">
                 {/* Display yellow stars */}
                 {[...Array(yellowStars)].map((_, index: number) => (
                   <Image
@@ -94,7 +97,7 @@ function Book() {
                   />
                 ))}
               </div>
-            </li>
+            </div>
           );
         })}
       </ul>

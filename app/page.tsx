@@ -256,7 +256,7 @@ export default function page() {
         <Spotify />
       </section>
 
-      <section className="lists pt-12 w-[80%]">
+      <section className="lists pt-12 max-w-2xl md:max-w-2xl mx-auto">
         <Book />
       </section>
 

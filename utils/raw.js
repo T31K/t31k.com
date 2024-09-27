@@ -232,7 +232,7 @@ const books = {
     {
       title: 'Factfulness',
       author: 'Hans Rosling',
-      rating: 4,
+      rating: 3,
     },
     {
       title: 'David & Goliath',
@@ -247,7 +247,7 @@ const books = {
     {
       title: 'The SAAS Playbook',
       author: 'Dan Martell',
-      rating: 4,
+      rating: 3,
     },
   ],
   2024: [
@@ -274,7 +274,7 @@ const books = {
     {
       title: 'The War of Art',
       author: 'Steven Pressfield',
-      rating: 4,
+      rating: 3,
     },
     {
       title: 'Win Your Inner Battles',
