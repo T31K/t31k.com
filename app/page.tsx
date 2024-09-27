@@ -245,13 +245,13 @@ export default function page() {
           height={120}
           className="mx-auto "
         />
-        <h2 className={`text-2xl text-center ${pressStart.className} font-semibold mb-8 mt-4 text-dark dark:text-dark`}>
-          2024 Commits
+        <h2 className={`text-2xl text-center ${pressStart.className} font-semibold mb-2 mt-4 text-dark dark:text-dark`}>
+          Commit History
         </h2>
         <HeatMap />
       </section>
 
-      <section className={`mt-24 ${pressStart.className} w-full`}>
+      <section className={` ${pressStart.className} w-full`}>
         <Spotify />
       </section>
 

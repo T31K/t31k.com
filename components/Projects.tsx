@@ -35,24 +35,22 @@ function Projects() {
 
   return (
     <>
-      <h2 className={`text-2xl ${pressStart.className} font-semibold mb-6 mt-12 text-dark dark:text-dark`}>Projects</h2>
-      <div className="flex mb-4">
-        <h2
-          className={`text-xl ${pressStart.className} font-semibold text-dark dark:text-dark !mx-2 ${
-            selectedYear === 2023 ? 'underline' : ''
-          } !italic`}
+      <h2 className={`text-2xl ${pressStart.className} font-semibold  mt-12 text-dark dark:text-dark`}>Projects</h2>
+      <div className={`year-selector my-4 ${pressStart.className} mb-6`}>
+        <button
           onClick={() => setSelectedYear(2023)}
+          disabled={selectedYear === 2023}
+          className={`px-4 py-2 mx-1 ${selectedYear === 2023 ? 'bg-blue-300 text-dark' : 'bg-gray-200 text-white'}`}
         >
           2023
-        </h2>
-        <h2
-          className={`text-xl ${pressStart.className} font-semibold text-dark dark:text-dark !mx-2 ${
-            selectedYear === 2024 ? 'underline' : ''
-          } !italic`}
+        </button>
+        <button
           onClick={() => setSelectedYear(2024)}
+          disabled={selectedYear === 2024}
+          className={`px-4 py-2 mx-1 ${selectedYear === 2024 ? 'bg-blue-300 text-dark' : 'bg-gray-200 text-white'}`}
         >
           2024
-        </h2>
+        </button>
       </div>
 
       {/* Render projects for the selected year */}
