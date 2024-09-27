@@ -5,6 +5,7 @@ const pressStart = Press_Start_2P({ weight: '400', subsets: ['latin-ext'] });
 import Spotify from '@/components/Spotify';
 import Emulator from '@/components/Emulator';
 import HeatMap from '@/components/HeatMap';
+import Book from '@/components/Book';
 import Projects from '@/components/Projects';
 
 import { projects, articles, books } from '@/utils/raw';
@@ -256,32 +257,7 @@ export default function page() {
       </section>
 
       <section className="lists pt-12 w-[80%]">
-        <Image
-          src="/book.webp"
-          alt="me"
-          className="mx-auto"
-          width={85}
-          height={85}
-        />
-        <h2 className={`text-2xl text-center ${pressStart.className} font-semibold mb-8 mt-4 text-dark dark:text-dark`}>
-          Book picks
-        </h2>
-        <ul className="nes-list is-disc text-dark dark:text-dark">
-          {books[`2023`]?.map((book, key) => {
-            return (
-              <li
-                key={key}
-                className={`title capitalize my-8 ${pressStart.className}`}
-              >
-                <span className="">{book.title}</span>
-                <p className="!m-0 !ml-2">
-                  {book.author}
-                  {book.favorite && <i className="nes-icon heart is-small !ml-2"></i>}
-                </p>
-              </li>
-            );
-          })}
-        </ul>
+        <Book />
       </section>
 
       <section className={`mt-12 ${pressStart.className}`}>

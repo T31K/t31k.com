@@ -111,147 +111,188 @@ const books = {
       title: 'Atomic Habits',
       author: 'James Clear',
       favorite: true,
+      rating: 5,
     },
     {
       title: 'How To Win Friends And Influence People',
       author: 'Dale Carnegie',
+      rating: 4,
     },
     {
       title: 'Think & Grow Rich',
       author: 'Napoleon Hill',
+      rating: 4,
     },
     {
       title: 'The Magic of Thinking Big',
       author: 'David J. Schwartz',
+      rating: 4,
     },
     {
       title: 'Surrounded by Idiots',
       author: 'Viktor E. Frankl',
+      rating: 4,
     },
     {
       title: 'The Lean Startup',
       author: 'Eric Ries',
+      rating: 5,
+      rating: 4,
     },
     {
       title: 'Zero To One',
       author: 'Peter Thiel',
+      rating: 3,
     },
   ],
   2022: [
     {
       title: 'MAKE',
       author: 'Pieter Levels',
+      rating: 4,
     },
     {
       title: '4 Hour Work Week',
       author: 'Tim Ferriss',
+      rating: 4,
     },
     {
       title: 'Siddhartha',
       author: 'Herman Hesse',
+      rating: 3,
     },
     {
       title: 'Deep Work',
       author: 'Cal Newport',
+      rating: 4,
     },
     {
       title: 'Ikigai',
       author: 'Hector Garcia',
       favorite: true,
+      rating: 5,
     },
     {
       title: '5 Love Languages',
       author: 'Gary Chapman',
+      rating: 4,
     },
     {
       title: 'Almanac of Naval Ravikant',
       author: 'Eric Jorgenson',
+      rating: 5,
     },
   ],
   2023: [
     {
       title: '80/20 Rule',
       author: 'Richard Koch',
+      rating: 4,
     },
     {
       title: 'Never Split The Difference',
       author: 'Chris Voss',
+      rating: 4,
     },
     {
       title: 'How To Fail At Everything and Still Win Big',
       author: 'Scott Adams',
+      rating: 4,
     },
     {
       title: 'It’s called breakup because it’s broken',
       author: 'Greg Behrendt',
+      rating: 4,
     },
     {
       title: 'Art of Seduction',
       author: 'Robert Greene',
+      rating: 4,
     },
     {
       title: 'The Mom Test',
       author: 'Rob Fitzpatrick',
-      favorite: true,
+      rating: 4,
     },
     {
       title: 'Metamorphosis',
       author: 'Franz Kafka',
+      rating: 4,
     },
     {
       title: 'Give and Take',
       author: 'Adam Grant',
+      rating: 4,
     },
     {
       title: 'Rework',
       author: 'DHH',
+      rating: 4,
     },
     {
       title: 'Factfulness',
       author: 'Hans Rosling',
+      rating: 4,
     },
     {
       title: 'David & Goliath',
       author: 'Malcolm Gladwell',
+      rating: 4,
     },
     {
       title: 'Project Hail Mary',
       author: 'Andy Weir',
+      rating: 5,
     },
     {
       title: 'The SAAS Playbook',
       author: 'Dan Martell',
+      rating: 4,
     },
   ],
   2024: [
     {
       title: 'The subtle art of not giving a fuck',
       author: 'Mark Manson',
-      completed: true,
+      rating: 4,
     },
     {
       title: 'Digital Minimalism',
       author: 'Cal Newport',
+      rating: 4,
     },
     {
       title: 'Convenience Store Woman',
       author: 'Sayaka Murata',
+      rating: 4,
     },
     {
       title: 'Feel Good Productivity',
       author: 'Rashelle Isip',
+      rating: 4,
     },
     {
       title: 'The War of Art',
       author: 'Steven Pressfield',
+      rating: 4,
     },
     {
       title: 'Win Your Inner Battles',
       author: 'Adam Smith',
+      rating: 4,
+    },
+    {
+      title: 'Finish What You Started',
+      author: 'Peter Hollins',
+      rating: 4,
+    },
+    {
+      title: 'This Is How You Heal',
+      author: 'Brianna Wiest',
+      favorite: true,
+      rating: 5,
     },
   ],
 };
-
-console.log(books);
 
 export { projects, articles, books };
