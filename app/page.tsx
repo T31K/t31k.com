@@ -8,7 +8,7 @@ import HeatMap from '@/components/HeatMap';
 import Book from '@/components/Book';
 import Projects from '@/components/Projects';
 
-import { projects, articles, books } from '@/utils/raw';
+import { articles } from '@/utils/raw';
 import { IconCaretLeftFilled, IconCaretRightFilled, IconCircleFilled } from '@tabler/icons-react';
 
 export default function page() {
@@ -239,16 +239,6 @@ export default function page() {
       </section>
 
       <section className={`mt-24 ${pressStart.className} w-full`}>
-        <Image
-          src={'/shy_guy.gif'}
-          alt="t31k"
-          width={120}
-          height={120}
-          className="mx-auto "
-        />
-        <h2 className={`text-2xl text-center ${pressStart.className} font-semibold mb-2 mt-4 text-dark dark:text-dark`}>
-          Commit History
-        </h2>
         <HeatMap />
       </section>
 
@@ -256,7 +246,7 @@ export default function page() {
         <Spotify />
       </section>
 
-      <section className="lists pt-12 max-w-2xl md:max-w-2xl mx-auto">
+      <section className="lists pt-12 w-full max-w-2xl mx-auto">
         <Book />
       </section>
 

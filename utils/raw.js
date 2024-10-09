@@ -35,6 +35,14 @@ const projects = {
       status: 'active',
       link: 'https://calorieasy.app',
     },
+    {
+      title: 'Commit Everyday',
+      description: 'Your GitHub Activity, Visualized In Cards',
+      revenue: '$0',
+      lfg: false,
+      status: 'active',
+      link: 'https://commiteveryday.com',
+    },
   ],
   2023: [
     {

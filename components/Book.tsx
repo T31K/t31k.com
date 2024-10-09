@@ -67,14 +67,18 @@ function Book() {
           return (
             <div
               key={key}
-              className={`title capitalize my-8 ${pressStart.className} flex flex-col items-start`}
+              className={`title capitalize my-8 ${pressStart.className} flex flex-col items-start w-full`} // Set width to be constant
             >
-              <div className="flex flex-col items-start gap-x-4">
+              <div className="flex flex-col items-start gap-x-4 w-full">
+                {' '}
+                {/* Set width to be constant */}
                 <span className="font-semibold !m-0">{book.title}</span>
                 <p className="!m-0 text-sm text-gray-600">{book.author}</p>
               </div>
 
-              <div className="flex items-center gap-x-2 mt-1 ">
+              <div className="flex items-center gap-x-2 mt-1 w-full">
+                {' '}
+                {/* Set width to be constant */}
                 {/* Display yellow stars */}
                 {[...Array(yellowStars)].map((_, index: number) => (
                   <Image
@@ -85,7 +89,6 @@ function Book() {
                     height={19}
                   />
                 ))}
-
                 {/* Display gray stars */}
                 {[...Array(grayStars)].map((_, index: number) => (
                   <Image

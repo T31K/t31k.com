@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { newColors } from '@/utils/constants';
 import { Press_Start_2P } from 'next/font/google';
 const pressStart = Press_Start_2P({ weight: '400', subsets: ['latin-ext'] });
+import Image from 'next/image';
 
 const months = [
   'January',
@@ -31,6 +32,7 @@ const HeatMap = () => {
   const [selectedMonth, setSelectedMonth] = useState<number>(new Date().getMonth() + 1); // Months are 1-based
   const [yearlyContributions, setYearlyContributions] = useState<{ [year: number]: any[] }>({});
   const [contributionsData, setContributionsData] = useState<{ [date: string]: number }>({});
+  const [imageDirection, setImageDirection] = useState<string>('left'); // New state for image direction
 
   useEffect(() => {
     if (yearlyContributions[selectedYear]) {
@@ -82,6 +84,7 @@ const HeatMap = () => {
     } else {
       setSelectedMonth(selectedMonth - 1);
     }
+    setImageDirection('left'); // Set image direction to left
   };
 
   const handleNextMonth = () => {
@@ -93,6 +96,7 @@ const HeatMap = () => {
     } else {
       setSelectedMonth(selectedMonth + 1);
     }
+    setImageDirection('right'); // Set image direction to right
   };
 
   const getColor = (count: number) => {
@@ -138,85 +142,97 @@ const HeatMap = () => {
   }
 
   return (
-    <div className={`flex flex-col items-center ${formState.theme === 'dark' ? 'bg-[#0E0E10]' : 'bg-[#fffffc]'}`}>
-      <div className={`year-selector  ${pressStart.className} my-4`}>
-        <button
-          onClick={() => setSelectedYear(2023)}
-          disabled={selectedYear === 2023}
-          className={`px-4 py-2 mx-1 ${selectedYear === 2023 ? 'bg-blue-300' : 'bg-gray-200 text-white'}`}
-        >
-          2023
-        </button>
-        <button
-          onClick={() => setSelectedYear(2024)}
-          disabled={selectedYear === 2024}
-          className={`px-4 py-2 mx-1 ${selectedYear === 2024 ? 'bg-blue-300' : 'bg-gray-200 text-white'}`}
-        >
-          2024
-        </button>
-      </div>
+    <>
+      <Image
+        src="/shy_guy.gif"
+        className={imageDirection === 'right' ? 'mx-auto transform -scale-x-100' : 'mx-auto'}
+        alt="t31k"
+        width={120}
+        height={120}
+      />
+      <h2 className={`text-2xl text-center ${pressStart.className} font-semibold mb-2 mt-4 text-dark dark:text-dark`}>
+        Commit History
+      </h2>
+      <div className={`flex flex-col items-center ${formState.theme === 'dark' ? 'bg-[#0E0E10]' : 'bg-[#fffffc]'}`}>
+        <div className={`year-selector  ${pressStart.className} my-4`}>
+          <button
+            onClick={() => setSelectedYear(2023)}
+            disabled={selectedYear === 2023}
+            className={`px-4 py-2 mx-1 ${selectedYear === 2023 ? 'bg-blue-300' : 'bg-gray-200 text-white'}`}
+          >
+            2023
+          </button>
+          <button
+            onClick={() => setSelectedYear(2024)}
+            disabled={selectedYear === 2024}
+            className={`px-4 py-2 mx-1 ${selectedYear === 2024 ? 'bg-blue-300' : 'bg-gray-200 text-white'}`}
+          >
+            2024
+          </button>
+        </div>
 
-      <div className="month-selector flex items-center my-2">
-        <button
-          onClick={handlePrevMonth}
-          disabled={selectedYear === 2023 && selectedMonth === 1}
-          className="px-2 py-1 bg-gray-200"
-        >
-          &lt;
-        </button>
-        <span className="mx-4 text-lg text-dark w-[250px] text-center">{months[selectedMonth - 1]}</span>
-        <button
-          onClick={handleNextMonth}
-          disabled={selectedYear === 2024 && selectedMonth === 12}
-          className="px-2 py-1 bg-gray-200"
-        >
-          &gt;
-        </button>
-      </div>
+        <div className="month-selector flex items-center my-2">
+          <button
+            onClick={handlePrevMonth}
+            disabled={selectedYear === 2023 && selectedMonth === 1}
+            className="px-2 py-1 bg-gray-200"
+          >
+            &lt;
+          </button>
+          <span className="mx-4 text-lg text-dark w-[250px] text-center">{months[selectedMonth - 1]}</span>
+          <button
+            onClick={handleNextMonth}
+            disabled={selectedYear === 2024 && selectedMonth === 12}
+            className="px-2 py-1 bg-gray-200"
+          >
+            &gt;
+          </button>
+        </div>
 
-      <div className="h-[180px]">
-        <div className="calendar">
-          {weeks.map((week, weekIndex) => (
-            <div
-              key={weekIndex}
-              className="flex"
-            >
-              {week.map((day, dayIndex) => {
-                if (day === null) {
-                  return (
-                    <div
-                      key={dayIndex}
-                      style={{
-                        width: '20px',
-                        height: '20px',
-                        margin: '1px',
-                        backgroundColor: '#e2e8f0',
-                      }}
-                    ></div>
-                  );
-                } else {
-                  const dateStr = `${selectedYear}-${selectedMonth.toString().padStart(2, '0')}-${day
-                    .toString()
-                    .padStart(2, '0')}`;
-                  const count = contributionsData[dateStr] || 0;
-                  return (
-                    <div
-                      key={dayIndex}
-                      style={{
-                        backgroundColor: getColor(count),
-                        width: '20px',
-                        height: '20px',
-                        margin: '1px',
-                      }}
-                    ></div>
-                  );
-                }
-              })}
-            </div>
-          ))}
+        <div className="h-[180px]">
+          <div className="calendar">
+            {weeks.map((week, weekIndex) => (
+              <div
+                key={weekIndex}
+                className="flex"
+              >
+                {week.map((day, dayIndex) => {
+                  if (day === null) {
+                    return (
+                      <div
+                        key={dayIndex}
+                        style={{
+                          width: '20px',
+                          height: '20px',
+                          margin: '1px',
+                          backgroundColor: '#e2e8f0',
+                        }}
+                      ></div>
+                    );
+                  } else {
+                    const dateStr = `${selectedYear}-${selectedMonth.toString().padStart(2, '0')}-${day
+                      .toString()
+                      .padStart(2, '0')}`;
+                    const count = contributionsData[dateStr] || 0;
+                    return (
+                      <div
+                        key={dayIndex}
+                        style={{
+                          backgroundColor: getColor(count),
+                          width: '20px',
+                          height: '20px',
+                          margin: '1px',
+                        }}
+                      ></div>
+                    );
+                  }
+                })}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
