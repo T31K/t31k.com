@@ -12,15 +12,6 @@ import { articles } from '@/utils/raw';
 import { IconCaretLeftFilled, IconCaretRightFilled, IconCircleFilled } from '@tabler/icons-react';
 
 export default function page() {
-  const getBadgeColor = (status: any) => {
-    if (status === 'active') {
-      return 'bg-green-400';
-    } else if (status === 'inactive') {
-      return 'bg-red-400';
-    } else if (status === 'building') {
-      return 'bg-yellow-400';
-    }
-  };
   return (
     <>
       <>
