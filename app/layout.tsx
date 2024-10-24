@@ -6,7 +6,7 @@ import { Analytics } from '@/components/analytics';
 import { ModeToggle } from '@/components/mode-toggle';
 import 'nes.css/css/nes.min.css';
 const inter = Inter({ subsets: ['latin'] });
-
+import Mario from '@/components/Mario';
 export const metadata = {
   title: 'T31K',
   description: 'T31K - The T3 Stack',
@@ -20,8 +20,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
       <body
-        className={`antialiased min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-50 ${inter.className}`}
+        className={`antialiased relative min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-50 ${inter.className}`}
       >
+        <Mario />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

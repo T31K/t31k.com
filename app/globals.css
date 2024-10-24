@@ -1272,3 +1272,203 @@ input#volume-control::-moz-range-track {
   background-size: cover;
   image-rendering: crisp-edges;
 }
+
+
+.mario-container {
+  display: grid;
+  width: 52px;
+  margin-top: 45px;
+  height: 72px;
+  grid-template-columns: repeat(13, 4px);
+  grid-template-rows: repeat(17, 4px);
+}
+
+.mario-red {
+  background: #FE0002;
+}
+
+.mario-brown {
+  background: #6A0400;
+}
+
+.mario-skin {
+  background: #FFD987;
+}
+
+.mario-black {
+  background: #000000;
+}
+
+.mario-blue {
+  background: #0001FC;
+}
+
+.mario-yellow {
+  background: #FFFF00;
+}
+
+.mario-hat1 {
+  grid-row: 2 / span 1;
+  grid-column: 4 / span 6;
+}
+
+.mario-hat2 {
+  grid-row: 3 / span 1;
+  grid-column: 3 / span 10;
+}
+
+.mario-head {
+  grid-row: 4 / span 5;
+  grid-column: 3 / span 8;
+}
+
+.mario-nose {
+  grid-row: 5 / span 2;
+  grid-column: 11 / span 2;
+}
+
+.mario-snoot {
+  grid-row: 6 / span 1;
+  grid-column: 13 / span 1;
+}
+
+.mario-eye {
+  grid-row: 4 / span 2;
+  grid-column: 9 / span 1;
+}
+.mario-mustache1 {
+  grid-row: 7 / span 1;
+  grid-column: 9 / span 4;
+}
+.mario-mustache2 {
+  grid-row: 6 / span 1;
+  grid-column: 10 / span 1;
+}
+
+.mario-chin {
+  grid-row: 8 / span 1;
+  grid-column: 11 / span 1;
+}
+
+.mario-hair1 {
+  grid-row: 4 / span 1;
+  grid-column: 3 / span 3;
+}
+
+.mario-hair2 {
+  grid-row: 5 / span 3;
+  grid-column: 2 / span 1;
+}
+
+.mario-hair3 {
+  grid-row: 5 / span 2;
+  grid-column: 4 / span 1;
+}
+
+.mario-hair4 {
+  grid-row: 6 / span 1;
+  grid-column: 5 / span 1;
+}
+
+.mario-hair5 {
+  grid-row: 7 / span 1;
+  grid-column: 3 / span 1;
+}
+
+.mario-torso {
+  grid-row: 9 / span 4;
+  grid-column: 3 / span 7;
+}
+
+.mario-sleeves1 {
+  grid-row: 10 / span 1;
+  grid-column: 2 / span 10;
+}
+
+.mario-sleeves2 {
+  grid-row: 11 / span 1;
+  grid-column: 1 / span 12;
+}
+
+.mario-sleeves3 {
+  grid-row: 12 / span 1;
+  grid-column: 10 / span 1;
+}
+
+.mario-hands {
+  grid-row: 12 / span 3;
+  grid-column: 1 / span 12;
+}
+
+.mario-waist {
+  grid-row: 12 / span 3;
+  grid-column: 4 / span 6;
+}
+
+.mario-pant1 {
+  grid-row: 14 / span 2;
+  grid-column: 8 / span 3;
+}
+
+.mario-pant2 {
+  grid-row: 14 / span 2;
+  grid-column: 3 / span 3;
+}
+
+.mario-left-shoe1 {
+  grid-row: 16 / span 2;
+  grid-column: 2 / span 3;
+}
+
+.mario-left-shoe2 {
+  grid-row: 17 / span 1;
+  grid-column: 1 / span 1;
+}
+
+.mario-right-shoe1 {
+  grid-row: 16 / span 2;
+  grid-column: 9 / span 3;
+}
+
+.mario-right-shoe2 {
+  grid-row: 17 / span 1;
+  grid-column: 12 / span 1;
+}
+
+.mario-left-brace {
+  grid-row: 9 / span 3;
+  grid-column: 5 / span 1;
+}
+
+.mario-right-brace {
+  grid-row: 10 / span 2;
+  grid-column: 8 / span 1;
+}
+
+.mario-brace-between {
+  grid-row: 11 / span 1;
+  grid-column: 5 / span 4;
+}
+
+.mario-left-button {
+  grid-row: 12 / span 1;
+  grid-column: 5 / span 1;
+}
+
+.mario-right-button {
+  grid-row: 12 / span 1;
+  grid-column: 8 / span 1;
+}
+
+
+.mario-container.jumping{
+  animation: jump 1s ease-in-out forwards;
+}
+
+@keyframes jump {
+  0% { transform: translateY(0); }
+  20% { transform: translateY(-50px); } /* Jump up */
+  30% { transform: translateY(-50px); } /* Stay at the top */
+  50% { transform: translateY(0px); } /* Stay at the top */
+  100% { transform: translateY(0); } /* Fall down */
+}

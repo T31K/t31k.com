@@ -14,39 +14,9 @@ import { IconCaretLeftFilled, IconCaretRightFilled, IconCircleFilled } from '@ta
 export default function page() {
   return (
     <>
-      <>
-        {Number(new Date().toLocaleString('en-US', { hour: '2-digit' }).slice(0, 2)) > 10 &&
-        new Date().toLocaleString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' }).slice(9, 11) ==
-          'PM' ? (
-          <>
-            <div className="message-left block">
-              <div className="nes-balloon from-left !py-1 !px-2">
-                <p className={`!text-[10px] text-dark dark:text-dark ${pressStart.className}`}>{`It's late for Tim`}</p>
-              </div>
-            </div>
-            <div className="justify-center flex-col items-center gap-y-6 flex">
-              <Image
-                src={'/mario_sleep.gif'}
-                alt="t31k"
-                width={100}
-                height={100}
-              />
-              <h1
-                className={`text-6xl ${pressStart.className} font-semibold mb-4 !tracking-[-15px] text-dark dark:text-dark`}
-              >
-                t31k
-              </h1>
-            </div>
-          </>
-        ) : (
-          <h1
-            className={`text-6xl ${pressStart.className} font-semibold mb-4 !tracking-[-15px] text-dark dark:text-dark`}
-          >
-            t31k
-          </h1>
-        )}
-      </>
-
+      <h1 className={`text-6xl ${pressStart.className} font-semibold mb-4 !tracking-[-15px] text-dark dark:text-dark`}>
+        t31k
+      </h1>
       <>
         <div className="blog-window w-full !font-mono">
           <div className="top-menu">
