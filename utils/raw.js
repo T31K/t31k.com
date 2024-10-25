@@ -295,6 +295,11 @@ const books = {
       rating: 4,
     },
     {
+      title: 'Le Petit Prince',
+      author: 'Antoine de Saint-Exupéry',
+      rating: 4,
+    },
+    {
       title: 'This Is How You Heal',
       author: 'Brianna Wiest',
       favorite: true,
