@@ -22,7 +22,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <body
         className={`antialiased relative min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-50 ${inter.className}`}
       >
-        <Mario />
+        {/* <Mario /> */}
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
