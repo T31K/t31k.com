@@ -300,6 +300,11 @@ const books = {
       rating: 4,
     },
     {
+      title: 'Read People Like a Book',
+      author: 'Patrick King',
+      rating: 4,
+    },
+    {
       title: 'This Is How You Heal',
       author: 'Brianna Wiest',
       favorite: true,
