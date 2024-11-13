@@ -39,7 +39,7 @@ export default function page() {
               <span className="text-let">let</span>
               <span>location</span>
               <span className="text-equal inline-block">=</span>
-              <span className="text-string">{`'singapore'`}</span>
+              <span className="text-string">{`'Singapore'`}</span>
               <span className="!m-0">{`;`}</span>
             </h3>
             <h3 className="data-title mb-1">
@@ -47,9 +47,9 @@ export default function page() {
               <span>job</span>
               <span className="text-equal inline-block">=</span>
               <span className="text-string text-array">{'['}</span>
-              <span className="text-string block !ml-3 mt-1">{"  'indie hacker',"}</span>
-              <span className="text-string block !ml-3">{"  'software engineer',"}</span>
-              <span className="text-string block !ml-3">{"  'writer ',"}</span>
+              <span className="text-string block !ml-3 mt-1">{"  'Indie hacker',"}</span>
+              <span className="text-string block !ml-3">{"  'Software engineer',"}</span>
+              <span className="text-string block !ml-3">{"  'Writer ',"}</span>
               <span className="text-string text-array !ml-0">{']'}</span>
               <span className="">{';'}</span>
             </h3>

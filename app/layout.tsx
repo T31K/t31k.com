@@ -2,11 +2,11 @@ import Link from 'next/link';
 import './globals.css';
 import { Inter } from 'next/font/google';
 import { ThemeProvider } from '@/components/theme-provider';
-import { Analytics } from '@/components/analytics';
 import { ModeToggle } from '@/components/mode-toggle';
 import 'nes.css/css/nes.min.css';
 const inter = Inter({ subsets: ['latin'] });
-import Mario from '@/components/Mario';
+import Script from 'next/script';
+
 export const metadata = {
   title: 'T31K',
   description: 'T31K - The T3 Stack',
@@ -39,8 +39,12 @@ export default function RootLayout({ children }: RootLayoutProps) {
               </div>
             </header>
             <main className="flex flex-col py-24 justify-center items-center">{children}</main>
+            <Script
+              src="http://umami-t4s8owccko00w4oo4sw0g8gc.135.181.43.114.sslip.io/script.js"
+              data-website-id="95ad85b5-9d48-41d8-a64d-9cca53bbbf17"
+              strategy="lazyOnload"
+            />
           </div>
-          <Analytics />
         </ThemeProvider>
       </body>
     </html>
