@@ -5,6 +5,7 @@ import { ThemeProvider } from '@/components/theme-provider';
 import { ModeToggle } from '@/components/mode-toggle';
 import 'nes.css/css/nes.min.css';
 const inter = Inter({ subsets: ['latin'] });
+import Script from 'next/script';
 
 export const metadata = {
   title: 'T31K',
@@ -40,6 +41,11 @@ export default function RootLayout({ children }: RootLayoutProps) {
             <main className="flex flex-col py-24 justify-center items-center">{children}</main>
           </div>
         </ThemeProvider>
+        <Script
+          src="https://umami.t31k.com/script.js"
+          data-website-id="bbbba4fc-6753-47f8-8283-3ba34fe475b5"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
