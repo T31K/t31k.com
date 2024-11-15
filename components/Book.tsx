@@ -14,7 +14,7 @@ type BookType = {
 };
 
 function Book() {
-  const [selectedYear, setSelectedYear] = useState<2023 | 2024 | 2021 | 2022>(2024);
+  const [selectedYear, setSelectedYear] = useState<number>(2024);
 
   return (
     <>
@@ -28,39 +28,41 @@ function Book() {
       <h2 className={`text-2xl text-center ${pressStart.className} font-semibold mb-8 mt-4 text-dark dark:text-dark`}>
         Book Picks
       </h2>
-      <div className={`year-selector my-4 ${pressStart.className} mb-6 flex items-center justify-center`}>
+      <div className={`year-selector my-4 ${pressStart.className} mb-6 flex gap-x-8 items-center justify-center`}>
         <button
-          onClick={() => setSelectedYear(2021)}
-          disabled={selectedYear === 2021}
-          className={`px-4 py-2 mx-1 ${selectedYear === 2021 ? 'bg-blue-300 text-dark' : 'bg-gray-200 text-white'}`}
+          onClick={() =>
+            setSelectedYear((prevYear) => {
+              const newYear = prevYear - 1;
+              return newYear >= 2021 ? newYear : prevYear;
+            })
+          }
+          className="px-2 py-1 bg-gray-200"
         >
-          2021
+          &lt;
         </button>
         <button
-          onClick={() => setSelectedYear(2022)}
           disabled={selectedYear === 2022}
-          className={`px-4 py-2 mx-1 ${selectedYear === 2022 ? 'bg-blue-300 text-dark' : 'bg-gray-200 text-white'}`}
+          className={`px-4 py-2 mx-1 bg-blue-300 text-dark`}
         >
-          2022
+          {selectedYear}
         </button>
         <button
-          onClick={() => setSelectedYear(2023)}
-          disabled={selectedYear === 2023}
-          className={`px-4 py-2 mx-1 ${selectedYear === 2023 ? 'bg-blue-300 text-dark' : 'bg-gray-200 text-white'}`}
+          onClick={() =>
+            setSelectedYear((prevYear) => {
+              const newYear = prevYear + 1;
+              const currentYear = new Date().getFullYear();
+              return newYear <= currentYear ? newYear : prevYear;
+            })
+          }
+          disabled={selectedYear === new Date().getFullYear()}
+          className="px-2 py-1 bg-gray-200"
         >
-          2023
-        </button>
-        <button
-          onClick={() => setSelectedYear(2024)}
-          disabled={selectedYear === 2024}
-          className={`px-4 py-2 mx-1 ${selectedYear === 2024 ? 'bg-blue-300 text-dark' : 'bg-gray-200 text-white'}`}
-        >
-          2024
+          &gt;
         </button>
       </div>
 
       <ul className="nes-list is-disc text-dark dark:text-dark">
-        {books[selectedYear]?.map((book: BookType, key: number) => {
+        {books[selectedYear as keyof typeof books]?.map((book: BookType, key: number) => {
           const yellowStars = book.rating; // Number of yellow stars
           const grayStars = 5 - yellowStars; // Remaining gray stars
 

@@ -158,14 +158,14 @@ const HeatMap = () => {
           <button
             onClick={() => setSelectedYear(2023)}
             disabled={selectedYear === 2023}
-            className={`px-4 py-2 mx-1 ${selectedYear === 2023 ? 'bg-blue-300' : 'bg-gray-200 text-white'}`}
+            className={`px-4 py-2 mx-1 ${selectedYear === 2023 ? 'bg-blue-300 text-black' : 'bg-gray-200 text-white'}`}
           >
             2023
           </button>
           <button
             onClick={() => setSelectedYear(2024)}
             disabled={selectedYear === 2024}
-            className={`px-4 py-2 mx-1 ${selectedYear === 2024 ? 'bg-blue-300' : 'bg-gray-200 text-white'}`}
+            className={`px-4 py-2 mx-1 ${selectedYear === 2024 ? 'bg-blue-300 text-black' : 'bg-gray-200 text-white'}`}
           >
             2024
           </button>
