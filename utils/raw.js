@@ -1,8 +1,14 @@
 const projects = {
   2024: [
     {
+      title: 'Hacka Lumpur',
+      description: 'Indie hacker meetups in KL, Malaysia',
+      status: 'active',
+      link: 'https://hackalumpur.com',
+    },
+    {
       title: 'Hackapura',
-      description: 'Indie hacker meetups in SG',
+      description: 'Indie hacker meetups in Singapore',
       status: 'active',
       link: 'https://hackapura.com',
     },

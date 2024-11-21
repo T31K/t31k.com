@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 function page() {
   return (
@@ -13,6 +13,7 @@ function page() {
       <a href="https://hackalumpur.com">Hacka Lumpur</a>
       <a href="https://clemanteemusic.com">Clemantee Music</a>
       <a href="https://fixitjerry.com">Fix It Jerry</a>
+      <a href="https://earthinterior.sg">Earth Interior Singapore</a>
       <a href="https://mirabelledecoupage.com">Mirabelle Decoupage</a>
       <a href="https://dokeyai.com/">DokeyAI</a>
     </main>
