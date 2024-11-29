@@ -44,7 +44,7 @@ export default function page() {
               <span className="text-let">let</span>
               <span>location</span>
               <span className="text-equal inline-block">=</span>
-              <span className="text-string">{`'Singapore'`}</span>
+              <span className="text-string">{`'Kuala Lumpur'`}</span>
               <span className="!m-0">{`;`}</span>
             </h3>
             <h3 className="data-title mb-1">
