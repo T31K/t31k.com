@@ -2,8 +2,12 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { Press_Start_2P } from 'next/font/google';
-const pressStart = Press_Start_2P({ weight: '400', subsets: ['latin-ext'] });
-
+const pressStart = Press_Start_2P({
+  weight: '400',
+  subsets: ['latin-ext'],
+  display: 'swap',
+  adjustFontFallback: false,
+});
 import { books } from '@/utils/raw';
 
 type BookType = {

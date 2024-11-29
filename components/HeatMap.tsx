@@ -3,7 +3,12 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { newColors } from '@/utils/constants';
 import { Press_Start_2P } from 'next/font/google';
-const pressStart = Press_Start_2P({ weight: '400', subsets: ['latin-ext'] });
+const pressStart = Press_Start_2P({
+  weight: '400',
+  subsets: ['latin-ext'],
+  display: 'swap',
+  adjustFontFallback: false,
+});
 import Image from 'next/image';
 
 const months = [

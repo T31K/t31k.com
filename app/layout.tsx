@@ -1,10 +1,8 @@
 import Link from 'next/link';
 import './globals.css';
-import { Inter } from 'next/font/google';
 import { ThemeProvider } from '@/components/theme-provider';
 import { ModeToggle } from '@/components/mode-toggle';
 import 'nes.css/css/nes.min.css';
-const inter = Inter({ subsets: ['latin'] });
 import Script from 'next/script';
 
 export const metadata = {
@@ -20,7 +18,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
       <body
-        className={`antialiased relative min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-50 ${inter.className}`}
+        className={`antialiased relative min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-50 `}
       >
         {/* <Mario /> */}
         <ThemeProvider

@@ -1,7 +1,12 @@
 'use client';
 import { books } from '@/utils/raw';
 import { Press_Start_2P } from 'next/font/google';
-const pressStart = Press_Start_2P({ weight: '400', subsets: ['latin-ext'] });
+const pressStart = Press_Start_2P({
+  weight: '400',
+  subsets: ['latin-ext'],
+  display: 'swap',
+  adjustFontFallback: false,
+});
 import Image from 'next/image';
 import { useState } from 'react';
 function BookPicks() {
