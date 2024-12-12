@@ -1,6 +1,12 @@
 const projects = {
   2024: [
     {
+      title: 'Tarot Card Reading AI',
+      description: 'AI Powered Tarot Readings',
+      status: 'building',
+      link: 'https://tarotcardreadingai.com',
+    },
+    {
       title: 'Hacka Lumpur',
       description: 'Indie hacker meetups in KL, Malaysia',
       status: 'active',
