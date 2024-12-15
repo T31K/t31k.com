@@ -16,7 +16,14 @@ function Page() {
     return () => clearInterval(intervalId);
   }, []);
 
-  return <div className="text-3xl max-w-xl text-[#222]">Redirecting to Medium in 3, 2, 1...</div>;
+  return (
+    <div
+      className="text-3xl max-w-xl text-[#222]"
+      style={{ color: 'black' }}
+    >
+      Redirecting to Medium in 3, 2, 1...
+    </div>
+  );
 }
 
 export default Page;
