@@ -1,10 +1,18 @@
 const projects = {
+  2025: [
+    {
+      title: 'By End of the year',
+      description: 'Pledge your goals or pay $5',
+      status: 'active',
+      link: 'https://byendoftheyear.com',
+    },
+  ],
   2024: [
     {
-      title: 'Tarot Card Reading AI',
+      title: 'Taroternity',
       description: 'AI Powered Tarot Readings',
-      status: 'building',
-      link: 'https://tarotcardreadingai.com',
+      status: 'active',
+      link: 'https://taroternity.com',
     },
     {
       title: 'Hacka Lumpur',
