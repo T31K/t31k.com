@@ -35,7 +35,7 @@ function Projects() {
     }
   };
 
-  const [selectedYear, setSelectedYear] = useState<2023 | 2024>(2024);
+  const [selectedYear, setSelectedYear] = useState<2023 | 2024 | 2025>(2024);
 
   return (
     <>
@@ -54,6 +54,13 @@ function Projects() {
           className={`px-4 py-2 mx-1 ${selectedYear === 2024 ? 'bg-blue-300 text-dark' : 'bg-gray-200 text-white'}`}
         >
           2024
+        </button>
+        <button
+          onClick={() => setSelectedYear(2025)}
+          disabled={selectedYear === 2025}
+          className={`px-4 py-2 mx-1 ${selectedYear === 2025 ? 'bg-blue-300 text-dark' : 'bg-gray-200 text-white'}`}
+        >
+          2025
         </button>
       </div>
 
