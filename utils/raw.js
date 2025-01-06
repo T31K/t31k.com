@@ -330,11 +330,13 @@ const books = {
       favorite: true,
       rating: 5,
     },
+  ],
+  2025: [
     {
       title: 'The Mountain Is You',
       author: 'Brianna Wiest',
       favorite: true,
-      rating: 4,
+      rating: 5,
     },
   ],
 };
