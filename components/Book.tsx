@@ -14,6 +14,7 @@ type BookType = {
   title: string;
   author: string;
   rating: number; // Rating is a single number
+  reading?: boolean;
   favorite?: boolean; // Optional property
 };
 
@@ -70,7 +71,19 @@ function Book() {
           const yellowStars = book.rating; // Number of yellow stars
           const grayStars = 5 - yellowStars; // Remaining gray stars
 
-          return (
+          return book.reading ? (
+            <div
+              className={`title capitalize my-8 ${pressStart.className} flex flex-col items-start w-full`} // Set width to be constant
+            >
+              <div className="flex flex-col items-start gap-x-4 w-full">
+                {' '}
+                {/* Set width to be constant */}
+                <span className="font-semibold !m-0">{book.title}</span>
+                <p className="!m-0 text-sm text-gray-600">{book.author}</p>
+                <p className="!m-0 text-sm text-yellow-600">Currently reading</p>
+              </div>
+            </div>
+          ) : (
             <div
               key={key}
               className={`title capitalize my-8 ${pressStart.className} flex flex-col items-start w-full`} // Set width to be constant

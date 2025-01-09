@@ -1,19 +1,39 @@
 const projects = {
-  2025: [
+  2023: [
     {
-      title: 'By End of the year',
-      description: 'Pledge your goals or pay $5',
+      title: 'sidepod',
+      description: 'Spotify widget for macOS',
+      revenue: '$0',
+      status: 'inactive',
+    },
+    {
+      title: 'resync',
+      description: 'Async meetings for your team',
+      revenue: '$0',
+      status: 'inactive',
+    },
+    {
+      title: 'wardrobe AI',
+      description: 'Try on clothes with AI',
+      revenue: '$0',
+      status: 'inactive',
+    },
+    {
+      title: 'harmonize',
+      description: 'A spotlight-like app for your music',
+      revenue: '$840 revenue',
+      lfg: true,
       status: 'active',
-      link: 'https://byendoftheyear.com',
+      link: 'https://getharmonize.app',
+    },
+    {
+      title: 'docktopus',
+      description: 'A macOS dock replacement',
+      revenue: '$0',
+      status: 'inactive',
     },
   ],
   2024: [
-    {
-      title: 'Taroternity',
-      description: 'AI Powered Tarot Readings',
-      status: 'active',
-      link: 'https://taroternity.com',
-    },
     {
       title: 'Hacka Lumpur',
       description: 'Indie hacker meetups in KL, Malaysia',
@@ -27,7 +47,7 @@ const projects = {
       link: 'https://hackapura.com',
     },
     {
-      title: 'Tannomba',
+      title: 'Tanoomba',
       description: 'AI Influencer',
       revenue: '$0',
       status: 'inactive',
@@ -64,38 +84,18 @@ const projects = {
       link: 'https://commiteveryday.com',
     },
   ],
-  2023: [
+  2025: [
     {
-      title: 'sidepod',
-      description: 'Spotify widget for macOS',
-      revenue: '$0',
-      status: 'inactive',
-    },
-    {
-      title: 'resync',
-      description: 'Async meetings for your team',
-      revenue: '$0',
-      status: 'inactive',
-    },
-    {
-      title: 'wardrobe AI',
-      description: 'Try on clothes with AI',
-      revenue: '$0',
-      status: 'inactive',
-    },
-    {
-      title: 'harmonize',
-      description: 'A spotlight-like app for your music',
-      revenue: '$840 revenue',
-      lfg: true,
+      title: 'By End of the year',
+      description: 'Pledge your goals or pay $5',
       status: 'active',
-      link: 'https://getharmonize.app',
+      link: 'https://byendoftheyear.com',
     },
     {
-      title: 'docktopus',
-      description: 'A macOS dock replacement',
-      revenue: '$0',
-      status: 'inactive',
+      title: 'Taroternity',
+      description: 'AI Powered Tarot Readings',
+      status: 'active',
+      link: 'https://taroternity.com',
     },
   ],
 };
@@ -337,6 +337,13 @@ const books = {
       author: 'Brianna Wiest',
       favorite: true,
       rating: 5,
+    },
+    {
+      title: 'The Midnight Library',
+      author: 'Matt Haig',
+      favorite: true,
+      reading: true,
+      rating: null,
     },
   ],
 };

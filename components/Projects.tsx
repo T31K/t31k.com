@@ -35,37 +35,45 @@ function Projects() {
     }
   };
 
-  const [selectedYear, setSelectedYear] = useState<2023 | 2024 | 2025>(2024);
+  const [selectedYear, setSelectedYear] = useState<number>(2024);
 
   return (
     <>
       <h2 className={`text-2xl ${pressStart.className} font-semibold  mt-12 text-dark dark:text-dark`}>Projects</h2>
-      <div className={`year-selector my-4 ${pressStart.className} mb-6`}>
+      <div className={`year-selector my-4 ${pressStart.className} mb-6 flex gap-x-8 items-center justify-center`}>
         <button
-          onClick={() => setSelectedYear(2023)}
+          onClick={() =>
+            setSelectedYear((prevYear) => {
+              const newYear = prevYear - 1;
+              return newYear >= 2023 ? newYear : prevYear;
+            })
+          }
+          className="px-2 py-1 bg-gray-200"
+        >
+          &lt;
+        </button>
+        <button
           disabled={selectedYear === 2023}
-          className={`px-4 py-2 mx-1 ${selectedYear === 2023 ? 'bg-blue-300 text-dark' : 'bg-gray-200 text-white'}`}
+          className={`px-4 py-2 mx-1 bg-blue-300 text-dark`}
         >
-          2023
+          {selectedYear}
         </button>
         <button
-          onClick={() => setSelectedYear(2024)}
-          disabled={selectedYear === 2024}
-          className={`px-4 py-2 mx-1 ${selectedYear === 2024 ? 'bg-blue-300 text-dark' : 'bg-gray-200 text-white'}`}
-        >
-          2024
-        </button>
-        <button
-          onClick={() => setSelectedYear(2025)}
+          onClick={() =>
+            setSelectedYear((prevYear) => {
+              const newYear = prevYear + 1;
+              return newYear <= 2025 ? newYear : prevYear;
+            })
+          }
           disabled={selectedYear === 2025}
-          className={`px-4 py-2 mx-1 ${selectedYear === 2025 ? 'bg-blue-300 text-dark' : 'bg-gray-200 text-white'}`}
+          className="px-2 py-1 bg-gray-200"
         >
-          2025
+          &gt;
         </button>
       </div>
 
       {/* Render projects for the selected year */}
-      {projects[selectedYear]?.map((project: any, index: number) => (
+      {projects[selectedYear as keyof typeof projects]?.map((project: any, index: number) => (
         <div
           className={`nes-container w-[80%] mx-auto with-title is-rounded ${pressStart.className} !mt-4 relative`}
           key={index}
