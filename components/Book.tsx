@@ -13,9 +13,10 @@ import { books } from '@/utils/raw';
 type BookType = {
   title: string;
   author: string;
-  rating: number; // Rating is a single number
+  // allow rating to be number or null
+  rating: number | null;
   reading?: boolean;
-  favorite?: boolean; // Optional property
+  favorite?: boolean;
 };
 
 function Book() {
@@ -68,16 +69,17 @@ function Book() {
 
       <ul className="nes-list is-disc text-dark dark:text-dark">
         {books[selectedYear as keyof typeof books]?.map((book: BookType, key: number) => {
-          const yellowStars = book.rating; // Number of yellow stars
-          const grayStars = 5 - yellowStars; // Remaining gray stars
+          // Fallback to 0 if the rating is null
+          const rating = book.rating ?? 0;
+          const yellowStars = rating;
+          const grayStars = 5 - rating;
 
           return book.reading ? (
             <div
-              className={`title capitalize my-8 ${pressStart.className} flex flex-col items-start w-full`} // Set width to be constant
+              key={key}
+              className={`title capitalize my-8 ${pressStart.className} flex flex-col items-start w-full`}
             >
               <div className="flex flex-col items-start gap-x-4 w-full">
-                {' '}
-                {/* Set width to be constant */}
                 <span className="font-semibold !m-0">{book.title}</span>
                 <p className="!m-0 text-sm text-gray-600">{book.author}</p>
                 <p className="!m-0 text-sm text-yellow-600">Currently reading</p>
@@ -86,18 +88,13 @@ function Book() {
           ) : (
             <div
               key={key}
-              className={`title capitalize my-8 ${pressStart.className} flex flex-col items-start w-full`} // Set width to be constant
+              className={`title capitalize my-8 ${pressStart.className} flex flex-col items-start w-full`}
             >
               <div className="flex flex-col items-start gap-x-4 w-full">
-                {' '}
-                {/* Set width to be constant */}
                 <span className="font-semibold !m-0">{book.title}</span>
                 <p className="!m-0 text-sm text-gray-600">{book.author}</p>
               </div>
-
               <div className="flex items-center gap-x-2 mt-1 w-full">
-                {' '}
-                {/* Set width to be constant */}
                 {/* Display yellow stars */}
                 {[...Array(yellowStars)].map((_, index: number) => (
                   <Image
@@ -111,7 +108,7 @@ function Book() {
                 {/* Display gray stars */}
                 {[...Array(grayStars)].map((_, index: number) => (
                   <Image
-                    key={index + yellowStars} // Ensure unique key by adding yellowStars
+                    key={index + yellowStars}
                     src="/gray_star.webp"
                     alt="gray star"
                     width={19}
