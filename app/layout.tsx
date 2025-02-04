@@ -41,7 +41,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         </ThemeProvider>
         <Script
           src="https://umami.t31k.cloud/script.js"
-          data-website-id="fa8f7d30-35d7-4d8a-aa29-dd9e3c6c4c57"
+          data-website-id="b4bdd435-9d8f-4c8e-9809-1638eb4d787f"
           strategy="afterInteractive"
         />
       </body>
