@@ -40,8 +40,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
           </div>
         </ThemeProvider>
         <Script
-          src="https://umami.t31k.com/script.js"
-          data-website-id="bbbba4fc-6753-47f8-8283-3ba34fe475b5"
+          src="https://umami.t31k.cloud/script.js"
+          data-website-id="fa8f7d30-35d7-4d8a-aa29-dd9e3c6c4c57"
           strategy="afterInteractive"
         />
       </body>
