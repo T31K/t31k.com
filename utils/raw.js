@@ -342,8 +342,7 @@ const books = {
       title: 'The Midnight Library',
       author: 'Matt Haig',
       favorite: true,
-      reading: true,
-      rating: null,
+      rating: 4,
     },
   ],
 };
