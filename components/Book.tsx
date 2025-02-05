@@ -20,7 +20,7 @@ type BookType = {
 };
 
 function Book() {
-  const [selectedYear, setSelectedYear] = useState<number>(2024);
+  const [selectedYear, setSelectedYear] = useState<number>(2025);
 
   return (
     <>
