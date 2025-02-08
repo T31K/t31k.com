@@ -18,7 +18,7 @@ function Spotify() {
         const { data } = await axios.post(process.env.NEXT_PUBLIC_SPOTIFY_API_URL, {
           hash: process.env.NEXT_PUBLIC_SPOTIFY_HASH,
         });
-
+        console.log('test');
         if (data.current == '') {
           setIsPlaying(false);
         } else {
