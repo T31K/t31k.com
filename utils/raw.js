@@ -88,14 +88,20 @@ const projects = {
     {
       title: 'By End of the year',
       description: 'Pledge your goals or pay $5',
-      status: 'active',
+      status: 'inactive',
       link: 'https://byendoftheyear.com',
     },
     {
       title: 'Taroternity',
       description: 'AI Powered Tarot Readings',
-      status: 'active',
+      status: 'inactive',
       link: 'https://taroternity.com',
+    },
+    {
+      title: 'UGC Gen AI',
+      description: 'Make viral UGC Content with AI',
+      status: 'inactive',
+      link: 'https://ugcgenai.com',
     },
   ],
 };
