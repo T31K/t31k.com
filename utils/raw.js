@@ -355,6 +355,7 @@ const books = {
       author: 'Angela Duckworth',
       favorite: false,
       reading: true,
+      rating: 0,
     },
   ],
 };
