@@ -350,6 +350,12 @@ const books = {
       favorite: true,
       rating: 4,
     },
+    {
+      title: 'Grit: The Power of Passion and Perseverance',
+      author: 'Angela Duckworth',
+      favorite: false,
+      reading: true,
+    },
   ],
 };
 
