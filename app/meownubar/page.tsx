@@ -16,6 +16,7 @@ function Page() {
       [name]: value,
     }));
   };
+  // TODO: add a loading state
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
