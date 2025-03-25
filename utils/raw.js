@@ -353,6 +353,11 @@ const books = {
     {
       title: 'Grit: The Power of Passion and Perseverance',
       author: 'Angela Duckworth',
+      rating: 3,
+    },
+    {
+      title: 'You are a Badass',
+      author: 'Jen Sincero',
       favorite: false,
       reading: true,
       rating: 0,
