@@ -358,9 +358,8 @@ const books = {
     {
       title: 'You are a Badass',
       author: 'Jen Sincero',
-      favorite: false,
-      reading: true,
-      rating: 0,
+      favorite: true,
+      rating: 5,
     },
   ],
 };
