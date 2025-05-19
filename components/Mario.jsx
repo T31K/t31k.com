@@ -18,6 +18,7 @@ const Mario = () => {
     <div className="absolute right-4 top-8 flex flex-col">
       <div className="w-12 h-12 bg-gray-200 flex items-center justify-center p-1">
         <img
+          alt="test"
           src={darkMode ? '/sun.png' : '/moon.png'}
           width={35}
           height={35}

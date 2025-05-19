@@ -18,6 +18,7 @@ function page() {
         </kbd>
       </div>
       <img
+        alt="test"
         src="/commit-98.png"
         className="max-w-[480px]"
       />
