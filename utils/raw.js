@@ -86,6 +86,14 @@ const projects = {
   ],
   2025: [
     {
+      title: 'Dreamchanted',
+      description: 'Turn boring photos into magical art',
+      status: 'active',
+      link: 'https://dreamchanted.com',
+      revenue: 'My Most Successful Project Ever',
+      lfg: true,
+    },
+    {
       title: 'By End of the year',
       description: 'Pledge your goals or pay $5',
       status: 'inactive',
@@ -111,6 +119,16 @@ const articles = [
     title: 'Tech Interviews Are Broken',
     link: 'https://t31k.medium.com/tech-interviews-are-broken-1ac377c7ec23',
     award: true,
+  },
+  {
+    title: 'The Viral Moment Every Founder Dreams Of',
+    link: 'https://medium.com/@t31k/the-viral-moment-every-founder-dreams-of-0eb46bd002dd',
+    award: true,
+  },
+  {
+    title: 'Back To My Unfamiliar Familiar Home',
+    link: 'https://medium.com/@t31k/back-to-my-unfamiliar-familiar-home-236bc841a463',
+    award: false,
   },
   {
     title: 'Indie Hacking Year 1 Review',

@@ -44,6 +44,11 @@ body {
   animation: rainbow 7s infinite alternate;
 }
 
+.text-rainbow {
+  animation: blinker 1.2s step-end infinite;
+  animation: textRainbow 7s infinite alternate;
+}
+
 div.top-menu {
   background: #222;
   height: 50px;
@@ -179,27 +184,53 @@ div.tags span:nth-child(5) {
 
 @keyframes rainbow {
   0% {
-    background: #CF7075;
+    background: #CF707560;
   }
 
   20% {
-    background: #ffc07c;
+    background: #ffc07c60;
   }
 
   40% {
-    background: #FEDE9A;
+    background: #FEDE9A60;
   }
 
   60% {
-    background: #9BD0A5;
+    background: #9BD0A560;
   }
 
   80% {
-    background: #74ADEA;
+    background: #74ADEA60;
   }
 
   100% {
-    background: #a88dea
+    background: #a88dea60;
+  }
+}
+
+@keyframes textRainbow {
+  0% {
+    color: #CF7075;
+  }
+
+  20% {
+    color: #ffc07c;
+  }
+
+  40% {
+    color: #FEDE9A;
+  }
+
+  60% {
+    color: #9BD0A5;
+  }
+
+  80% {
+    color: #74ADEA;
+  }
+
+  100% {
+    color: #a88dea;
   }
 }
 

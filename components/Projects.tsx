@@ -35,7 +35,7 @@ function Projects() {
     }
   };
 
-  const [selectedYear, setSelectedYear] = useState<number>(2024);
+  const [selectedYear, setSelectedYear] = useState<number>(2025);
 
   return (
     <>
@@ -75,15 +75,19 @@ function Projects() {
       {/* Render projects for the selected year */}
       {projects[selectedYear as keyof typeof projects]?.map((project: any, index: number) => (
         <div
-          className={`nes-container w-[80%] mx-auto with-title is-rounded ${pressStart.className} !mt-4 relative`}
+          className={`nes-container w-[80%] ${project.lfg && 'rainbow'} mx-auto with-title is-rounded ${
+            pressStart.className
+          } !mt-4 relative`}
           key={index}
         >
-          <p className="title capitalize text-dark dark:text-dark">{project.title}</p>
+          <p className={`title capitalize text-dark dark:text-dark ${project.lfg && 'text-rainbow !bg-[#222]'}`}>
+            {project.title}
+          </p>
           <p className="!text-[12px] text-dark dark:text-dark">{project.description}</p>
 
           <div className="flex justify-start gap-2">
             {project.revenue && (
-              <p className={`!text-[10px] bg-[#222] text-white p-1 ${project.lfg ? 'rainbow text-gray-800' : ''}`}>
+              <p className={`!text-[10px] bg-[#222] text-white p-1 ${project.lfg ? 'rainbow !text-gray-600' : ''}`}>
                 {project.revenue}
               </p>
             )}

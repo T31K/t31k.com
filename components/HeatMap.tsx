@@ -159,20 +159,36 @@ const HeatMap = () => {
         Commit History
       </h2>
       <div className={`flex flex-col items-center ${formState.theme === 'dark' ? 'bg-[#0E0E10]' : 'bg-[#fffffc]'}`}>
-        <div className={`year-selector  ${pressStart.className} my-4`}>
+        <div className={`year-selector ${pressStart.className} my-4 flex gap-x-8 items-center justify-center`}>
           <button
-            onClick={() => setSelectedYear(2023)}
+            onClick={() => {
+              if (selectedYear > 2023) {
+                setSelectedYear(selectedYear - 1);
+                setSelectedMonth(selectedMonth);
+              }
+            }}
             disabled={selectedYear === 2023}
-            className={`px-4 py-2 mx-1 ${selectedYear === 2023 ? 'bg-blue-300 text-black' : 'bg-gray-200 text-white'}`}
+            className="px-2 py-1 bg-gray-200"
           >
-            2023
+            &lt;
           </button>
           <button
-            onClick={() => setSelectedYear(2024)}
-            disabled={selectedYear === 2024}
-            className={`px-4 py-2 mx-1 ${selectedYear === 2024 ? 'bg-blue-300 text-black' : 'bg-gray-200 text-white'}`}
+            disabled
+            className={`px-4 py-2 mx-1 bg-blue-300 text-dark`}
           >
-            2024
+            {selectedYear}
+          </button>
+          <button
+            onClick={() => {
+              if (selectedYear < 2025) {
+                setSelectedYear(selectedYear + 1);
+                setSelectedMonth(selectedMonth);
+              }
+            }}
+            disabled={selectedYear === 2025}
+            className="px-2 py-1 bg-gray-200"
+          >
+            &gt;
           </button>
         </div>
 
@@ -187,7 +203,7 @@ const HeatMap = () => {
           <span className="mx-4 text-lg text-dark w-[250px] text-center">{months[selectedMonth - 1]}</span>
           <button
             onClick={handleNextMonth}
-            disabled={selectedYear === 2024 && selectedMonth === 12}
+            disabled={selectedYear === 2025 && selectedMonth === new Date().getMonth() + 1}
             className="px-2 py-1 bg-gray-200"
           >
             &gt;
