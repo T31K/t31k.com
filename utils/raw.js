@@ -379,6 +379,12 @@ const books = {
       favorite: true,
       rating: 5,
     },
+    {
+      title: 'The Boy, the Mole, the Fox and the Horse',
+      author: 'Charlie Mackesy',
+      favorite: true,
+      rating: 5,
+    },
   ],
 };
 
