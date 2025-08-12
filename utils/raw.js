@@ -385,6 +385,11 @@ const books = {
       favorite: true,
       rating: 5,
     },
+    {
+      title: 'The Monk Who Solid His Ferrari',
+      author: 'Robin Sharma',
+      rating: 4,
+    },
   ],
 };
 
