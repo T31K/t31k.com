@@ -86,11 +86,19 @@ const projects = {
   ],
   2025: [
     {
+      title: 'Profile Picture AI',
+      description: 'Create beautiful profile pictures with AI',
+      status: 'active',
+      link: 'https://profilepicture.ai',
+      revenue: '$$$$',
+      lfg: true,
+    },
+    {
       title: 'Dreamchanted',
       description: 'Turn boring photos into magical art',
-      status: 'active',
+      status: 'inactive',
       link: 'https://dreamchanted.com',
-      revenue: 'My Most Successful Project Ever',
+      revenue: '$$$$',
       lfg: true,
     },
     {
