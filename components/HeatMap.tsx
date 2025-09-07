@@ -26,6 +26,8 @@ const months = [
   'December',
 ];
 
+const monthsShort = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
 const HeatMap = () => {
   const [formState] = useState<any>({
     username: 't31k',
@@ -159,40 +161,7 @@ const HeatMap = () => {
         Commit History
       </h2>
       <div className={`flex flex-col items-center ${formState.theme === 'dark' ? 'bg-[#0E0E10]' : 'bg-[#fffffc]'}`}>
-        <div className={`year-selector ${pressStart.className} my-4 flex gap-x-8 items-center justify-center`}>
-          <button
-            onClick={() => {
-              if (selectedYear > 2023) {
-                setSelectedYear(selectedYear - 1);
-                setSelectedMonth(selectedMonth);
-              }
-            }}
-            disabled={selectedYear === 2023}
-            className="px-2 py-1 bg-gray-200"
-          >
-            &lt;
-          </button>
-          <button
-            disabled
-            className={`px-4 py-2 mx-1 bg-blue-300 text-dark`}
-          >
-            {selectedYear}
-          </button>
-          <button
-            onClick={() => {
-              if (selectedYear < 2025) {
-                setSelectedYear(selectedYear + 1);
-                setSelectedMonth(selectedMonth);
-              }
-            }}
-            disabled={selectedYear === 2025}
-            className="px-2 py-1 bg-gray-200"
-          >
-            &gt;
-          </button>
-        </div>
-
-        <div className="month-selector flex items-center my-2">
+        <div className={`month-year-selector ${pressStart.className} my-4 flex items-center justify-center`}>
           <button
             onClick={handlePrevMonth}
             disabled={selectedYear === 2023 && selectedMonth === 1}
@@ -200,7 +169,9 @@ const HeatMap = () => {
           >
             &lt;
           </button>
-          <span className="mx-4 text-lg text-dark w-[250px] text-center">{months[selectedMonth - 1]}</span>
+          <span className="mx-4 text-lg text-dark w-[250px] text-center">
+            {monthsShort[selectedMonth - 1]} {selectedYear}
+          </span>
           <button
             onClick={handleNextMonth}
             disabled={selectedYear === 2025 && selectedMonth === new Date().getMonth() + 1}
