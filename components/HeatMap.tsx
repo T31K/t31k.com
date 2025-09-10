@@ -35,7 +35,7 @@ const HeatMap = () => {
     color_scheme: 'cello',
   });
 
-  const [selectedYear, setSelectedYear] = useState<number>(2024);
+  const [selectedYear, setSelectedYear] = useState<number>(2025);
   const [selectedMonth, setSelectedMonth] = useState<number>(new Date().getMonth() + 1); // Months are 1-based
   const [yearlyContributions, setYearlyContributions] = useState<{ [year: number]: any[] }>({});
   const [contributionsData, setContributionsData] = useState<{ [date: string]: number }>({});
@@ -96,7 +96,7 @@ const HeatMap = () => {
 
   const handleNextMonth = () => {
     if (selectedMonth === 12) {
-      if (selectedYear < 2024) {
+      if (selectedYear < 2025) {
         setSelectedYear(selectedYear + 1);
         setSelectedMonth(1);
       }
