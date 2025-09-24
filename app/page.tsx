@@ -18,7 +18,7 @@ import { IconCaretLeftFilled, IconCaretRightFilled, IconCircleFilled } from '@ta
 
 export default function page() {
   return (
-    <>
+    <main className="max-w-2xl flex flex-col justify-center items-center">
       <h1 className={`text-6xl ${pressStart.className} font-semibold mb-4 !tracking-[-15px] text-dark dark:text-dark`}>
         t31k
       </h1>
@@ -243,6 +243,6 @@ export default function page() {
           </a>
         </div>
       </section>
-    </>
+    </main>
   );
 }

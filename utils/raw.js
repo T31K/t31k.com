@@ -398,6 +398,11 @@ const books = {
       author: 'Robin Sharma',
       rating: 4,
     },
+    {
+      title: 'How to Be Single and Happy',
+      author: 'Jennifer L. Taitz',
+      rating: 4,
+    },
   ],
 };
 

@@ -26,7 +26,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           defaultTheme="system"
           enableSystem
         >
-          <div className="max-w-2xl mx-auto py-10 px-4">
+          <div className="mx-auto py-10 px-4">
             <header className="hidden">
               <div className="flex items-center justify-between">
                 <ModeToggle />

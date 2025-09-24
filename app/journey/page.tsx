@@ -23,7 +23,7 @@ const tweetIds = [
 
 export default function JourneyPage() {
   return (
-    <main className=" flex min-h-screen flex-col items-center gap-y-6 py-24 max-w-4xl overflow-x-hiddentext-white relative">
+    <section className=" flex min-h-screen flex-col items-center gap-y-6 py-24 max-w-4xl overflow-x-hiddentext-white relative">
       <h1 className={`text-4xl whitespace-nowrap font-bold mb-8 text-black ${pressStart.className}`}>My Journey</h1>
       <div className="space-y-8">
         {tweetIds
@@ -38,6 +38,6 @@ export default function JourneyPage() {
             </div>
           ))}
       </div>
-    </main>
+    </section>
   );
 }
