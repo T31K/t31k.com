@@ -162,6 +162,15 @@ export default function UploadPage() {
           url: response.data.secure_url,
         });
 
+        // Trigger Vercel rebuild
+        try {
+          await axios.get('https://api.vercel.com/v1/integrations/deploy/prj_6RMTrASCbvl9WPcfHwCLRH77PiQu/IStYi3q7he');
+          console.log('Vercel rebuild triggered');
+        } catch (vercelError) {
+          console.error('Failed to trigger Vercel rebuild:', vercelError);
+          // Don't fail the upload if Vercel trigger fails
+        }
+
         setSelectedFile(null);
         // Reset file input
         const fileInput = document.getElementById('pdf-upload') as HTMLInputElement;
@@ -326,7 +335,7 @@ export default function UploadPage() {
           <div className="bg-green-50 border border-green-200 rounded-xl p-4 mb-6">
             <div className="flex items-center">
               <IconCheck className="w-6 h-6 text-green-500 mr-2" />
-              <p className="text-black text-lg font-medium !m-0">Done</p>
+              <p className="text-black text-lg font-medium">Done. Download in iPad (wait 2-3 minutes)</p>
             </div>
           </div>
         )}

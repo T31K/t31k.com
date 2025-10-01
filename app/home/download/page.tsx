@@ -1,6 +1,5 @@
 'use client';
 
-import { useEffect } from 'react';
 import pdfData from '@/public/pdf.json';
 
 interface PDF {
@@ -12,17 +11,6 @@ interface PDF {
 
 export default function DownloadPage() {
   const allPdfs: PDF[] = pdfData.pdfs || [];
-
-  useEffect(() => {
-    const mainElement = document.querySelector('main');
-    if (mainElement) {
-      const originalPadding = mainElement.style.padding;
-      mainElement.style.padding = '0';
-      return () => {
-        mainElement.style.padding = originalPadding;
-      };
-    }
-  }, []);
 
   return (
     <div className="min-h-screen w-full bg-gradient-to-br from-blue-50 to-indigo-100 p-4">
