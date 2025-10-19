@@ -1503,3 +1503,12 @@ input#volume-control::-moz-range-track {
   50% { transform: translateY(0px); } /* Stay at the top */
   100% { transform: translateY(0); } /* Fall down */
 }
+
+
+h2 {
+  letter-spacing: -0.08em;
+}
+
+p {
+  letter-spacing: -0.07em;
+}
