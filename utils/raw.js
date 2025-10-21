@@ -403,6 +403,11 @@ const books = {
       author: 'Jennifer L. Taitz',
       rating: 4,
     },
+    {
+      title: 'The Obstacle Is The Way',
+      author: 'Ryan Holiday',
+      rating: 4,
+    },
   ],
 };
 
