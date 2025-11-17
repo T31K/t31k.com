@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { Press_Start_2P } from 'next/font/google';
 const pressStart = Press_Start_2P({
   weight: '400',
