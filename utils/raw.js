@@ -408,6 +408,11 @@ const books = {
       author: 'Ryan Holiday',
       rating: 4,
     },
+    {
+      title: 'The Paychology of Monwy',
+      author: 'Morgan Housel',
+      rating: 4,
+    },
   ],
 };
 
