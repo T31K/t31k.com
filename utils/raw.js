@@ -394,7 +394,7 @@ const books = {
       rating: 5,
     },
     {
-      title: 'The Monk Who Solid His Ferrari',
+      title: 'The Monk Who Sold His Ferrari',
       author: 'Robin Sharma',
       rating: 4,
     },
