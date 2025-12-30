@@ -409,7 +409,7 @@ const books = {
       rating: 4,
     },
     {
-      title: 'The Paychology of Monwy',
+      title: 'The Paychology of Money',
       author: 'Morgan Housel',
       rating: 4,
     },
