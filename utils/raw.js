@@ -409,7 +409,12 @@ const books = {
       rating: 4,
     },
     {
-      title: 'The Paychology of Money',
+      title: 'The Psychology of Money',
+      author: 'Morgan Housel',
+      rating: 4,
+    },
+    {
+      title: 'The Art of Spending Money',
       author: 'Morgan Housel',
       rating: 4,
     },
