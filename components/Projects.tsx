@@ -62,10 +62,10 @@ function Projects() {
           onClick={() =>
             setSelectedYear((prevYear) => {
               const newYear = prevYear + 1;
-              return newYear <= 2025 ? newYear : prevYear;
+              return newYear <= 2026 ? newYear : prevYear;
             })
           }
-          disabled={selectedYear === 2025}
+          disabled={selectedYear === 2026}
           className="px-2 py-1 bg-gray-200"
         >
           &gt;

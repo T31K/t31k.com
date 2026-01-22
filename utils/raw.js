@@ -120,6 +120,14 @@ const projects = {
       link: 'https://ugcgenai.com',
     },
   ],
+  2026: [
+    {
+      title: 'Youtube on Loop',
+      description: 'Watch Youtube videos on loop',
+      status: 'active',
+      link: 'https://youtubeonloop.com',
+    },
+  ]
 };
 
 const articles = [

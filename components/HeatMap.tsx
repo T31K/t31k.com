@@ -11,23 +11,6 @@ const pressStart = Press_Start_2P({
 });
 import Image from 'next/image';
 
-const months = [
-  'January',
-  'February',
-  'March',
-  'April',
-  'May',
-  'June',
-  'July',
-  'August',
-  'September',
-  'October',
-  'November',
-  'December',
-];
-
-const monthsShort = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-
 const HeatMap = () => {
   const [formState] = useState<any>({
     username: 't31k',
@@ -35,11 +18,11 @@ const HeatMap = () => {
     color_scheme: 'cello',
   });
 
-  const [selectedYear, setSelectedYear] = useState<number>(2025);
-  const [selectedMonth, setSelectedMonth] = useState<number>(new Date().getMonth() + 1); // Months are 1-based
+  const [selectedYear, setSelectedYear] = useState<number>(new Date().getFullYear());
   const [yearlyContributions, setYearlyContributions] = useState<{ [year: number]: any[] }>({});
   const [contributionsData, setContributionsData] = useState<{ [date: string]: number }>({});
-  const [imageDirection, setImageDirection] = useState<string>('left'); // New state for image direction
+  const [currentGif, setCurrentGif] = useState<string>('/left_shy_guy.gif');
+  const [showMonthIndicators, setShowMonthIndicators] = useState<boolean>(false);
 
   useEffect(() => {
     if (yearlyContributions[selectedYear]) {
@@ -48,12 +31,6 @@ const HeatMap = () => {
       getData();
     }
   }, [selectedYear]);
-
-  useEffect(() => {
-    if (yearlyContributions[selectedYear]) {
-      processContributions(yearlyContributions[selectedYear]);
-    }
-  }, [selectedMonth]);
 
   const getData = async () => {
     try {
@@ -69,41 +46,25 @@ const HeatMap = () => {
   };
 
   const processContributions = (contributions: any[]) => {
-    const filteredContributions = contributions.filter((entry) => {
-      const date = new Date(entry.date);
-      return date.getMonth() + 1 === selectedMonth;
-    });
-
     const contributionsMap: { [date: string]: number } = {};
-    filteredContributions.forEach((entry) => {
+    contributions.forEach((entry) => {
       contributionsMap[entry.date] = entry.count;
     });
-
     setContributionsData(contributionsMap);
   };
 
-  const handlePrevMonth = () => {
-    if (selectedMonth === 1) {
-      if (selectedYear > 2023) {
-        setSelectedYear(selectedYear - 1);
-        setSelectedMonth(12);
-      }
-    } else {
-      setSelectedMonth(selectedMonth - 1);
+  const handlePrevYear = () => {
+    if (selectedYear > 2020) {
+      setSelectedYear(selectedYear - 1);
+      setCurrentGif('/left_shy_guy.gif');
     }
-    setImageDirection('left'); // Set image direction to left
   };
 
-  const handleNextMonth = () => {
-    if (selectedMonth === 12) {
-      if (selectedYear < 2025) {
-        setSelectedYear(selectedYear + 1);
-        setSelectedMonth(1);
-      }
-    } else {
-      setSelectedMonth(selectedMonth + 1);
+  const handleNextYear = () => {
+    if (selectedYear < new Date().getFullYear()) {
+      setSelectedYear(selectedYear + 1);
+      setCurrentGif('/right_shy_guy.gif');
     }
-    setImageDirection('right'); // Set image direction to right
   };
 
   const getColor = (count: number) => {
@@ -115,44 +76,90 @@ const HeatMap = () => {
     return newColors[color_scheme][800];
   };
 
-  const getDaysInMonth = (year: number, month: number) => {
-    return new Date(year, month, 0).getDate();
+  const getYearLabel = (year: number): string => {
+    const labels: { [key: number]: string } = {
+      2020: 'Junior SWE',
+      2021: 'Junior SWE',
+      2022: 'Senior SWE',
+      2023: 'First learnt about Indie Hacking',
+      2024: 'Part time indie hacker',
+      2025: 'Full time indie hacker year 1',
+      2026: 'Full time indie hacker year 2',
+    };
+    return labels[year] || '';
   };
 
   if (!Object.keys(contributionsData).length) return null;
 
-  const daysInMonth = getDaysInMonth(selectedYear, selectedMonth);
-  const firstDay = new Date(selectedYear, selectedMonth - 1, 1).getDay(); // 0 = Sunday
+  // Build array of all days in the year
+  const startDate = new Date(selectedYear, 0, 1);
+  const endDate = new Date(selectedYear, 11, 31);
 
-  const weeks: (number | null)[][] = [];
-  let week: (number | null)[] = [];
+  const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  const allDays: Array<{ date: Date; dateStr: string; count: number; isMonthStart: boolean; monthName: string }> = [];
+  let currentDate = new Date(startDate);
+  let totalContributions = 0;
+  let longestStreak = 0;
+  let currentStreak = 0;
+  let longestDry = 0;
+  let currentDry = 0;
+  let daysWithContributions = 0;
 
-  // Add nulls for days before the first day of the month
-  for (let i = 0; i < firstDay; i++) {
-    week.push(null);
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  while (currentDate <= endDate) {
+    const dateStr = currentDate.toISOString().split('T')[0];
+    const count = contributionsData[dateStr] || 0;
+
+    // Only count stats for days up to today
+    const dateToCheck = new Date(currentDate);
+    dateToCheck.setHours(0, 0, 0, 0);
+    if (dateToCheck <= today) {
+      totalContributions += count;
+
+      if (count > 0) {
+        daysWithContributions++;
+        currentStreak++;
+        longestStreak = Math.max(longestStreak, currentStreak);
+        currentDry = 0;
+      } else {
+        currentDry++;
+        longestDry = Math.max(longestDry, currentDry);
+        currentStreak = 0;
+      }
+    }
+
+    const isMonthStart = currentDate.getDate() === 1;
+    const monthName = monthNames[currentDate.getMonth()];
+    allDays.push({ date: new Date(currentDate), dateStr, count, isMonthStart, monthName });
+    currentDate.setDate(currentDate.getDate() + 1);
   }
 
-  for (let day = 1; day <= daysInMonth; day++) {
-    week.push(day);
-    if (week.length === 7) {
-      weeks.push(week);
-      week = [];
-    }
-  }
+  // Calculate total days (up to today for current year)
+  const totalDays = selectedYear === new Date().getFullYear()
+    ? Math.floor((today.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24)) + 1
+    : allDays.length;
 
-  // Fill the last week with nulls if necessary
-  if (week.length > 0) {
-    while (week.length < 7) {
-      week.push(null);
+  const contributionPercentage = totalDays > 0 ? ((daysWithContributions / totalDays) * 100).toFixed(1) : '0.0';
+
+  // Organize into rows of 15 days each
+  const DAYS_PER_ROW = 15;
+  const rows: Array<Array<{ date: Date; dateStr: string; count: number; isMonthStart: boolean; monthName: string } | null>> = [];
+  for (let i = 0; i < allDays.length; i += DAYS_PER_ROW) {
+    const row: Array<{ date: Date; dateStr: string; count: number; isMonthStart: boolean; monthName: string } | null> = allDays.slice(i, i + DAYS_PER_ROW);
+    // Fill last row with nulls to maintain alignment
+    while (row.length < DAYS_PER_ROW) {
+      row.push(null);
     }
-    weeks.push(week);
+    rows.push(row);
   }
 
   return (
     <>
       <Image
-        src="/shy_guy.gif"
-        className={imageDirection === 'right' ? 'mx-auto transform -scale-x-100' : 'mx-auto'}
+        src={currentGif}
+        className="mx-auto"
         alt="t31k"
         width={120}
         height={120}
@@ -161,67 +168,128 @@ const HeatMap = () => {
         Commit History
       </h2>
       <div className={`flex flex-col items-center ${formState.theme === 'dark' ? 'bg-[#0E0E10]' : 'bg-[#fffffc]'}`}>
-        <div className={`month-year-selector ${pressStart.className} my-4 flex items-center justify-center`}>
-          <button
-            onClick={handlePrevMonth}
-            disabled={selectedYear === 2023 && selectedMonth === 1}
-            className="px-2 py-1 bg-gray-200"
-          >
-            &lt;
-          </button>
-          <span className="mx-4 text-lg text-dark w-[250px] text-center">
-            {monthsShort[selectedMonth - 1]} {selectedYear}
-          </span>
-          <button
-            onClick={handleNextMonth}
-            disabled={selectedYear === 2025 && selectedMonth === new Date().getMonth() + 1}
-            className="px-2 py-1 bg-gray-200"
-          >
-            &gt;
-          </button>
+        <div className="flex flex-col items-center gap-3">
+          <div className={`year-selector ${pressStart.className} flex items-center justify-center`}>
+            <button
+              onClick={handlePrevYear}
+              disabled={selectedYear === 2020}
+              className="px-2 py-1 bg-gray-200"
+            >
+              &lt;
+            </button>
+            <span className="mx-4 text-lg text-dark w-[150px] text-center">
+              {selectedYear}
+            </span>
+            <button
+              onClick={handleNextYear}
+              disabled={selectedYear === new Date().getFullYear()}
+              className="px-2 py-1 bg-gray-200"
+            >
+              &gt;
+            </button>
+          </div>
+
+          <div className={`${pressStart.className} capitalize text-xs mt-4 font-medium text-center px-4 max-w-md`}>
+            {getYearLabel(selectedYear)}
+          </div>
+
+          <div className="flex flex-col gap-1 mt-4 px-4 mx-auto text-[10px] text-dark">
+            <div className="text-left">
+              <span className="text-gray-500">Total Commits:</span>
+              <span className="ml-2 font-semibold">{totalContributions.toLocaleString()}</span>
+            </div>
+            <div className="text-left">
+              <span className="text-gray-500">Active Days:</span>
+              <span className="ml-2 font-semibold">{contributionPercentage}%</span>
+            </div>
+            <div className="text-left">
+              <span className="text-gray-500">Longest Streak:</span>
+              <span className="ml-2 font-semibold">{longestStreak} days</span>
+            </div>
+            <div className="text-left">
+              <span className="text-gray-500">Longest Dry:</span>
+              <span className="ml-2 font-semibold">{longestDry} days</span>
+            </div>
+          </div>
+
         </div>
 
-        <div className="h-[180px]">
-          <div className="calendar">
-            {weeks.map((week, weekIndex) => (
-              <div
-                key={weekIndex}
-                className="flex"
-              >
-                {week.map((day, dayIndex) => {
-                  if (day === null) {
-                    return (
-                      <div
-                        key={dayIndex}
-                        style={{
-                          width: '20px',
-                          height: '20px',
-                          margin: '1px',
-                          backgroundColor: '#e2e8f0',
-                        }}
-                      ></div>
-                    );
-                  } else {
-                    const dateStr = `${selectedYear}-${selectedMonth.toString().padStart(2, '0')}-${day
-                      .toString()
-                      .padStart(2, '0')}`;
-                    const count = contributionsData[dateStr] || 0;
-                    return (
-                      <div
-                        key={dayIndex}
-                        style={{
-                          backgroundColor: getColor(count),
-                          width: '20px',
-                          height: '20px',
-                          margin: '1px',
-                        }}
-                      ></div>
-                    );
-                  }
-                })}
-              </div>
-            ))}
-          </div>
+        <div className={`flex flex-col items-center gap-1 px-4 mt-4 relative ${showMonthIndicators ? 'ml-12' : ''}`}>
+          {showMonthIndicators && (
+            <div className="absolute left-0 top-0 h-full flex flex-col justify-start" style={{ width: '40px' }}>
+              {monthNames.map((month, idx) => (
+                <div
+                  key={month}
+                  className="flex items-center justify-end pr-2"
+                  style={{ height: `${100 / 12}%` }}
+                >
+                  <span className={`text-[9px] ${pressStart.className} text-dark font-bold whitespace-nowrap`}>
+                    {month}
+                  </span>
+                </div>
+              ))}
+            </div>
+          )}
+          {rows.map((row, rowIndex) => {
+            return (
+            <div key={rowIndex} className="flex gap-1 relative">
+              {row.map((day, dayIndex) => {
+                if (day === null) {
+                  // Transparent box for alignment
+                  return (
+                    <div
+                      key={dayIndex}
+                      className="relative w-4 h-4 md:w-6 md:h-6"
+                      style={{
+                        backgroundColor: 'transparent',
+                      }}
+                    ></div>
+                  );
+                }
+
+                // Check if this day is in the future
+                const today = new Date();
+                today.setHours(0, 0, 0, 0);
+                const dayDate = new Date(day.date);
+                dayDate.setHours(0, 0, 0, 0);
+                const isFutureDate = dayDate > today;
+
+                const bgColor = isFutureDate ? '#f8fafc' : getColor(day.count);
+                const currentMonth = day.date.getMonth();
+
+                // Check horizontal boundaries (within row)
+                const prevDay = row[dayIndex - 1];
+                const nextDay = row[dayIndex + 1];
+                const isFirstInRow = !prevDay || prevDay.date.getMonth() !== currentMonth;
+                const isLastInRow = !nextDay || nextDay.date.getMonth() !== currentMonth;
+
+                // Check vertical boundaries (across rows)
+                const dayAbove = rowIndex > 0 ? rows[rowIndex - 1][dayIndex] : null;
+                const dayBelow = rowIndex < rows.length - 1 ? rows[rowIndex + 1][dayIndex] : null;
+                const isFirstRowOfMonth = !dayAbove || dayAbove.date.getMonth() !== currentMonth;
+                const isLastRowOfMonth = !dayBelow || dayBelow.date.getMonth() !== currentMonth;
+
+                const borderClasses = showMonthIndicators ? [
+                  isFirstRowOfMonth ? 'border-t-2' : '',
+                  isLastRowOfMonth ? 'border-b-2' : '',
+                  isFirstInRow ? 'border-l-2' : '',
+                  isLastInRow ? 'border-r-2' : '',
+                  'border-gray-800'
+                ].filter(Boolean).join(' ') : '';
+
+                return (
+                  <div key={dayIndex} className="relative">
+                    <div
+                      className={`w-4 h-4 md:w-6 md:h-6 ${borderClasses}`}
+                      style={{ backgroundColor: bgColor }}
+                      title={`${day.dateStr}: ${day.count} contributions`}
+                    ></div>
+                  </div>
+                );
+              })}
+            </div>
+            );
+          })}
         </div>
       </div>
     </>
