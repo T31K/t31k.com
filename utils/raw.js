@@ -421,12 +421,14 @@ const books = {
       author: 'Morgan Housel',
       rating: 4,
     },
+  ],
+  2026: [
     {
       title: 'The Art of Spending Money',
       author: 'Morgan Housel',
       rating: 4,
     },
-  ],
+  ]
 };
 
 export { projects, articles, books };
