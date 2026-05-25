@@ -127,6 +127,12 @@ const projects = {
       status: 'active',
       link: 'https://youtubeonloop.com',
     },
+    {
+      title: 'Yuree AI',
+      description: 'AI beauty color analysis',
+      status: 'active',
+      link: 'https://yureeai.com',
+    },
   ]
 };
 
