@@ -19,16 +19,12 @@ const CELLS = 40;
 const STORAGE_KEY = "revenue-quest-v1";
 const DEADLINE = new Date("2026-07-31T23:59:59");
 
+const LEVEL_STEP = 1000;
 const RANKS = [
   "WOODEN SWORD",
-  "SLIME HUNTER",
   "COIN GOBLIN",
-  "BRONZE KNIGHT",
   "IRON MERCHANT",
-  "SILVER BARON",
   "GOLD TYCOON",
-  "PLATINUM MOGUL",
-  "DIAMOND DRAGON",
   "FINAL BOSS",
 ];
 
@@ -127,7 +123,7 @@ export default function GoalPage() {
 
   const revenue = sales * PRICE;
   const pct = Math.min(revenue / GOAL, 1);
-  const level = Math.min(Math.floor(revenue / 500), 9);
+  const level = Math.min(Math.floor(revenue / LEVEL_STEP), RANKS.length - 1);
   const complete = revenue >= GOAL;
   const displayRevenue = useCountUp(revenue);
 
@@ -173,8 +169,8 @@ export default function GoalPage() {
 
   const addSale = () => {
     const next = sales + 1;
-    const prevLevel = Math.min(Math.floor((sales * PRICE) / 500), 9);
-    const nextLevel = Math.min(Math.floor((next * PRICE) / 500), 9);
+    const prevLevel = Math.min(Math.floor((sales * PRICE) / LEVEL_STEP), RANKS.length - 1);
+    const nextLevel = Math.min(Math.floor((next * PRICE) / LEVEL_STEP), RANKS.length - 1);
     setSales(next);
     spawnParticle(`+$${PRICE}`, "#3ddc84");
 
@@ -304,9 +300,12 @@ export default function GoalPage() {
                 }
               />
             ))}
-            <span className="rq-flag" aria-hidden="true">
-              {complete ? "🏆" : "🚩"}
-            </span>
+            <img
+              src="/goal-flag.png"
+              alt=""
+              className={`rq-flag ${complete ? "rq-flag-won" : ""}`}
+              aria-hidden="true"
+            />
           </div>
           {/* milestone ticks every $1000 */}
           <div className="rq-ticks" aria-hidden="true">
@@ -373,6 +372,10 @@ export default function GoalPage() {
 
 const css = `
 .rq-page {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  overflow-y: auto;
   min-height: 100vh;
   background: #0b0b12;
   color: #fff;
@@ -463,9 +466,10 @@ const css = `
   font-family: var(--font-press-start), monospace;
   font-size: 16px;
   color: #fff;
+  padding-right: 44px;
 }
 
-.rq-bar-wrap { margin-bottom: 44px; position: relative; }
+.rq-bar-wrap { margin-top: 64px; margin-bottom: 44px; position: relative; }
 .rq-bar {
   display: flex;
   gap: 2px;
@@ -485,10 +489,19 @@ const css = `
 @keyframes rq-blink { 50% { background: #1c1c2b !important; } }
 .rq-flag {
   position: absolute;
-  right: -6px;
-  top: -26px;
-  font-size: 18px;
+  right: -4px;
+  bottom: calc(100% - 6px);
+  height: 88px;
+  width: auto;
+  image-rendering: pixelated;
   filter: drop-shadow(2px 2px 0 #000);
+}
+.rq-flag-won {
+  filter: drop-shadow(2px 2px 0 #000) drop-shadow(0 0 6px #ffd23f);
+  animation: rq-hop 0.5s steps(2) infinite;
+}
+@keyframes rq-hop {
+  50% { transform: translateY(-6px); }
 }
 .rq-ticks { position: relative; height: 22px; }
 .rq-tick {
@@ -631,7 +644,7 @@ const css = `
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .rq-cell-edge, .rq-complete-msg { animation: none; }
+  .rq-cell-edge, .rq-complete-msg, .rq-flag-won { animation: none; }
   .rq-particle { animation-duration: 0.01s; }
 }
 
