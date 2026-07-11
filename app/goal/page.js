@@ -384,8 +384,7 @@ const css = `
   align-items: center;
   justify-content: center;
   padding: 24px;
-  position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
   image-rendering: pixelated;
   background-image:
     linear-gradient(rgba(139,139,167,0.05) 1px, transparent 1px),
