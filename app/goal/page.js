@@ -13,20 +13,27 @@ const jetbrains = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
 });
 
+/* ── QUEST CONFIG — edit PRICE and TIERS, everything scales ── */
 const PRICE = 9.99;
-const GOAL = 5000;
-const CELLS = 40;
+const TIERS = [
+  { sales: 15, name: "MINIMUM SUCCESS" },
+  { sales: 30, name: "GOOD MONTH" },
+  { sales: 50, name: "AMAZING MONTH" },
+];
+// old goals:
+// const GOAL_SALES = 501; // ~$5,000 by end of July
+// const GOAL_SALES = 30;  // $299.70
+
+const GOAL_SALES = TIERS[TIERS.length - 1].sales; // bar ends at the top tier
+const GOAL = PRICE * GOAL_SALES;
+const CELLS = Math.min(GOAL_SALES, 50); // one cell per sale, capped for big goals
+
+const tierIndex = (s) => TIERS.filter((t) => s >= t.sales).length;
+const tierName = (s) => (tierIndex(s) === 0 ? "GRINDING" : TIERS[tierIndex(s) - 1].name);
+const nextTier = (s) => TIERS.find((t) => s < t.sales);
 const STORAGE_KEY = "revenue-quest-v1";
 const DEADLINE = new Date("2026-07-31T23:59:59");
 
-const LEVEL_STEP = 1000;
-const RANKS = [
-  "WOODEN SWORD",
-  "COIN GOBLIN",
-  "IRON MERCHANT",
-  "GOLD TYCOON",
-  "FINAL BOSS",
-];
 
 /* ---------- 8-bit sound engine (WebAudio, zero assets) ---------- */
 function useSfx() {
@@ -123,8 +130,7 @@ export default function GoalPage() {
 
   const revenue = sales * PRICE;
   const pct = Math.min(revenue / GOAL, 1);
-  const level = Math.min(Math.floor(revenue / LEVEL_STEP), RANKS.length - 1);
-  const complete = revenue >= GOAL;
+  const complete = sales >= GOAL_SALES;
   const displayRevenue = useCountUp(revenue);
 
   const daysLeft = useMemo(() => {
@@ -169,20 +175,18 @@ export default function GoalPage() {
 
   const addSale = () => {
     const next = sales + 1;
-    const prevLevel = Math.min(Math.floor((sales * PRICE) / LEVEL_STEP), RANKS.length - 1);
-    const nextLevel = Math.min(Math.floor((next * PRICE) / LEVEL_STEP), RANKS.length - 1);
     setSales(next);
     spawnParticle(`+$${PRICE}`, "#3ddc84");
 
-    if (next * PRICE >= GOAL && sales * PRICE < GOAL) {
+    if (next >= GOAL_SALES && sales < GOAL_SALES) {
       sfx.fanfare();
       spawnConfetti();
-      setLevelFlash("QUEST COMPLETE!");
+      setLevelFlash(`${TIERS[TIERS.length - 1].name}!`);
       setTimeout(() => setLevelFlash(null), 2600);
-    } else if (nextLevel > prevLevel) {
+    } else if (tierIndex(next) > tierIndex(sales)) {
       sfx.levelUp();
       spawnConfetti();
-      setLevelFlash(`LV.${nextLevel + 1} ${RANKS[nextLevel]}`);
+      setLevelFlash(`${tierName(next)}!`);
       setTimeout(() => setLevelFlash(null), 2200);
     } else {
       sfx.coin();
@@ -204,9 +208,9 @@ export default function GoalPage() {
   const partial = pct * CELLS - filledCells > 0.001;
 
   const cellColor = (i) => {
-    const cellPct = i / CELLS;
-    if (cellPct >= 0.75) return "#ffd23f";
-    if (cellPct >= 0.5) return "#7be04f";
+    const salesAtCell = ((i + 1) * GOAL_SALES) / CELLS;
+    if (salesAtCell > TIERS[1].sales) return "#ffd23f";
+    if (salesAtCell > TIERS[0].sales) return "#7be04f";
     return "#3ddc84";
   };
 
@@ -266,7 +270,7 @@ export default function GoalPage() {
                 maximumFractionDigits: 2,
               })}
             </span>
-            <span className="rq-goal">/ ${GOAL.toLocaleString()} GOAL</span>
+            <span className="rq-goal">/ ${GOAL.toFixed(2)} GOAL</span>
           </div>
           <div className="rq-pct">{Math.floor(pct * 100)}%</div>
         </section>
@@ -307,16 +311,16 @@ export default function GoalPage() {
               aria-hidden="true"
             />
           </div>
-          {/* milestone ticks every $1000 */}
+          {/* tier milestones */}
           <div className="rq-ticks" aria-hidden="true">
-            {[1, 2, 3, 4].map((m) => (
+            {TIERS.slice(0, -1).map((t) => (
               <span
-                key={m}
-                className={`rq-tick ${revenue >= m * 1000 ? "rq-tick-hit" : ""}`}
-                style={{ left: `${(m * 1000 * 100) / GOAL}%` }}
+                key={t.sales}
+                className={`rq-tick ${sales >= t.sales ? "rq-tick-hit" : ""}`}
+                style={{ left: `${(t.sales * 100) / GOAL_SALES}%` }}
               >
                 <i />
-                {m}K
+                {t.sales}
               </span>
             ))}
           </div>
@@ -351,13 +355,15 @@ export default function GoalPage() {
             <span className="rq-stat-value">{sales}</span>
           </div>
           <div className="rq-stat">
-            <span className="rq-stat-label">RANK LV.{level + 1}</span>
-            <span className="rq-stat-value rq-stat-rank">{RANKS[level]}</span>
+            <span className="rq-stat-label">TIER {tierIndex(sales)}/{TIERS.length}</span>
+            <span className="rq-stat-value rq-stat-rank">{tierName(sales)}</span>
           </div>
           <div className="rq-stat">
-            <span className="rq-stat-label">TO GOAL</span>
+            <span className="rq-stat-label">
+              {complete ? "TO GOAL" : `TO ${nextTier(sales).name.split(" ")[0]}`}
+            </span>
             <span className="rq-stat-value">
-              {complete ? "DONE!" : `${Math.ceil((GOAL - revenue) / PRICE)} sales`}
+              {complete ? "DONE!" : `${nextTier(sales).sales - sales} sales`}
             </span>
           </div>
         </section>
