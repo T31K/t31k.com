@@ -317,8 +317,8 @@ const css = `
   --wp-h:min(74vh, 700px);
 }
 .wp-head{ text-align:center; margin-bottom:52px; }
-.wp-title{ font-size:40px; font-weight:800; letter-spacing:-.02em; margin:0 0 10px; }
-.wp-sub{ font-size:16px; line-height:1.6; opacity:.6; margin:0 auto; max-width:36rem; }
+.wp-title{ font-size:40px; font-weight:800; letter-spacing:0; margin:0 0 10px; }
+.wp-sub{ font-size:16px; line-height:1.6; opacity:.6; margin:0 auto; max-width:36rem; text-wrap:balance; }
 
 .wp-group{ margin:0 0 300px; }
 .wp-group:last-child{ margin-bottom:40px; }
@@ -551,8 +551,8 @@ export default function WallpapersPage() {
       <div className="wp-head">
         <h1 className="wp-title">Wallpapers</h1>
         <p className="wp-sub">
-          A running collection of wallpapers I&apos;ve fallen for on X. Swipe each
-          post, tap any image to view full size and download.
+          A collection of highly aesthetic, extremely niche wallpapers I curated,
+          because <em>someone</em> has to have taste in this golden era of AI slop.
         </p>
       </div>
 
