@@ -12,11 +12,11 @@ export const metadata = {
     template: '%s — T31K',
   },
   description:
-    'Timon Wong, known online as T31K, is an indie hacker and solopreneur running a portfolio of SaaS products — over 30 apps shipped in 2 years, including Dreamchanted, a viral AI image generator acquired by Danny Postma.',
+    'Timon Wong, known online as T31K, is an indie hacker and solopreneur with 30+ apps shipped in 2 years, including one exit acquired by Danny Postma.',
   openGraph: {
     title: 'T31K — Timon Wong',
     description:
-      'Timon Wong, known online as T31K, is an indie hacker and solopreneur running a portfolio of SaaS products — over 30 apps shipped in 2 years, including Dreamchanted, a viral AI image generator acquired by Danny Postma.',
+      'Timon Wong, known online as T31K, is an indie hacker and solopreneur with 30+ apps shipped in 2 years, including one exit acquired by Danny Postma.',
     url: 'https://t31k.com',
     siteName: 'T31K',
     type: 'website',
