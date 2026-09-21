@@ -6,6 +6,7 @@ const pressStart = Press_Start_2P({
   adjustFontFallback: false,
 });
 
+import Link from 'next/link';
 import Spotify from '@/components/Spotify';
 import Emulator from '@/components/Emulator';
 import HeatMap from '@/components/HeatMap';
@@ -36,7 +37,14 @@ export default function page() {
               <span className="text-let">let</span>
               <span>name</span>
               <span className="text-equal inline-block">=</span>
-              <span className="text-string">{`'Tim'`}</span>
+              <span className="text-string">{`'Timon Wong'`}</span>
+              <span className="!m-0">{`;`}</span>
+            </h3>
+            <h3 className="data-title mb-1">
+              <span className="text-let">let</span>
+              <span>alias</span>
+              <span className="text-equal inline-block">=</span>
+              <span className="text-string">{`'T31K'`}</span>
               <span className="!m-0">{`;`}</span>
             </h3>
             <h3 className="data-title mb-1">
@@ -242,6 +250,54 @@ export default function page() {
           </a>
         </div>
       </section>
+
+      <footer className="mt-16 max-w-xl text-center text-xs font-mono leading-relaxed text-slate-500 dark:text-slate-400">
+        <p>
+          T31K is Timon Wong — an indie hacker, software engineer, and writer from Singapore. He builds consumer apps
+          like{' '}
+          <a
+            href="https://getharmonize.app"
+            className="underline"
+          >
+            Harmonize
+          </a>
+          ,{' '}
+          <a
+            href="https://calorieasy.app"
+            className="underline"
+          >
+            Calorieasy
+          </a>{' '}
+          and{' '}
+          <a
+            href="https://yureeai.com"
+            className="underline"
+          >
+            Yuree AI
+          </a>
+          , and runs the{' '}
+          <a
+            href="https://hackapura.com"
+            className="underline"
+          >
+            Hackapura
+          </a>{' '}
+          (Singapore) and{' '}
+          <a
+            href="https://hackalumpur.com"
+            className="underline"
+          >
+            Hacka Lumpur
+          </a>{' '}
+          (Kuala Lumpur) indie hacker meetups.{' '}
+          <Link
+            href="/about"
+            className="underline"
+          >
+            More about T31K →
+          </Link>
+        </p>
+      </footer>
     </main>
   );
 }

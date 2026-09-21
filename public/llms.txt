@@ -1,0 +1,31 @@
+# T31K (Timon Wong)
+
+> Timon Wong, known online as T31K, is an indie hacker and solopreneur from Singapore. He runs a business with a portfolio of SaaS products, having built and shipped over 30 apps in the past 2 years, including Dreamchanted, a viral AI image generator acquired by Danny Postma. He is very active on X and an avid writer on Medium, covering indie hacking and software engineering. T31K and Timon Wong are the same person; t31k.com is his personal site.
+
+## About
+
+- [About T31K](https://t31k.com/about): Who Timon Wong is, what he has built, and how to reach him
+
+## Projects
+
+- [Harmonize](https://getharmonize.app): Spotlight-like app for your music on macOS
+- [Calorieasy](https://calorieasy.app): Track calories with AI
+- [Profile Picture AI](https://profilepicture.ai): AI profile picture generator
+- [Yuree AI](https://yureeai.com): AI beauty color analysis
+- [YouTube on Loop](https://youtubeonloop.com): Watch YouTube videos on loop
+- [Commit Everyday](https://commiteveryday.com): GitHub activity, visualized in cards
+- [Dreamchanted](https://dreamchanted.com): Viral AI image generator, acquired by Danny Postma
+
+## Communities
+
+- [Hackapura](https://hackapura.com): Indie hacker meetups in Singapore
+- [Hacka Lumpur](https://hackalumpur.com): Indie hacker meetups in Kuala Lumpur, Malaysia
+
+## Writing
+
+- [Medium (@t31k)](https://medium.com/@t31k): Essays on indie hacking, engineering culture, and life
+
+## Social
+
+- [X/Twitter](https://x.com/t31kx): @t31kx
+- [GitHub](https://github.com/t31k): t31k
