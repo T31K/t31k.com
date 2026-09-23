@@ -31,7 +31,7 @@ export async function generateMetadata({
   }
 
   return {
-    title: page.title,
+    title: { absolute: page.title },
     description: page.description,
   }
 }
