@@ -1,4 +1,6 @@
-const DMG_URL = 'https://github.com/T31K/RAN/releases/download/installer/RanOdyssey.dmg';
+// Native Apple Silicon build (no Wine); the Wine build stays available for Intel Macs.
+const DMG_URL = 'https://github.com/T31K/RAN/releases/download/installer/RanOdyssey-Native.dmg';
+const DMG_INTEL_URL = 'https://github.com/T31K/RAN/releases/download/installer/RanOdyssey.dmg';
 
 export const metadata = {
   title: 'RAN Odyssey Online',
@@ -101,9 +103,11 @@ export default function RanPage() {
               Download for Mac
             </a>
             <p className="ran-note">
-              macOS 13+ · Apple Silicon &amp; Intel · ~2&nbsp;GB
+              Native for Apple Silicon · macOS 13+ · ~830&nbsp;MB
               <br />
-              First launch: if macOS hesitates, right-click the app &rarr; <b>Open</b>.
+              Drag to <b>Applications</b>, double-click, play.
+              <br />
+              Intel Mac? <a href={DMG_INTEL_URL} style={{ color: '#ffd84a' }}>Get the classic build</a>
             </p>
             <a
               href="/ran/items"
