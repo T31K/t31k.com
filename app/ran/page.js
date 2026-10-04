@@ -103,7 +103,7 @@ export default function RanPage() {
               Download for Mac
             </a>
             <p className="ran-note">
-              Native for Apple Silicon · macOS 13+ · ~830&nbsp;MB
+              Native for Apple Silicon (M1 or newer) · macOS 26 Tahoe · ~830&nbsp;MB
               <br />
               Drag to <b>Applications</b>, double-click, play.
               <br />
