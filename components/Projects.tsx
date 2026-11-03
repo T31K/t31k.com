@@ -35,7 +35,7 @@ function Projects() {
     }
   };
 
-  const [selectedYear, setSelectedYear] = useState<number>(2025);
+  const [selectedYear, setSelectedYear] = useState<number>(2026);
 
   return (
     <>
