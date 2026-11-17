@@ -51,10 +51,14 @@ async function downloadPDFData() {
   } catch (error) {
     console.error('✗ Error downloading PDF data:', error.message);
 
-    // Create empty file if fetch fails so build doesn't break
-    const fallbackData = { total: 0, pdfs: [] };
-    fs.writeFileSync(OUTPUT_FILE, JSON.stringify(fallbackData, null, 2), 'utf8');
-    console.log('✓ Created fallback pdf.json with empty data');
+    // Keep the last good pdf.json if the fetch fails; only write an empty one if none exists
+    if (fs.existsSync(OUTPUT_FILE)) {
+      console.log('✓ Keeping existing pdf.json');
+    } else {
+      const fallbackData = { total: 0, pdfs: [] };
+      fs.writeFileSync(OUTPUT_FILE, JSON.stringify(fallbackData, null, 2), 'utf8');
+      console.log('✓ Created fallback pdf.json with empty data');
+    }
 
     process.exit(0); // Don't fail the build
   }

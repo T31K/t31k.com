@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 // Native Apple Silicon build (no Wine); the Wine build stays available for Intel Macs.
 const DMG_URL = 'https://github.com/T31K/RAN/releases/download/installer/RanOdyssey-Native.dmg';
 const DMG_INTEL_URL = 'https://github.com/T31K/RAN/releases/download/installer/RanOdyssey.dmg';
@@ -109,12 +111,12 @@ export default function RanPage() {
               <br />
               Intel Mac? <a href={DMG_INTEL_URL} style={{ color: '#ffd84a' }}>Get the classic build</a>
             </p>
-            <a
+            <Link
               href="/ran/items"
               className="ran-btn ran-small"
             >
               Item codes
-            </a>
+            </Link>
           </div>
         </div>
       </div>

@@ -26,7 +26,8 @@ export async function generateStaticParams() {
 }
 
 // Dynamic Page Component
-export default function BlogRedirectPage({ params }) {
+export default async function BlogRedirectPage(props) {
+  const params = await props.params;
   const slug = params.slug.join('-'); // Combine slug array into a string with hyphens
   const mediumURL = `https://medium.com/@t31k/${params.url}`;
 

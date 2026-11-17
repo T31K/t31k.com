@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useState } from 'react';
+import Link from 'next/link';
 
 const PASSWORD = 'rzE1oYuof8XX0TWh';
 const AUTH_KEY = 'ran-items-auth';
@@ -212,7 +213,7 @@ function Browser({ categories, sheets }) {
           <div className="ri-title">Item Codes</div>
           <div className="ri-body">
             <div className="ri-brand">
-              <a href="/ran">&larr; RAN Odyssey</a>
+              <Link href="/ran">&larr; RAN Odyssey</Link>
               <br />
               Type <code>getitem MID SID</code> in chat
             </div>

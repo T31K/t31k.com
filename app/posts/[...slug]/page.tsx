@@ -4,13 +4,17 @@ import { allPosts } from "contentlayer/generated"
 import { Metadata } from "next"
 import { Mdx } from "@/components/mdx-components"
 
+// Only prerendered slugs; MDX can't be evaluated at runtime on Workers (no `new Function`).
+export const dynamicParams = false
+
+type PostParams = { slug: string[] }
+
 interface PostProps {
-  params: {
-    slug: string[]
-  }
+  params: Promise<PostParams>
 }
 
-async function getPostFromParams(params: PostProps["params"]) {
+async function getPostFromParams(paramsPromise: PostProps["params"]) {
+  const params = await paramsPromise
   const slug = params?.slug?.join("/")
   const post = allPosts.find((post) => post.slugAsParams === slug)
 
@@ -36,7 +40,7 @@ export async function generateMetadata({
   }
 }
 
-export async function generateStaticParams(): Promise<PostProps["params"][]> {
+export async function generateStaticParams(): Promise<PostParams[]> {
   return allPosts.map((post) => ({
     slug: post.slugAsParams.split("/"),
   }))

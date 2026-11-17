@@ -1,10 +1,11 @@
-const { withContentlayer } = require('next-contentlayer');
+const { withContentlayer } = require('next-contentlayer2');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
   images: {
+    // No Vercel image optimizer on Cloudflare
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',
@@ -21,3 +22,7 @@ const nextConfig = {
 };
 
 module.exports = withContentlayer(nextConfig);
+
+if (process.env.NODE_ENV === 'development') {
+  require('@opennextjs/cloudflare').initOpenNextCloudflareForDev();
+}

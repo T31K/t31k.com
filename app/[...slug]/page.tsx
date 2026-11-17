@@ -4,13 +4,17 @@ import { allPages } from "contentlayer/generated"
 
 import { Mdx } from "@/components/mdx-components"
 
+// Only prerendered slugs; MDX can't be evaluated at runtime on Workers (no `new Function`).
+export const dynamicParams = false
+
+type PageParams = { slug: string[] }
+
 interface PageProps {
-  params: {
-    slug: string[]
-  }
+  params: Promise<PageParams>
 }
 
-async function getPageFromParams(params: PageProps["params"]) {
+async function getPageFromParams(paramsPromise: PageProps["params"]) {
+  const params = await paramsPromise
   const slug = params?.slug?.join("/")
   const page = allPages.find((page) => page.slugAsParams === slug)
 
@@ -36,7 +40,7 @@ export async function generateMetadata({
   }
 }
 
-export async function generateStaticParams(): Promise<PageProps["params"][]> {
+export async function generateStaticParams(): Promise<PageParams[]> {
   return allPages.map((page) => ({
     slug: page.slugAsParams.split("/"),
   }))
