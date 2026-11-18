@@ -49,7 +49,7 @@ function Spotify() {
       </div>
       {isPlaying ? (
         <>
-          <div className="nes-container is-dark member-card !w-[80%] flex items-center flex-col justify-center relative">
+          <div className="nes-container is-dark member-card !w-[80%] !mx-auto flex items-center flex-col justify-center relative">
             <ImagePixelated
               src={currentAlbum}
               width={200}
@@ -124,7 +124,7 @@ function Spotify() {
           </div>
         </>
       ) : (
-        <div className="nes-container is-dark member-card !w-[80%] flex items-center flex-col justify-center relative">
+        <div className="nes-container is-dark member-card !w-[80%] !mx-auto flex items-center flex-col justify-center relative">
           <div className="flex flex-col justify-center items-center">
             <i className="snes-jp-logo is-large"></i>
             <p className="text-center mt-4">

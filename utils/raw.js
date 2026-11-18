@@ -134,7 +134,7 @@ const projects = {
       link: 'https://yureeai.com',
     },
     {
-      title: 'Sightstone Stats',
+      title: 'Sightstone',
       description: 'League of Legends Pro stats site',
       status: 'active',
       link: 'https://sightstonestats.com',
